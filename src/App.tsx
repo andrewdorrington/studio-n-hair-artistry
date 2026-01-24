@@ -17,6 +17,10 @@ function App() {
     }
   };
 
+  const handleBookNow = () => {
+    window.open('https://www.picktime.com/f687a63b-5f57-4bcb-99b7-c8a50dd745ae', '_blank');
+  };
+
   return (
     <div className="min-h-screen bg-black text-white">
       <nav className="fixed top-0 w-full bg-black/95 backdrop-blur-sm z-50 border-b border-[#2B5F7F]/20">
@@ -36,7 +40,7 @@ function App() {
                 <button onClick={() => scrollToSection('services')} className="hover:text-[#2B5F7F] transition-colors">Services</button>
                 <button onClick={() => scrollToSection('about')} className="hover:text-[#2B5F7F] transition-colors">About</button>
                 <button onClick={() => scrollToSection('gallery')} className="hover:text-[#2B5F7F] transition-colors">Gallery</button>
-                <button onClick={() => scrollToSection('contact')} className="bg-[#2B5F7F] text-white px-6 py-2 rounded-full hover:bg-[#234a63] transition-colors">Book Now</button>
+                <button onClick={handleBookNow} className="bg-[#2B5F7F] text-white px-6 py-2 rounded-full hover:bg-[#234a63] transition-colors">Book Now</button>
               </div>
             </div>
 
@@ -55,14 +59,14 @@ function App() {
               <button onClick={() => scrollToSection('services')} className="block w-full text-left px-3 py-2 hover:text-[#2B5F7F] transition-colors">Services</button>
               <button onClick={() => scrollToSection('about')} className="block w-full text-left px-3 py-2 hover:text-[#2B5F7F] transition-colors">About</button>
               <button onClick={() => scrollToSection('gallery')} className="block w-full text-left px-3 py-2 hover:text-[#2B5F7F] transition-colors">Gallery</button>
-              <button onClick={() => scrollToSection('contact')} className="block w-full text-left px-3 py-2 bg-[#2B5F7F] rounded-lg mt-2">Book Now</button>
+              <button onClick={handleBookNow} className="block w-full text-left px-3 py-2 bg-[#2B5F7F] rounded-lg mt-2">Book Now</button>
             </div>
           </div>
         )}
       </nav>
 
       <main className="pt-20">
-        <Hero onBookNow={() => scrollToSection('contact')} />
+        <Hero onBookNow={handleBookNow} />
         <Services />
         <About />
         <Gallery />
