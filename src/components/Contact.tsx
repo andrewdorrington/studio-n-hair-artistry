@@ -86,6 +86,28 @@ function Contact() {
               </div>
             </div>
           </div>
+
+          <div className="mt-16">
+            <div className="bg-gradient-to-br from-[#2B5F7F]/10 to-transparent p-8 rounded-2xl border border-[#2B5F7F]/20">
+              <h3 className="text-3xl font-semibold mb-8 text-center">Book Your Appointment</h3>
+              <div className="flex justify-center">
+                <a 
+                  href="https://www.picktime.com/f687a63b-5f57-4bcb-99b7-c8a50dd745ae" 
+                  className="ptbkbtn" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  style={{ float: 'none' }}
+                >
+                  <img 
+                    border="0" 
+                    src="https://www.picktime.com/img/widgetButtons/BookingPage/picktime-book-online-black.png" 
+                    alt="Book an appointment with Studio N Hair Artistry"
+                    className="max-w-full h-auto"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
