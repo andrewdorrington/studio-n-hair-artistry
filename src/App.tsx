@@ -22,7 +22,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-white text-gray-900">
       <nav className="fixed top-0 w-full bg-[#2B5F7F] backdrop-blur-sm z-50 border-b border-[#2B5F7F]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
@@ -73,7 +73,7 @@ function App() {
         <Contact />
       </main>
 
-      <footer className="bg-black border-t border-[#2B5F7F]/20 py-12">
+      <footer className="bg-gray-50 border-t border-gray-200 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
@@ -82,14 +82,14 @@ function App() {
                 alt="Studio N Hair Artistry"
                 className="h-16 w-auto mb-4"
               />
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-600 text-sm">
                 Transforming beauty through artistry and expertise.
               </p>
             </div>
 
             <div>
               <h3 className="text-[#2B5F7F] font-semibold mb-4">Contact</h3>
-              <div className="space-y-2 text-sm text-gray-400">
+              <div className="space-y-2 text-sm text-gray-600">
                 <div className="flex items-center gap-2">
                   <Phone size={16} />
                   <span>(555) 123-4567</span>
@@ -108,17 +108,17 @@ function App() {
             <div>
               <h3 className="text-[#2B5F7F] font-semibold mb-4">Follow Us</h3>
               <div className="flex gap-4">
-                <a href="#" className="text-gray-400 hover:text-[#2B5F7F] transition-colors">
+                <a href="#" className="text-gray-600 hover:text-[#2B5F7F] transition-colors">
                   <Instagram size={24} />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-[#2B5F7F] transition-colors">
+                <a href="#" className="text-gray-600 hover:text-[#2B5F7F] transition-colors">
                   <Facebook size={24} />
                 </a>
               </div>
             </div>
           </div>
 
-          <div className="mt-8 pt-8 border-t border-[#2B5F7F]/20 text-center text-sm text-gray-400">
+          <div className="mt-8 pt-8 border-t border-gray-200 text-center text-sm text-gray-600">
             <p>&copy; 2026 Studio N Hair Artistry. All rights reserved.</p>
           </div>
         </div>
