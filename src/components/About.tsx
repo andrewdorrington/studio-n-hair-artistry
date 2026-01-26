@@ -7,7 +7,7 @@ function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-              About <span className="text-[#2B5F7F]">Studio N</span>
+              About <span className="text-[#254f6c]">Studio N</span>
             </h2>
 
             <p className="text-xl text-gray-600 mb-6 leading-relaxed">
@@ -19,26 +19,26 @@ function About() {
             </p>
 
             <div className="grid grid-cols-2 gap-6">
-              <div className="bg-[#2B5F7F]/5 p-6 rounded-xl border border-[#2B5F7F]/20">
-                <Award className="text-[#2B5F7F] mb-3" size={32} />
+              <div className="bg-[#254f6c]/5 p-6 rounded-xl border border-[#254f6c]/20">
+                <Award className="text-[#254f6c] mb-3" size={32} />
                 <h3 className="font-semibold text-lg mb-2 text-gray-900">Award-Winning</h3>
                 <p className="text-sm text-gray-600">Recognized excellence in hair artistry</p>
               </div>
 
-              <div className="bg-[#2B5F7F]/5 p-6 rounded-xl border border-[#2B5F7F]/20">
-                <Users className="text-[#2B5F7F] mb-3" size={32} />
+              <div className="bg-[#254f6c]/5 p-6 rounded-xl border border-[#254f6c]/20">
+                <Users className="text-[#254f6c] mb-3" size={32} />
                 <h3 className="font-semibold text-lg mb-2 text-gray-900">Expert Team</h3>
                 <p className="text-sm text-gray-600">Highly trained professionals</p>
               </div>
 
-              <div className="bg-[#2B5F7F]/5 p-6 rounded-xl border border-[#2B5F7F]/20">
-                <Heart className="text-[#2B5F7F] mb-3" size={32} />
+              <div className="bg-[#254f6c]/5 p-6 rounded-xl border border-[#254f6c]/20">
+                <Heart className="text-[#254f6c] mb-3" size={32} />
                 <h3 className="font-semibold text-lg mb-2 text-gray-900">Client First</h3>
                 <p className="text-sm text-gray-600">Your satisfaction is our priority</p>
               </div>
 
-              <div className="bg-[#2B5F7F]/5 p-6 rounded-xl border border-[#2B5F7F]/20">
-                <Star className="text-[#2B5F7F] mb-3" size={32} />
+              <div className="bg-[#254f6c]/5 p-6 rounded-xl border border-[#254f6c]/20">
+                <Star className="text-[#254f6c] mb-3" size={32} />
                 <h3 className="font-semibold text-lg mb-2 text-gray-900">Premium Products</h3>
                 <p className="text-sm text-gray-600">Only the finest hair care brands</p>
               </div>
@@ -46,17 +46,17 @@ function About() {
           </div>
 
           <div className="relative">
-            <div className="aspect-[4/5] bg-gradient-to-br from-[#2B5F7F]/20 to-[#2B5F7F]/5 rounded-3xl border border-[#2B5F7F]/30 flex items-center justify-center">
+            <div className="aspect-[4/5] bg-gradient-to-br from-[#254f6c]/20 to-[#254f6c]/5 rounded-3xl border border-[#254f6c]/30 flex items-center justify-center">
               <div className="text-center">
-                <Scissors className="text-[#2B5F7F] mx-auto mb-4" size={80} />
+                <Scissors className="text-[#254f6c] mx-auto mb-4" size={80} />
                 <p className="text-gray-600 text-lg">Your transformation awaits</p>
               </div>
             </div>
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#2B5F7F]/10 rounded-3xl border border-[#2B5F7F]/20 blur-xl"></div>
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#254f6c]/10 rounded-3xl border border-[#254f6c]/20 blur-xl"></div>
           </div>
         </div>
 
-        <div className="mt-24 bg-gradient-to-r from-[#2B5F7F]/10 to-white p-12 rounded-3xl border border-[#2B5F7F]/20">
+        <div className="mt-24 bg-gradient-to-r from-[#254f6c]/10 to-white p-12 rounded-3xl border border-[#254f6c]/20">
           <div className="max-w-3xl">
             <h3 className="text-3xl font-bold mb-4 text-gray-900">Our Philosophy</h3>
             <p className="text-lg text-gray-600 leading-relaxed">

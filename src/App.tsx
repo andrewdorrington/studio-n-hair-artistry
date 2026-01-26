@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
-      <nav className="fixed top-0 w-full bg-[#2B5F7F] backdrop-blur-sm z-50 border-b border-[#2B5F7F]">
+      <nav className="fixed top-0 w-full bg-[#254f6c] backdrop-blur-sm z-50 border-b border-[#254f6c]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <div className="flex items-center">
@@ -40,7 +40,7 @@ function App() {
                 <button onClick={() => scrollToSection('services')} className="hover:text-white transition-colors">Services</button>
                 <button onClick={() => scrollToSection('about')} className="hover:text-white transition-colors">About</button>
                 <button onClick={() => scrollToSection('gallery')} className="hover:text-white transition-colors">Gallery</button>
-                <button onClick={handleBookNow} className="bg-white text-[#2B5F7F] px-6 py-2 rounded-full hover:bg-gray-100 transition-colors font-semibold">Book Now</button>
+                <button onClick={handleBookNow} className="bg-white text-[#254f6c] px-6 py-2 rounded-full hover:bg-gray-100 transition-colors font-semibold">Book Now</button>
               </div>
             </div>
 
@@ -53,13 +53,13 @@ function App() {
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden bg-[#2B5F7F] border-t border-white/20">
+          <div className="md:hidden bg-[#254f6c] border-t border-white/20">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               <button onClick={() => scrollToSection('home')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors rounded-lg">Home</button>
               <button onClick={() => scrollToSection('services')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors rounded-lg">Services</button>
               <button onClick={() => scrollToSection('about')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors rounded-lg">About</button>
               <button onClick={() => scrollToSection('gallery')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors rounded-lg">Gallery</button>
-              <button onClick={handleBookNow} className="block w-full text-left px-3 py-2 bg-white text-[#2B5F7F] font-semibold rounded-lg mt-2 hover:bg-gray-100 transition-colors">Book Now</button>
+              <button onClick={handleBookNow} className="block w-full text-left px-3 py-2 bg-white text-[#254f6c] font-semibold rounded-lg mt-2 hover:bg-gray-100 transition-colors">Book Now</button>
             </div>
           </div>
         )}
@@ -88,7 +88,7 @@ function App() {
             </div>
 
             <div>
-              <h3 className="text-[#2B5F7F] font-semibold mb-4">Contact</h3>
+              <h3 className="text-[#254f6c] font-semibold mb-4">Contact</h3>
               <div className="space-y-2 text-sm text-gray-600">
                 <div className="flex items-center gap-2">
                   <Phone size={16} />
@@ -106,12 +106,12 @@ function App() {
             </div>
 
             <div>
-              <h3 className="text-[#2B5F7F] font-semibold mb-4">Follow Us</h3>
+              <h3 className="text-[#254f6c] font-semibold mb-4">Follow Us</h3>
               <div className="flex gap-4">
-                <a href="#" className="text-gray-600 hover:text-[#2B5F7F] transition-colors">
+                <a href="#" className="text-gray-600 hover:text-[#254f6c] transition-colors">
                   <Instagram size={24} />
                 </a>
-                <a href="#" className="text-gray-600 hover:text-[#2B5F7F] transition-colors">
+                <a href="#" className="text-gray-600 hover:text-[#254f6c] transition-colors">
                   <Facebook size={24} />
                 </a>
               </div>

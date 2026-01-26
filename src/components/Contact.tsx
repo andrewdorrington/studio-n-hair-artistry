@@ -10,7 +10,7 @@ function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-            Get in <span className="text-[#2B5F7F]">Touch</span>
+            Get in <span className="text-[#254f6c]">Touch</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Ready for your transformation? Book your appointment or contact us today.
@@ -21,7 +21,7 @@ function Contact() {
           <div className="text-center mb-12">
             <button
               onClick={handleBookNow}
-              className="bg-[#2B5F7F] text-white px-12 py-5 rounded-full text-xl font-semibold hover:bg-[#234a63] transition-all hover:scale-105 shadow-lg shadow-[#2B5F7F]/20 inline-flex items-center gap-3"
+              className="bg-[#254f6c] text-white px-12 py-5 rounded-full text-xl font-semibold hover:bg-[#1d3d52] transition-all hover:scale-105 shadow-lg shadow-[#254f6c]/20 inline-flex items-center gap-3"
             >
               <Calendar size={24} />
               <span>Book Your Appointment Online</span>
@@ -29,13 +29,13 @@ function Contact() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-gradient-to-br from-[#2B5F7F]/10 to-white p-8 rounded-2xl border border-[#2B5F7F]/20 shadow-sm">
+            <div className="bg-gradient-to-br from-[#254f6c]/10 to-white p-8 rounded-2xl border border-[#254f6c]/20 shadow-sm">
               <h3 className="text-2xl font-semibold mb-6 text-center text-gray-900">Contact Information</h3>
 
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#2B5F7F]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <MapPin className="text-[#2B5F7F]" size={20} />
+                  <div className="w-12 h-12 bg-[#254f6c]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <MapPin className="text-[#254f6c]" size={20} />
                   </div>
                   <div>
                     <h4 className="font-medium mb-1 text-gray-900">Location</h4>
@@ -44,8 +44,8 @@ function Contact() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#2B5F7F]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Phone className="text-[#2B5F7F]" size={20} />
+                  <div className="w-12 h-12 bg-[#254f6c]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Phone className="text-[#254f6c]" size={20} />
                   </div>
                   <div>
                     <h4 className="font-medium mb-1 text-gray-900">Phone</h4>
@@ -54,8 +54,8 @@ function Contact() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#2B5F7F]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Mail className="text-[#2B5F7F]" size={20} />
+                  <div className="w-12 h-12 bg-[#254f6c]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Mail className="text-[#254f6c]" size={20} />
                   </div>
                   <div>
                     <h4 className="font-medium mb-1 text-gray-900">Email</h4>
@@ -65,12 +65,12 @@ function Contact() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-[#2B5F7F]/10 to-white p-8 rounded-2xl border border-[#2B5F7F]/20 shadow-sm">
+            <div className="bg-gradient-to-br from-[#254f6c]/10 to-white p-8 rounded-2xl border border-[#254f6c]/20 shadow-sm">
               <h3 className="text-2xl font-semibold mb-6 text-center text-gray-900">Business Hours</h3>
               
               <div className="flex items-start gap-4 mb-6">
-                <div className="w-12 h-12 bg-[#2B5F7F]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Clock className="text-[#2B5F7F]" size={20} />
+                <div className="w-12 h-12 bg-[#254f6c]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Clock className="text-[#254f6c]" size={20} />
                 </div>
                 <div className="text-gray-600 space-y-1">
                   <p>Monday - Friday: 9am - 8pm</p>
@@ -79,7 +79,7 @@ function Contact() {
                 </div>
               </div>
 
-              <div className="pt-6 border-t border-[#2B5F7F]/20">
+              <div className="pt-6 border-t border-[#254f6c]/20">
                 <p className="text-gray-600 text-sm leading-relaxed">
                   Walk-ins welcome! While we recommend booking in advance to secure your preferred time slot, we always do our best to accommodate walk-in clients based on availability.
                 </p>
@@ -88,7 +88,7 @@ function Contact() {
           </div>
 
           <div className="mt-16">
-            <div className="bg-gradient-to-br from-[#2B5F7F]/10 to-white p-8 rounded-2xl border border-[#2B5F7F]/20 shadow-sm">
+            <div className="bg-gradient-to-br from-[#254f6c]/10 to-white p-8 rounded-2xl border border-[#254f6c]/20 shadow-sm">
               <h3 className="text-3xl font-semibold mb-8 text-center text-gray-900">Book Your Appointment</h3>
               <div className="flex justify-center">
                 <a 

@@ -57,7 +57,7 @@ function Hero({ onBookNow }: HeroProps) {
       <div className="absolute inset-0 flex items-center justify-center z-20">
         <button
           onClick={onBookNow}
-          className="bg-[#2B5F7F] text-white px-12 py-5 rounded-full text-xl font-semibold hover:bg-[#234a63] transition-all hover:scale-105 shadow-2xl shadow-black/50"
+          className="bg-[#254f6c] text-white px-12 py-5 rounded-full text-xl font-semibold hover:bg-[#1d3d52] transition-all hover:scale-105 shadow-2xl shadow-black/50"
         >
           Book Now
         </button>
@@ -71,7 +71,7 @@ function Hero({ onBookNow }: HeroProps) {
             onClick={() => goToSlide(index)}
             className={`transition-all duration-300 rounded-full ${
               index === currentSlide
-                ? 'w-12 h-3 bg-[#2B5F7F]'
+                ? 'w-12 h-3 bg-[#254f6c]'
                 : 'w-3 h-3 bg-white/50 hover:bg-white/80'
             }`}
             aria-label={`Go to slide ${index + 1}`}
