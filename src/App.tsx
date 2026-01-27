@@ -44,20 +44,20 @@ function App() {
     return (
       <div className="min-h-screen bg-[#F7F5F2] text-[#2E2E2C]">
         <nav className="fixed top-0 w-full bg-[#2E2E2C] backdrop-blur-sm z-50 border-b border-[#B8ADA3]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-28">
-              <div className="flex items-center">
-                <button onClick={() => navigate('/')} className="cursor-pointer">
-                  <img
-                    src="/studion-logo.png"
-                    alt="Studio N Hair Artistry"
-                    className="h-24 w-auto"
-                  />
-                </button>
-              </div>
+          <div className="w-full flex items-center justify-between h-28">
+            <div className="flex items-center pl-4 sm:pl-6 lg:pl-8">
+              <button onClick={() => navigate('/')} className="cursor-pointer">
+                <img
+                  src="/studion-logo.png"
+                  alt="Studio N Hair Artistry"
+                  className="h-24 w-auto"
+                />
+              </button>
+            </div>
 
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex items-center justify-end">
               <div className="hidden md:block">
-                <div className="ml-10 flex items-baseline space-x-8">
+                <div className="flex items-baseline space-x-8">
                   <button onClick={() => navigate('/')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-medium text-xl">Home</button>
                   <button onClick={() => navigate('/services')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-medium text-xl">Services</button>
                   <button onClick={() => navigate('/')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-medium text-xl">About</button>
@@ -66,12 +66,13 @@ function App() {
                 </div>
               </div>
 
-              <div className="md:hidden">
+              <div className="md:hidden pr-4 sm:pr-6 lg:pr-8">
                 <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-[#F7F5F2]">
                   {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
                 </button>
               </div>
             </div>
+          </div>
 
             {isMenuOpen && (
               <div className="md:hidden bg-[#2E2E2C] border-t border-[#B8ADA3]/30">
@@ -99,20 +100,20 @@ function App() {
     return (
       <div className="min-h-screen bg-[#F7F5F2] text-[#2E2E2C]">
         <nav className="fixed top-0 w-full bg-[#2E2E2C] backdrop-blur-sm z-50 border-b border-[#B8ADA3]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-28">
-              <div className="flex items-center">
-                <button onClick={() => navigate('/')} className="cursor-pointer">
-                  <img
-                    src="/studion-logo.png"
-                    alt="Studio N Hair Artistry"
-                    className="h-24 w-auto"
-                  />
-                </button>
-              </div>
+          <div className="w-full flex items-center justify-between h-28">
+            <div className="flex items-center pl-4 sm:pl-6 lg:pl-8">
+              <button onClick={() => navigate('/')} className="cursor-pointer">
+                <img
+                  src="/studion-logo.png"
+                  alt="Studio N Hair Artistry"
+                  className="h-24 w-auto"
+                />
+              </button>
+            </div>
 
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex items-center justify-end">
               <div className="hidden md:block">
-                <div className="ml-10 flex items-baseline space-x-8">
+                <div className="flex items-baseline space-x-8">
                   <button onClick={() => navigate('/')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-medium text-xl">Home</button>
                   <button onClick={() => navigate('/services')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-medium text-xl">Services</button>
                   <button onClick={() => navigate('/')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-medium text-xl">About</button>
@@ -121,12 +122,13 @@ function App() {
                 </div>
               </div>
 
-              <div className="md:hidden">
+              <div className="md:hidden pr-4 sm:pr-6 lg:pr-8">
                 <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-[#F7F5F2]">
                   {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
                 </button>
               </div>
             </div>
+          </div>
 
             {isMenuOpen && (
               <div className="md:hidden bg-[#2E2E2C] border-t border-[#B8ADA3]/30">
@@ -152,18 +154,19 @@ function App() {
   return (
     <div className="min-h-screen bg-[#F7F5F2] text-[#2E2E2C]">
       <nav className="fixed top-0 w-full bg-[#2E2E2C] backdrop-blur-sm z-50 border-b border-[#B8ADA3]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-28">
-            <div className="flex items-center">
+        <div className="w-full flex items-center justify-between h-28">
+          <div className="flex items-center pl-4 sm:pl-6 lg:pl-8">
+            <button onClick={() => navigate('/')} className="cursor-pointer">
               <img
                 src="/studion-logo.png"
                 alt="Studio N Hair Artistry"
                 className="h-24 w-auto"
               />
-            </div>
-
+            </button>
+          </div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex items-center justify-end">
             <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-8">
+              <div className="flex items-baseline space-x-8">
                 <button onClick={() => scrollToSection('home')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-medium text-xl">Home</button>
                 <button onClick={() => navigate('/services')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-medium text-xl">Services</button>
                 <button onClick={() => scrollToSection('about')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-medium text-xl">About</button>
@@ -172,7 +175,7 @@ function App() {
               </div>
             </div>
 
-            <div className="md:hidden">
+            <div className="md:hidden pr-4 sm:pr-6 lg:pr-8">
               <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-[#F7F5F2]">
                 {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
               </button>
@@ -183,11 +186,11 @@ function App() {
         {isMenuOpen && (
           <div className="md:hidden bg-[#2E2E2C] border-t border-[#B8ADA3]/30">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <button onClick={() => scrollToSection('home')} className="block w-full text-left px-3 py-2 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Home</button>
-              <button onClick={() => navigate('/services')} className="block w-full text-left px-3 py-2 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Services</button>
-              <button onClick={() => scrollToSection('about')} className="block w-full text-left px-3 py-2 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>About</button>
-              <button onClick={() => navigate('/gallery')} className="block w-full text-left px-3 py-2 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Gallery</button>
-              <button onClick={handleBookNow} className="block w-full text-left px-3 py-2 bg-[#F7F5F2] text-[#2E2E2C] font-semibold mt-2 hover:bg-[#2E2E2C] hover:text-[#F7F5F2] transition-colors">Book Now</button>
+              <button onClick={() => scrollToSection('home')} className="block w-full text-left px-3 py-3 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-medium text-xl">Home</button>
+              <button onClick={() => navigate('/services')} className="block w-full text-left px-3 py-3 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-medium text-xl">Services</button>
+              <button onClick={() => scrollToSection('about')} className="block w-full text-left px-3 py-3 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-medium text-xl">About</button>
+              <button onClick={() => navigate('/gallery')} className="block w-full text-left px-3 py-3 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-medium text-xl">Gallery</button>
+              <button onClick={handleBookNow} className="block w-full text-left px-3 py-3 bg-[#F7F5F2] text-[#2E2E2C] font-medium mt-2 hover:bg-[#C6B27C] transition-colors text-lg">Book Now</button>
             </div>
           </div>
         )}

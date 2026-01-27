@@ -26,7 +26,6 @@ function About() {
                 <p className="text-[#2E2E2C] text-lg">Your transformation awaits</p>
               </div>
             </div>
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#B8ADA3] border border-[#B8ADA3] blur-xl"></div>
           </div>
         </div>
       </div>
