@@ -40,11 +40,11 @@ function Services() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {services.map((service, index) => (
             <div
               key={index}
-              className="group relative aspect-[3/2] overflow-hidden border border-gray-200 hover:border-gray-400 transition-all duration-300 shadow-sm hover:shadow-lg"
+              className="group relative aspect-[3/4] overflow-hidden border border-gray-200 hover:border-gray-400 transition-all duration-300 shadow-sm hover:shadow-lg"
             >
               {/* Image - Always Visible */}
               <div className="absolute inset-0">
