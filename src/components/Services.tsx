@@ -78,12 +78,15 @@ function Services() {
                     {service.price}
                   </span>
                   <a
-                    href={bookingUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="opacity-0 group-hover:opacity-100 text-white text-sm font-semibold drop-shadow-lg transition-opacity duration-300 hover:underline"
+                    href="/services"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.history.pushState({}, '', '/services');
+                      window.dispatchEvent(new PopStateEvent('popstate'));
+                    }}
+                    className="opacity-0 group-hover:opacity-100 text-white text-sm font-semibold drop-shadow-lg transition-opacity duration-300 hover:underline cursor-pointer"
                   >
-                    Book Now →
+                    Learn More →
                   </a>
                 </div>
               </div>

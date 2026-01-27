@@ -1,13 +1,30 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X, Phone, Mail, MapPin, Instagram, Facebook } from 'lucide-react';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import About from './components/About';
 import ClientFeedback from './components/ClientFeedback';
 import Gallery from './components/Gallery';
+import ServicesPage from './pages/ServicesPage';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+
+  useEffect(() => {
+    const handleLocationChange = () => {
+      setCurrentPath(window.location.pathname);
+    };
+
+    window.addEventListener('popstate', handleLocationChange);
+    return () => window.removeEventListener('popstate', handleLocationChange);
+  }, []);
+
+  const navigate = (path: string) => {
+    window.history.pushState({}, '', path);
+    setCurrentPath(path);
+    setIsMenuOpen(false);
+  };
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -20,6 +37,61 @@ function App() {
   const handleBookNow = () => {
     window.open('https://www.picktime.com/f687a63b-5f57-4bcb-99b7-c8a50dd745ae', '_blank');
   };
+
+  // If on services page, show ServicesPage
+  if (currentPath === '/services') {
+    return (
+      <div className="min-h-screen bg-white text-gray-900">
+        <nav className="fixed top-0 w-full bg-[#254f6c] backdrop-blur-sm z-50 border-b border-[#254f6c]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between h-20">
+              <div className="flex items-center">
+                <button onClick={() => navigate('/')} className="cursor-pointer">
+                  <img
+                    src="/studio_n_hair_artistry_logo_with_text_(2).png"
+                    alt="Studio N Hair Artistry"
+                    className="h-16 w-auto"
+                  />
+                </button>
+              </div>
+
+              <div className="hidden md:block">
+                <div className="ml-10 flex items-baseline space-x-8">
+                  <button onClick={() => navigate('/')} className="hover:text-white transition-colors">Home</button>
+                  <button onClick={() => navigate('/services')} className="hover:text-white transition-colors">Services</button>
+                  <button onClick={() => navigate('/')} className="hover:text-white transition-colors">About</button>
+                  <button onClick={() => navigate('/')} className="hover:text-white transition-colors">Gallery</button>
+                  <button onClick={handleBookNow} className="bg-white text-[#333333] px-6 py-2 hover:bg-gray-100 transition-colors font-semibold">Book Now</button>
+                </div>
+              </div>
+
+              <div className="md:hidden">
+                <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-white">
+                  {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
+              </div>
+            </div>
+
+            {isMenuOpen && (
+              <div className="md:hidden bg-[#254f6c] border-t border-white/20">
+                <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                  <button onClick={() => navigate('/')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Home</button>
+                  <button onClick={() => navigate('/services')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Services</button>
+                  <button onClick={() => navigate('/')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">About</button>
+                  <button onClick={() => navigate('/')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Gallery</button>
+                  <button onClick={handleBookNow} className="block w-full text-left px-3 py-2 bg-white text-[#333333] font-semibold mt-2 hover:bg-gray-100 transition-colors">Book Now</button>
+                </div>
+              </div>
+            )}
+          </div>
+        </nav>
+
+        <main className="pt-20">
+          <ServicesPage />
+        </main>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
@@ -37,7 +109,7 @@ function App() {
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-8">
                 <button onClick={() => scrollToSection('home')} className="hover:text-white transition-colors">Home</button>
-                <button onClick={() => scrollToSection('services')} className="hover:text-white transition-colors">Services</button>
+                <button onClick={() => navigate('/services')} className="hover:text-white transition-colors">Services</button>
                 <button onClick={() => scrollToSection('about')} className="hover:text-white transition-colors">About</button>
                 <button onClick={() => scrollToSection('gallery')} className="hover:text-white transition-colors">Gallery</button>
                 <button onClick={handleBookNow} className="bg-white text-[#333333] px-6 py-2 hover:bg-gray-100 transition-colors font-semibold">Book Now</button>
@@ -56,7 +128,7 @@ function App() {
           <div className="md:hidden bg-[#254f6c] border-t border-white/20">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               <button onClick={() => scrollToSection('home')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Home</button>
-              <button onClick={() => scrollToSection('services')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Services</button>
+              <button onClick={() => navigate('/services')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Services</button>
               <button onClick={() => scrollToSection('about')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">About</button>
               <button onClick={() => scrollToSection('gallery')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Gallery</button>
               <button onClick={handleBookNow} className="block w-full text-left px-3 py-2 bg-white text-[#333333] font-semibold mt-2 hover:bg-gray-100 transition-colors">Book Now</button>
