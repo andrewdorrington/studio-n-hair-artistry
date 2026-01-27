@@ -7,11 +7,23 @@ interface HeroProps {
 function Hero({ onBookNow }: HeroProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   
-  // Placeholder images - will be replaced with actual images later
+  // Hero banner images
   const slides = [
-    { id: 1, image: 'placeholder-1', alt: 'Slide 1' },
-    { id: 2, image: 'placeholder-2', alt: 'Slide 2' },
-    { id: 3, image: 'placeholder-3', alt: 'Slide 3' },
+    { 
+      id: 1, 
+      image: '/hero-1.jpg', 
+      alt: 'Luxury salon vanity station with gold-framed mirrors and marble countertop' 
+    },
+    { 
+      id: 2, 
+      image: '/hero-2.jpg', 
+      alt: 'Modern minimalist salon interior with white styling stations and natural light' 
+    },
+    { 
+      id: 3, 
+      image: '/hero-3.jpg', 
+      alt: 'Industrial-chic salon with exposed brick walls and olive green styling chairs' 
+    },
   ];
 
   // Auto-advance slides every 5 seconds
@@ -38,13 +50,11 @@ function Hero({ onBookNow }: HeroProps) {
               index === currentSlide ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            {/* Placeholder black background - replace with actual images later */}
-            <div 
-              className="w-full h-full bg-black"
-              style={{
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}
+            {/* Hero Image */}
+            <img
+              src={slide.image}
+              alt={slide.alt}
+              className="w-full h-full object-cover"
             />
           </div>
         ))}
