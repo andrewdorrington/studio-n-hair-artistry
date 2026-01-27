@@ -3,8 +3,8 @@ import { Menu, X, Phone, Mail, MapPin, Instagram, Facebook } from 'lucide-react'
 import Hero from './components/Hero';
 import Services from './components/Services';
 import About from './components/About';
+import ClientFeedback from './components/ClientFeedback';
 import Gallery from './components/Gallery';
-import Contact from './components/Contact';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -69,8 +69,8 @@ function App() {
         <Hero onBookNow={handleBookNow} />
         <Services />
         <About />
+        <ClientFeedback />
         <Gallery />
-        <Contact />
         
         {/* Visit Us Section */}
         <section id="visit-us" className="py-16 bg-white border-t border-gray-200">

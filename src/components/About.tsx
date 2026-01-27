@@ -55,15 +55,6 @@ function About() {
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#254f6c]/10 rounded-3xl border border-[#254f6c]/20 blur-xl"></div>
           </div>
         </div>
-
-        <div className="mt-24 bg-gradient-to-r from-[#254f6c]/10 to-white p-12 rounded-3xl border border-[#254f6c]/20">
-          <div className="max-w-3xl">
-            <h3 className="text-3xl font-bold mb-4 text-gray-900">Our Philosophy</h3>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              We believe every client deserves a personalized experience. That's why we take the time to understand your lifestyle, preferences, and hair goals before we pick up our scissors. Our commitment to ongoing education ensures we stay ahead of trends and techniques, bringing you the very best in modern hair artistry.
-            </p>
-          </div>
-        </div>
       </div>
     </section>
   );
