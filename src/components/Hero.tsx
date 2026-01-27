@@ -11,17 +11,17 @@ function Hero({ onBookNow }: HeroProps) {
   const slides = [
     { 
       id: 1, 
-      image: '/hero-1.jpg', 
+      image: '/hero-1.png', 
       alt: 'Luxury salon vanity station with gold-framed mirrors and marble countertop' 
     },
     { 
       id: 2, 
-      image: '/hero-2.jpg', 
+      image: '/hero-2.png', 
       alt: 'Modern minimalist salon interior with white styling stations and natural light' 
     },
     { 
       id: 3, 
-      image: '/hero-3.jpg', 
+      image: '/hero-3.png', 
       alt: 'Industrial-chic salon with exposed brick walls and olive green styling chairs' 
     },
   ];
@@ -51,11 +51,23 @@ function Hero({ onBookNow }: HeroProps) {
             }`}
           >
             {/* Hero Image */}
-            <img
-              src={slide.image}
-              alt={slide.alt}
-              className="w-full h-full object-cover"
-            />
+            <div className="w-full h-full bg-gray-300 flex items-center justify-center">
+              <img
+                src={slide.image}
+                alt={slide.alt}
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  console.error('Failed to load image:', slide.image);
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                }}
+                onLoad={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'block';
+                }}
+                loading="eager"
+              />
+            </div>
           </div>
         ))}
       </div>
