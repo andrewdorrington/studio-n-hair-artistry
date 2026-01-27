@@ -26,7 +26,7 @@ function Gallery() {
           {galleryItems.slice(0, 3).map((item) => (
             <div
               key={item.id}
-              className="group relative aspect-square bg-[#DED6CC] border border-[#B8ADA3] overflow-hidden hover:border-[#C6B27C] transition-all duration-300 cursor-pointer shadow-sm hover:shadow-lg"
+              className="group relative aspect-square bg-[#DED6CC] border border-[#C6B27C] overflow-hidden transition-all duration-300 cursor-pointer shadow-sm hover:shadow-lg"
             >
               <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <Image className="text-[#2E2E2C] mb-4 group-hover:scale-110 transition-transform" size={48} />
@@ -50,7 +50,7 @@ function Gallery() {
               window.history.pushState({}, '', '/gallery');
               window.dispatchEvent(new PopStateEvent('popstate'));
             }}
-            className="inline-block border-2 border-[#2E2E2C] text-[#2E2E2C] px-8 py-3 font-semibold hover:bg-[#2E2E2C] hover:text-[#F7F5F2] transition-all cursor-pointer"
+            className="inline-block border-2 border-[#2E2E2C] text-[#2E2E2C] px-8 py-3 font-semibold hover:bg-[#C6B27C] hover:border-[#C6B27C] transition-all cursor-pointer"
           >
             See More →
           </a>

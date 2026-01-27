@@ -44,7 +44,7 @@ function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group relative aspect-[3/4] overflow-hidden border border-[#B8ADA3] hover:border-[#C6B27C] transition-all duration-300 shadow-sm hover:shadow-lg"
+              className="group relative aspect-[3/4] overflow-hidden border border-[#C6B27C] transition-all duration-300 shadow-sm hover:shadow-lg"
             >
               {/* Image - Always Visible */}
               <div className="absolute inset-0">

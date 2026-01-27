@@ -41,7 +41,7 @@ function ServicesPage() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="border border-[#B8ADA3] bg-[#DED6CC] p-8 hover:border-[#C6B27C] transition-all duration-300"
+                className="border border-[#C6B27C] bg-[#DED6CC] p-8 transition-all duration-300"
               >
                 <h2 className="text-2xl font-semibold mb-4 text-[#2E2E2C]">
                   {service.title}

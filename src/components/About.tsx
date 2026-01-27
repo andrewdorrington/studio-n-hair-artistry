@@ -20,7 +20,7 @@ function About() {
           </div>
 
           <div className="relative">
-            <div className="aspect-[4/5] bg-[#F7F5F2] border border-[#B8ADA3] flex items-center justify-center">
+            <div className="aspect-[4/5] bg-[#F7F5F2] border border-[#C6B27C] flex items-center justify-center">
               <div className="text-center">
                 <Scissors className="text-[#2E2E2C] mx-auto mb-4" size={80} />
                 <p className="text-[#2E2E2C] text-lg">Your transformation awaits</p>

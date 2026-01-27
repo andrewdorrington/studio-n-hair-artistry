@@ -62,7 +62,7 @@ function App() {
                   <button onClick={() => navigate('/services')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Services</button>
                   <button onClick={() => navigate('/')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>About</button>
                   <button onClick={() => navigate('/gallery')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Gallery</button>
-                  <button onClick={handleBookNow} className="bg-[#F7F5F2] text-[#2E2E2C] px-6 py-2 hover:bg-[#2E2E2C] hover:text-[#F7F5F2] transition-colors font-semibold">Book Now</button>
+                  <button onClick={handleBookNow} className="bg-[#F7F5F2] text-[#2E2E2C] px-6 py-2 hover:bg-[#C6B27C] transition-colors font-semibold">Book Now</button>
                 </div>
               </div>
 
@@ -80,7 +80,7 @@ function App() {
                   <button onClick={() => navigate('/services')} className="block w-full text-left px-3 py-2 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Services</button>
                   <button onClick={() => navigate('/')} className="block w-full text-left px-3 py-2 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>About</button>
                   <button onClick={() => navigate('/gallery')} className="block w-full text-left px-3 py-2 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Gallery</button>
-                  <button onClick={handleBookNow} className="block w-full text-left px-3 py-2 bg-[#F7F5F2] text-[#2E2E2C] font-semibold mt-2 hover:bg-[#2E2E2C] hover:text-[#F7F5F2] transition-colors">Book Now</button>
+                  <button onClick={handleBookNow} className="block w-full text-left px-3 py-2 bg-[#F7F5F2] text-[#2E2E2C] font-semibold mt-2 hover:bg-[#C6B27C] transition-colors">Book Now</button>
                 </div>
               </div>
             )}
@@ -117,7 +117,7 @@ function App() {
                   <button onClick={() => navigate('/services')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Services</button>
                   <button onClick={() => navigate('/')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>About</button>
                   <button onClick={() => navigate('/gallery')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Gallery</button>
-                  <button onClick={handleBookNow} className="bg-[#F7F5F2] text-[#2E2E2C] px-6 py-2 hover:bg-[#2E2E2C] hover:text-[#F7F5F2] transition-colors font-semibold">Book Now</button>
+                  <button onClick={handleBookNow} className="bg-[#F7F5F2] text-[#2E2E2C] px-6 py-2 hover:bg-[#C6B27C] transition-colors font-semibold">Book Now</button>
                 </div>
               </div>
 
@@ -135,7 +135,7 @@ function App() {
                   <button onClick={() => navigate('/services')} className="block w-full text-left px-3 py-2 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Services</button>
                   <button onClick={() => navigate('/')} className="block w-full text-left px-3 py-2 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>About</button>
                   <button onClick={() => navigate('/gallery')} className="block w-full text-left px-3 py-2 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Gallery</button>
-                  <button onClick={handleBookNow} className="block w-full text-left px-3 py-2 bg-[#F7F5F2] text-[#2E2E2C] font-semibold mt-2 hover:bg-[#2E2E2C] hover:text-[#F7F5F2] transition-colors">Book Now</button>
+                  <button onClick={handleBookNow} className="block w-full text-left px-3 py-2 bg-[#F7F5F2] text-[#2E2E2C] font-semibold mt-2 hover:bg-[#C6B27C] transition-colors">Book Now</button>
                 </div>
               </div>
             )}
@@ -168,7 +168,7 @@ function App() {
                 <button onClick={() => navigate('/services')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Services</button>
                 <button onClick={() => scrollToSection('about')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>About</button>
                 <button onClick={() => navigate('/gallery')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Gallery</button>
-                <button onClick={handleBookNow} className="bg-[#F7F5F2] text-[#2E2E2C] px-6 py-2 hover:bg-[#2E2E2C] hover:text-[#F7F5F2] transition-colors font-semibold">Book Now</button>
+                <button onClick={handleBookNow} className="bg-[#F7F5F2] text-[#2E2E2C] px-6 py-2 hover:bg-[#C6B27C] transition-colors font-semibold">Book Now</button>
               </div>
             </div>
 
