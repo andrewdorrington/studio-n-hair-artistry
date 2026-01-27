@@ -6,6 +6,7 @@ import About from './components/About';
 import ClientFeedback from './components/ClientFeedback';
 import Gallery from './components/Gallery';
 import ServicesPage from './pages/ServicesPage';
+import GalleryPage from './pages/GalleryPage';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -60,7 +61,7 @@ function App() {
                   <button onClick={() => navigate('/')} className="hover:text-white transition-colors">Home</button>
                   <button onClick={() => navigate('/services')} className="hover:text-white transition-colors">Services</button>
                   <button onClick={() => navigate('/')} className="hover:text-white transition-colors">About</button>
-                  <button onClick={() => navigate('/')} className="hover:text-white transition-colors">Gallery</button>
+                  <button onClick={() => navigate('/gallery')} className="hover:text-white transition-colors">Gallery</button>
                   <button onClick={handleBookNow} className="bg-white text-[#333333] px-6 py-2 hover:bg-gray-100 transition-colors font-semibold">Book Now</button>
                 </div>
               </div>
@@ -78,7 +79,7 @@ function App() {
                   <button onClick={() => navigate('/')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Home</button>
                   <button onClick={() => navigate('/services')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Services</button>
                   <button onClick={() => navigate('/')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">About</button>
-                  <button onClick={() => navigate('/')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Gallery</button>
+                  <button onClick={() => navigate('/gallery')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Gallery</button>
                   <button onClick={handleBookNow} className="block w-full text-left px-3 py-2 bg-white text-[#333333] font-semibold mt-2 hover:bg-gray-100 transition-colors">Book Now</button>
                 </div>
               </div>
@@ -88,6 +89,61 @@ function App() {
 
         <main className="pt-20">
           <ServicesPage />
+        </main>
+      </div>
+    );
+  }
+
+  // If on gallery page, show GalleryPage
+  if (currentPath === '/gallery') {
+    return (
+      <div className="min-h-screen bg-white text-gray-900">
+        <nav className="fixed top-0 w-full bg-[#254f6c] backdrop-blur-sm z-50 border-b border-[#254f6c]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between h-20">
+              <div className="flex items-center">
+                <button onClick={() => navigate('/')} className="cursor-pointer">
+                  <img
+                    src="/studio_n_hair_artistry_logo_with_text_(2).png"
+                    alt="Studio N Hair Artistry"
+                    className="h-16 w-auto"
+                  />
+                </button>
+              </div>
+
+              <div className="hidden md:block">
+                <div className="ml-10 flex items-baseline space-x-8">
+                  <button onClick={() => navigate('/')} className="hover:text-white transition-colors">Home</button>
+                  <button onClick={() => navigate('/services')} className="hover:text-white transition-colors">Services</button>
+                  <button onClick={() => navigate('/')} className="hover:text-white transition-colors">About</button>
+                  <button onClick={() => navigate('/gallery')} className="hover:text-white transition-colors">Gallery</button>
+                  <button onClick={handleBookNow} className="bg-white text-[#333333] px-6 py-2 hover:bg-gray-100 transition-colors font-semibold">Book Now</button>
+                </div>
+              </div>
+
+              <div className="md:hidden">
+                <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-white">
+                  {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
+              </div>
+            </div>
+
+            {isMenuOpen && (
+              <div className="md:hidden bg-[#254f6c] border-t border-white/20">
+                <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                  <button onClick={() => navigate('/')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Home</button>
+                  <button onClick={() => navigate('/services')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Services</button>
+                  <button onClick={() => navigate('/')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">About</button>
+                  <button onClick={() => navigate('/gallery')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Gallery</button>
+                  <button onClick={handleBookNow} className="block w-full text-left px-3 py-2 bg-white text-[#333333] font-semibold mt-2 hover:bg-gray-100 transition-colors">Book Now</button>
+                </div>
+              </div>
+            )}
+          </div>
+        </nav>
+
+        <main className="pt-20">
+          <GalleryPage />
         </main>
       </div>
     );
@@ -111,7 +167,7 @@ function App() {
                 <button onClick={() => scrollToSection('home')} className="hover:text-white transition-colors">Home</button>
                 <button onClick={() => navigate('/services')} className="hover:text-white transition-colors">Services</button>
                 <button onClick={() => scrollToSection('about')} className="hover:text-white transition-colors">About</button>
-                <button onClick={() => scrollToSection('gallery')} className="hover:text-white transition-colors">Gallery</button>
+                <button onClick={() => navigate('/gallery')} className="hover:text-white transition-colors">Gallery</button>
                 <button onClick={handleBookNow} className="bg-white text-[#333333] px-6 py-2 hover:bg-gray-100 transition-colors font-semibold">Book Now</button>
               </div>
             </div>
@@ -130,7 +186,7 @@ function App() {
               <button onClick={() => scrollToSection('home')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Home</button>
               <button onClick={() => navigate('/services')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Services</button>
               <button onClick={() => scrollToSection('about')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">About</button>
-              <button onClick={() => scrollToSection('gallery')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Gallery</button>
+              <button onClick={() => navigate('/gallery')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Gallery</button>
               <button onClick={handleBookNow} className="block w-full text-left px-3 py-2 bg-white text-[#333333] font-semibold mt-2 hover:bg-gray-100 transition-colors">Book Now</button>
             </div>
           </div>

@@ -22,8 +22,8 @@ function Gallery() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {galleryItems.map((item) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {galleryItems.slice(0, 3).map((item) => (
             <div
               key={item.id}
               className="group relative aspect-square bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 overflow-hidden hover:border-gray-400 transition-all duration-300 cursor-pointer shadow-sm hover:shadow-lg"
@@ -43,10 +43,17 @@ function Gallery() {
         </div>
 
         <div className="mt-16 text-center">
-          <p className="text-gray-600 mb-6">Follow us on Instagram to see more of our latest work</p>
-          <button className="border-2 border-[#333333] text-[#333333] px-8 py-3 font-semibold hover:bg-[#333333] hover:text-white transition-all">
-            @studionhair
-          </button>
+          <a
+            href="/gallery"
+            onClick={(e) => {
+              e.preventDefault();
+              window.history.pushState({}, '', '/gallery');
+              window.dispatchEvent(new PopStateEvent('popstate'));
+            }}
+            className="inline-block border-2 border-[#333333] text-[#333333] px-8 py-3 font-semibold hover:bg-[#333333] hover:text-white transition-all cursor-pointer"
+          >
+            See More →
+          </a>
         </div>
       </div>
     </section>
