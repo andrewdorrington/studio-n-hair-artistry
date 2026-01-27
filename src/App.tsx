@@ -249,7 +249,7 @@ function App() {
               <img
                 src="/studion-logo.png"
                 alt="Studio N Hair Artistry"
-                className="h-16 w-auto mb-4"
+                className="h-[115px] w-auto mb-4"
               />
               <p className="text-[#F7F5F2] text-sm">
                 Transforming beauty through artistry and expertise.
