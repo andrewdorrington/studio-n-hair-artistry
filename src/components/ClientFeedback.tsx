@@ -37,7 +37,7 @@ function ClientFeedback() {
           {/* Navigation Arrows */}
           <button
             onClick={prevReview}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 md:-translate-x-16 z-10 bg-[#264D6C] text-white p-4 md:p-5 rounded-full hover:bg-[#1d3d52] transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-110 group"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 md:-translate-x-16 z-10 bg-[#264D6C] text-white p-4 md:p-5 hover:bg-[#1d3d52] transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-110 group"
             aria-label="Previous review"
           >
             <ChevronLeft size={28} className="group-hover:-translate-x-1 transition-transform" />
@@ -45,7 +45,7 @@ function ClientFeedback() {
 
           <button
             onClick={nextReview}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 md:translate-x-16 z-10 bg-[#264D6C] text-white p-4 md:p-5 rounded-full hover:bg-[#1d3d52] transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-110 group"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 md:translate-x-16 z-10 bg-[#264D6C] text-white p-4 md:p-5 hover:bg-[#1d3d52] transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-110 group"
             aria-label="Next review"
           >
             <ChevronRight size={28} className="group-hover:translate-x-1 transition-transform" />
@@ -102,7 +102,7 @@ function ClientFeedback() {
               <button
                 key={index}
                 onClick={() => goToReview(index)}
-                className={`rounded-full transition-all duration-300 ${
+                className={`transition-all duration-300 ${
                   index === currentIndex
                     ? 'bg-[#264D6C] w-10 h-3 shadow-md'
                     : 'bg-[#264D6C]/25 hover:bg-[#264D6C]/40 w-3 h-3'
