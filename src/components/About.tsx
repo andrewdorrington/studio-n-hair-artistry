@@ -1,4 +1,4 @@
-import { Award, Users, Heart, Star, Scissors } from 'lucide-react';
+import { Scissors } from 'lucide-react';
 
 function About() {
   return (
@@ -7,7 +7,7 @@ function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-              About <span className="text-[#333333]">Studio N</span>
+              About <span className="text-[#333333]">Me</span>
             </h2>
 
             <p className="text-xl text-gray-600 mb-6 leading-relaxed">
@@ -17,32 +17,6 @@ function About() {
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
               We believe that great hair is an art form. Our team of skilled stylists combines technical expertise with creative vision to deliver exceptional results every time. From the moment you walk through our doors, you'll experience a level of care and attention that sets us apart.
             </p>
-
-            <div className="grid grid-cols-2 gap-6">
-              <div className="bg-gray-50 p-6 border border-gray-200">
-                <Award className="text-[#333333] mb-3" size={32} />
-                <h3 className="font-semibold text-lg mb-2 text-gray-900">Award-Winning</h3>
-                <p className="text-sm text-gray-600">Recognized excellence in hair artistry</p>
-              </div>
-
-              <div className="bg-gray-50 p-6 border border-gray-200">
-                <Users className="text-[#333333] mb-3" size={32} />
-                <h3 className="font-semibold text-lg mb-2 text-gray-900">Expert Team</h3>
-                <p className="text-sm text-gray-600">Highly trained professionals</p>
-              </div>
-
-              <div className="bg-gray-50 p-6 border border-gray-200">
-                <Heart className="text-[#333333] mb-3" size={32} />
-                <h3 className="font-semibold text-lg mb-2 text-gray-900">Client First</h3>
-                <p className="text-sm text-gray-600">Your satisfaction is our priority</p>
-              </div>
-
-              <div className="bg-gray-50 p-6 border border-gray-200">
-                <Star className="text-[#333333] mb-3" size={32} />
-                <h3 className="font-semibold text-lg mb-2 text-gray-900">Premium Products</h3>
-                <p className="text-sm text-gray-600">Only the finest hair care brands</p>
-              </div>
-            </div>
           </div>
 
           <div className="relative">
