@@ -1,25 +1,25 @@
 const services = [
   {
     title: 'Haircuts & Styling',
-    image: '/placeholder-image.jpeg',
+    image: '/placeholder-image.jpg',
     description: 'Expert cuts tailored to your unique style and personality. From classic to contemporary, we create looks that turn heads.',
     price: 'From $65'
   },
   {
     title: 'Color Services',
-    image: '/placeholder-image.jpeg',
+    image: '/placeholder-image.jpg',
     description: 'Full color, highlights, balayage, and ombre. Our colorists blend art and science for stunning, vibrant results.',
     price: 'From $120'
   },
   {
     title: 'Hair Treatments',
-    image: '/placeholder-image.jpeg',
+    image: '/placeholder-image.jpg',
     description: 'Deep conditioning, keratin treatments, and repair services to restore and maintain your hair\'s natural health and shine.',
     price: 'From $85'
   },
   {
     title: 'Extensions',
-    image: '/placeholder-image.jpeg',
+    image: '/placeholder-image.jpg',
     description: 'Add length and volume with premium hair extensions. Natural-looking results that seamlessly blend with your hair.',
     price: 'From $300'
   }
