@@ -29,13 +29,13 @@ const bookingUrl = 'https://www.picktime.com/f687a63b-5f57-4bcb-99b7-c8a50dd745a
 
 function Services() {
   return (
-    <section id="services" className="py-24 bg-white">
+    <section id="services" className="py-24 bg-[#F7F5F2]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Our <span className="text-[#333333]">Services</span>
+            Our <span className="text-[#2E2E2C]">Services</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-[#2E2E2C] max-w-2xl mx-auto">
             Discover our comprehensive range of professional hair services designed to bring out your best look.
           </p>
         </div>
@@ -44,7 +44,7 @@ function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group relative aspect-[3/4] overflow-hidden border border-gray-200 hover:border-gray-400 transition-all duration-300 shadow-sm hover:shadow-lg"
+              className="group relative aspect-[3/4] overflow-hidden border border-[#B8ADA3] hover:border-[#C6B27C] transition-all duration-300 shadow-sm hover:shadow-lg"
             >
               {/* Image - Always Visible */}
               <div className="absolute inset-0">
@@ -55,7 +55,7 @@ function Services() {
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.style.display = 'none';
-                    target.parentElement!.style.backgroundColor = '#f3f4f6';
+                    target.parentElement!.style.backgroundColor = '#DED6CC';
                   }}
                 />
               </div>

@@ -4,9 +4,18 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Lora:wght@400;500;600;700&display=swap');
 
+:root {
+  --color-off-white: #F7F5F2;
+  --color-warm-charcoal: #2E2E2C;
+  --color-warm-beige: #DED6CC;
+  --color-muted-taupe: #B8ADA3;
+  --color-soft-gold: #C6B27C;
+}
+
 body {
   font-family: 'Lora', serif;
-  color: #1f2937;
+  color: #2E2E2C;
+  background-color: #F7F5F2;
 }
 
 h1, h2, h3, h4, h5, h6 {

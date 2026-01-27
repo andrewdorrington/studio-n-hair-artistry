@@ -18,7 +18,7 @@ function ClientFeedback() {
   }, []);
 
   return (
-    <section className="w-full py-16 md:py-20 bg-[#F6F3EE]">
+    <section className="w-full py-16 md:py-20 bg-[#F7F5F2]">
       <div className="w-full">
         {/* Elfsight Google Reviews Widget */}
         <div 
