@@ -40,7 +40,7 @@ function App() {
                 <button onClick={() => scrollToSection('services')} className="hover:text-white transition-colors">Services</button>
                 <button onClick={() => scrollToSection('about')} className="hover:text-white transition-colors">About</button>
                 <button onClick={() => scrollToSection('gallery')} className="hover:text-white transition-colors">Gallery</button>
-                <button onClick={handleBookNow} className="bg-white text-[#254f6c] px-6 py-2 rounded-full hover:bg-gray-100 transition-colors font-semibold">Book Now</button>
+                <button onClick={handleBookNow} className="bg-white text-[#333333] px-6 py-2 hover:bg-gray-100 transition-colors font-semibold">Book Now</button>
               </div>
             </div>
 
@@ -55,11 +55,11 @@ function App() {
         {isMenuOpen && (
           <div className="md:hidden bg-[#254f6c] border-t border-white/20">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <button onClick={() => scrollToSection('home')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors rounded-lg">Home</button>
-              <button onClick={() => scrollToSection('services')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors rounded-lg">Services</button>
-              <button onClick={() => scrollToSection('about')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors rounded-lg">About</button>
-              <button onClick={() => scrollToSection('gallery')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors rounded-lg">Gallery</button>
-              <button onClick={handleBookNow} className="block w-full text-left px-3 py-2 bg-white text-[#254f6c] font-semibold rounded-lg mt-2 hover:bg-gray-100 transition-colors">Book Now</button>
+              <button onClick={() => scrollToSection('home')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Home</button>
+              <button onClick={() => scrollToSection('services')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Services</button>
+              <button onClick={() => scrollToSection('about')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">About</button>
+              <button onClick={() => scrollToSection('gallery')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Gallery</button>
+              <button onClick={handleBookNow} className="block w-full text-left px-3 py-2 bg-white text-[#333333] font-semibold mt-2 hover:bg-gray-100 transition-colors">Book Now</button>
             </div>
           </div>
         )}
@@ -77,13 +77,13 @@ function App() {
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-                Visit <span className="text-[#254f6c]">Us</span>
+                Visit <span className="text-[#333333]">Us</span>
               </h2>
               <p className="text-gray-600">Find us at our Mount Waverley location</p>
             </div>
 
             {/* Google Maps Embed */}
-            <div className="mb-8 rounded-lg overflow-hidden shadow-lg">
+            <div className="mb-8 overflow-hidden shadow-lg">
               <iframe
                 width="100%"
                 height="300"
@@ -99,17 +99,17 @@ function App() {
             {/* Contact Details */}
             <div className="flex flex-col md:flex-row items-center justify-center gap-8 text-center md:text-left">
               <div className="flex items-center gap-3">
-                <MapPin className="text-[#254f6c]" size={24} />
+                <MapPin className="text-[#333333]" size={24} />
                 <div>
                   <p className="text-gray-900 font-medium">Address</p>
                   <p className="text-gray-600">416B Huntingdale Rd, Mount Waverley VIC 3149</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <Phone className="text-[#254f6c]" size={24} />
+                <Phone className="text-[#333333]" size={24} />
                 <div>
                   <p className="text-gray-900 font-medium">Phone</p>
-                  <a href="tel:0431207243" className="text-[#254f6c] hover:text-[#1d3d52] transition-colors">
+                  <a href="tel:0431207243" className="text-[#333333] hover:text-gray-600 transition-colors">
                     0431 207 243
                   </a>
                 </div>
@@ -134,7 +134,7 @@ function App() {
             </div>
 
             <div>
-              <h3 className="text-[#254f6c] font-semibold mb-4">Contact</h3>
+              <h3 className="text-[#333333] font-semibold mb-4">Contact</h3>
               <div className="space-y-2 text-sm text-gray-600">
                 <div className="flex items-center gap-2">
                   <Phone size={16} />
@@ -152,12 +152,12 @@ function App() {
             </div>
 
             <div>
-              <h3 className="text-[#254f6c] font-semibold mb-4">Follow Us</h3>
+              <h3 className="text-[#333333] font-semibold mb-4">Follow Us</h3>
               <div className="flex gap-4">
-                <a href="#" className="text-gray-600 hover:text-[#254f6c] transition-colors">
+                <a href="#" className="text-gray-600 hover:text-[#333333] transition-colors">
                   <Instagram size={24} />
                 </a>
-                <a href="#" className="text-gray-600 hover:text-[#254f6c] transition-colors">
+                <a href="#" className="text-gray-600 hover:text-[#333333] transition-colors">
                   <Facebook size={24} />
                 </a>
               </div>

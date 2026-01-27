@@ -45,7 +45,7 @@ function Services() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Our <span className="text-[#254f6c]">Services</span>
+            Our <span className="text-[#333333]">Services</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Discover our comprehensive range of professional hair services designed to bring out your best look.
@@ -56,13 +56,13 @@ function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group bg-gradient-to-br from-[#254f6c]/5 to-white p-8 rounded-2xl border border-[#254f6c]/20 hover:border-[#254f6c]/50 transition-all duration-300 hover:transform hover:scale-105 shadow-sm hover:shadow-lg"
+              className="group bg-gradient-to-br from-gray-50 to-white p-8 border border-gray-200 hover:border-gray-400 transition-all duration-300 hover:transform hover:scale-105 shadow-sm hover:shadow-lg"
             >
-              <div className="w-14 h-14 bg-[#254f6c]/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#254f6c]/20 transition-colors">
-                <service.icon className="text-[#254f6c]" size={28} />
+              <div className="w-14 h-14 bg-gray-100 flex items-center justify-center mb-6 group-hover:bg-gray-200 transition-colors">
+                <service.icon className="text-[#333333]" size={28} />
               </div>
 
-              <h3 className="text-2xl font-semibold mb-3 text-gray-900 group-hover:text-[#254f6c] transition-colors">
+              <h3 className="text-2xl font-semibold mb-3 text-gray-900 group-hover:text-[#333333] transition-colors">
                 {service.title}
               </h3>
 
@@ -70,9 +70,9 @@ function Services() {
                 {service.description}
               </p>
 
-              <div className="flex items-center justify-between pt-4 border-t border-[#254f6c]/20">
-                <span className="text-[#254f6c] font-semibold text-lg">{service.price}</span>
-                <button className="text-sm text-gray-600 hover:text-[#254f6c] transition-colors">
+              <div className="flex items-center justify-between pt-4 border-t border-gray-200">
+                <span className="text-[#333333] font-semibold text-lg">{service.price}</span>
+                <button className="text-sm text-gray-600 hover:text-[#333333] transition-colors">
                   Learn More →
                 </button>
               </div>
