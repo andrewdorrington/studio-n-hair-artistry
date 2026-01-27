@@ -45,7 +45,7 @@ function App() {
       <div className="min-h-screen bg-[#F7F5F2] text-[#2E2E2C]">
         <nav className="fixed top-0 w-full bg-[#2E2E2C] backdrop-blur-sm z-50 border-b border-[#B8ADA3]">
           <div className="w-full flex items-center justify-between h-28">
-            <div className="flex items-center pl-4 sm:pl-6 lg:pl-8">
+            <div className="flex items-center pl-0">
               <button onClick={() => navigate('/')} className="cursor-pointer">
                 <img
                   src="/studion-logo.png"
@@ -60,7 +60,6 @@ function App() {
                 <div className="flex items-baseline space-x-8">
                   <button onClick={() => navigate('/')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-medium text-xl">Home</button>
                   <button onClick={() => navigate('/services')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-medium text-xl">Services</button>
-                  <button onClick={() => navigate('/')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-medium text-xl">About</button>
                   <button onClick={() => navigate('/gallery')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-medium text-xl">Gallery</button>
                   <button onClick={handleBookNow} className="bg-[#F7F5F2] text-[#2E2E2C] px-8 py-3 hover:bg-[#C6B27C] transition-colors font-medium text-lg">Book Now</button>
                 </div>
@@ -74,18 +73,16 @@ function App() {
             </div>
           </div>
 
-            {isMenuOpen && (
-              <div className="md:hidden bg-[#2E2E2C] border-t border-[#B8ADA3]/30">
-                <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                  <button onClick={() => navigate('/')} className="block w-full text-left px-3 py-3 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-medium text-xl">Home</button>
-                  <button onClick={() => navigate('/services')} className="block w-full text-left px-3 py-3 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-medium text-xl">Services</button>
-                  <button onClick={() => navigate('/')} className="block w-full text-left px-3 py-3 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-medium text-xl">About</button>
-                  <button onClick={() => navigate('/gallery')} className="block w-full text-left px-3 py-3 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-medium text-xl">Gallery</button>
-                  <button onClick={handleBookNow} className="block w-full text-left px-3 py-3 bg-[#F7F5F2] text-[#2E2E2C] font-medium mt-2 hover:bg-[#C6B27C] transition-colors text-lg">Book Now</button>
-                </div>
+          {isMenuOpen && (
+            <div className="md:hidden bg-[#2E2E2C] border-t border-[#B8ADA3]/30">
+              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <button onClick={() => navigate('/')} className="block w-full text-left px-3 py-3 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-medium text-xl">Home</button>
+                <button onClick={() => navigate('/services')} className="block w-full text-left px-3 py-3 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-medium text-xl">Services</button>
+                <button onClick={() => navigate('/gallery')} className="block w-full text-left px-3 py-3 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-medium text-xl">Gallery</button>
+                <button onClick={handleBookNow} className="block w-full text-left px-3 py-3 bg-[#F7F5F2] text-[#2E2E2C] font-medium mt-2 hover:bg-[#C6B27C] transition-colors text-lg">Book Now</button>
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </nav>
 
         <main className="pt-28">
@@ -101,7 +98,7 @@ function App() {
       <div className="min-h-screen bg-[#F7F5F2] text-[#2E2E2C]">
         <nav className="fixed top-0 w-full bg-[#2E2E2C] backdrop-blur-sm z-50 border-b border-[#B8ADA3]">
           <div className="w-full flex items-center justify-between h-28">
-            <div className="flex items-center pl-4 sm:pl-6 lg:pl-8">
+            <div className="flex items-center pl-0">
               <button onClick={() => navigate('/')} className="cursor-pointer">
                 <img
                   src="/studion-logo.png"
@@ -116,7 +113,6 @@ function App() {
                 <div className="flex items-baseline space-x-8">
                   <button onClick={() => navigate('/')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-medium text-xl">Home</button>
                   <button onClick={() => navigate('/services')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-medium text-xl">Services</button>
-                  <button onClick={() => navigate('/')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-medium text-xl">About</button>
                   <button onClick={() => navigate('/gallery')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-medium text-xl">Gallery</button>
                   <button onClick={handleBookNow} className="bg-[#F7F5F2] text-[#2E2E2C] px-8 py-3 hover:bg-[#C6B27C] transition-colors font-medium text-lg">Book Now</button>
                 </div>
@@ -130,18 +126,16 @@ function App() {
             </div>
           </div>
 
-            {isMenuOpen && (
-              <div className="md:hidden bg-[#2E2E2C] border-t border-[#B8ADA3]/30">
-                <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                  <button onClick={() => navigate('/')} className="block w-full text-left px-3 py-3 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-medium text-xl">Home</button>
-                  <button onClick={() => navigate('/services')} className="block w-full text-left px-3 py-3 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-medium text-xl">Services</button>
-                  <button onClick={() => navigate('/')} className="block w-full text-left px-3 py-3 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-medium text-xl">About</button>
-                  <button onClick={() => navigate('/gallery')} className="block w-full text-left px-3 py-3 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-medium text-xl">Gallery</button>
-                  <button onClick={handleBookNow} className="block w-full text-left px-3 py-3 bg-[#F7F5F2] text-[#2E2E2C] font-medium mt-2 hover:bg-[#C6B27C] transition-colors text-lg">Book Now</button>
-                </div>
+          {isMenuOpen && (
+            <div className="md:hidden bg-[#2E2E2C] border-t border-[#B8ADA3]/30">
+              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <button onClick={() => navigate('/')} className="block w-full text-left px-3 py-3 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-medium text-xl">Home</button>
+                <button onClick={() => navigate('/services')} className="block w-full text-left px-3 py-3 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-medium text-xl">Services</button>
+                <button onClick={() => navigate('/gallery')} className="block w-full text-left px-3 py-3 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-medium text-xl">Gallery</button>
+                <button onClick={handleBookNow} className="block w-full text-left px-3 py-3 bg-[#F7F5F2] text-[#2E2E2C] font-medium mt-2 hover:bg-[#C6B27C] transition-colors text-lg">Book Now</button>
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </nav>
 
         <main className="pt-28">
@@ -155,7 +149,7 @@ function App() {
     <div className="min-h-screen bg-[#F7F5F2] text-[#2E2E2C]">
       <nav className="fixed top-0 w-full bg-[#2E2E2C] backdrop-blur-sm z-50 border-b border-[#B8ADA3]">
         <div className="w-full flex items-center justify-between h-28">
-          <div className="flex items-center pl-4 sm:pl-6 lg:pl-8">
+          <div className="flex items-center" style={{ paddingLeft: 0 }}>
             <button onClick={() => navigate('/')} className="cursor-pointer">
               <img
                 src="/studion-logo.png"
@@ -169,7 +163,6 @@ function App() {
               <div className="flex items-baseline space-x-8">
                 <button onClick={() => scrollToSection('home')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-medium text-xl">Home</button>
                 <button onClick={() => navigate('/services')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-medium text-xl">Services</button>
-                <button onClick={() => scrollToSection('about')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-medium text-xl">About</button>
                 <button onClick={() => navigate('/gallery')} className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors font-medium text-xl">Gallery</button>
                 <button onClick={handleBookNow} className="bg-[#F7F5F2] text-[#2E2E2C] px-8 py-3 hover:bg-[#C6B27C] transition-colors font-medium text-lg">Book Now</button>
               </div>
@@ -188,7 +181,6 @@ function App() {
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               <button onClick={() => scrollToSection('home')} className="block w-full text-left px-3 py-3 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-medium text-xl">Home</button>
               <button onClick={() => navigate('/services')} className="block w-full text-left px-3 py-3 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-medium text-xl">Services</button>
-              <button onClick={() => scrollToSection('about')} className="block w-full text-left px-3 py-3 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-medium text-xl">About</button>
               <button onClick={() => navigate('/gallery')} className="block w-full text-left px-3 py-3 hover:bg-[#F7F5F2]/10 transition-colors text-[#F7F5F2] hover:text-[#C6B27C] font-medium text-xl">Gallery</button>
               <button onClick={handleBookNow} className="block w-full text-left px-3 py-3 bg-[#F7F5F2] text-[#2E2E2C] font-medium mt-2 hover:bg-[#C6B27C] transition-colors text-lg">Book Now</button>
             </div>
