@@ -8,6 +8,7 @@ function Hero({ onBookNow }: HeroProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [animatingSlide, setAnimatingSlide] = useState(0);
   
   // Hero banner images
   const slides = [
@@ -28,6 +29,31 @@ function Hero({ onBookNow }: HeroProps) {
     },
   ];
 
+  // Check for reduced motion preference
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+  }, []);
+
+  // Trigger zoom animation when slide changes
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      setIsLoaded(true);
+      return;
+    }
+    
+    // Reset animation state
+    setIsLoaded(false);
+    setAnimatingSlide(currentSlide);
+    
+    // Small delay to ensure image is rendered before animation starts
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, [currentSlide, prefersReducedMotion]);
+
   // Auto-advance slides every 5 seconds
   useEffect(() => {
     const timer = setInterval(() => {
@@ -36,22 +62,6 @@ function Hero({ onBookNow }: HeroProps) {
 
     return () => clearInterval(timer);
   }, [slides.length]);
-
-  // Check for reduced motion preference and trigger animation
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setPrefersReducedMotion(mediaQuery.matches);
-    
-    if (!mediaQuery.matches) {
-      // Small delay to ensure image is rendered before animation starts
-      const timer = setTimeout(() => {
-        setIsLoaded(true);
-      }, 100);
-      return () => clearTimeout(timer);
-    } else {
-      setIsLoaded(true);
-    }
-  }, []);
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
@@ -75,7 +85,7 @@ function Hero({ onBookNow }: HeroProps) {
                 alt={slide.alt}
                 className="w-full h-full object-cover"
                 style={{
-                  transform: prefersReducedMotion ? 'scale(1)' : isLoaded ? 'scale(1)' : 'scale(1.1)',
+                  transform: prefersReducedMotion ? 'scale(1)' : (isLoaded && animatingSlide === index) ? 'scale(1)' : 'scale(1.1)',
                   transition: prefersReducedMotion ? 'none' : 'transform 2s ease-out',
                 }}
                 onError={(e) => {
