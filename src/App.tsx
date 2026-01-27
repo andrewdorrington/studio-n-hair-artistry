@@ -156,7 +156,7 @@ function App() {
           <div className="flex items-center justify-between h-20">
             <div className="flex items-center">
               <img
-                src="/studio_n_hair_artistry_logo_with_text_(2).png"
+                src="/studion-logo.png"
                 alt="Studio N Hair Artistry"
                 className="h-16 w-auto"
               />
@@ -252,7 +252,7 @@ function App() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <img
-                src="/studio_n_hair_artistry_logo_with_text_(2).png"
+                src="/studion-logo.png"
                 alt="Studio N Hair Artistry"
                 className="h-16 w-auto mb-4"
               />
