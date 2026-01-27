@@ -6,6 +6,8 @@ interface HeroProps {
 
 function Hero({ onBookNow }: HeroProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   
   // Hero banner images
   const slides = [
@@ -35,6 +37,22 @@ function Hero({ onBookNow }: HeroProps) {
     return () => clearInterval(timer);
   }, [slides.length]);
 
+  // Check for reduced motion preference and trigger animation
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+    
+    if (!mediaQuery.matches) {
+      // Small delay to ensure image is rendered before animation starts
+      const timer = setTimeout(() => {
+        setIsLoaded(true);
+      }, 100);
+      return () => clearTimeout(timer);
+    } else {
+      setIsLoaded(true);
+    }
+  }, []);
+
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
   };
@@ -50,12 +68,16 @@ function Hero({ onBookNow }: HeroProps) {
               index === currentSlide ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            {/* Hero Image */}
-            <div className="w-full h-full bg-gray-300 flex items-center justify-center">
+            {/* Hero Image with Zoom Animation */}
+            <div className="w-full h-full bg-gray-300 flex items-center justify-center overflow-hidden">
               <img
                 src={slide.image}
                 alt={slide.alt}
                 className="w-full h-full object-cover"
+                style={{
+                  transform: prefersReducedMotion ? 'scale(1)' : isLoaded ? 'scale(1)' : 'scale(1.1)',
+                  transition: prefersReducedMotion ? 'none' : 'transform 2s ease-out',
+                }}
                 onError={(e) => {
                   console.error('Failed to load image:', slide.image);
                   const target = e.target as HTMLImageElement;
@@ -72,11 +94,24 @@ function Hero({ onBookNow }: HeroProps) {
         ))}
       </div>
 
-      {/* Dark overlay for better text/button visibility */}
-      <div className="absolute inset-0 bg-black/40"></div>
+      {/* Dark overlay for text contrast */}
+      <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0, 0, 0, 0.35)' }}></div>
 
-      {/* Book Now Button - Centered */}
-      <div className="absolute inset-0 flex items-center justify-center z-20">
+      {/* Text Overlay - Centered */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center z-20 text-center px-4">
+        <h1 
+          className="text-5xl md:text-6xl lg:text-7xl font-medium text-[#F7F5F2] mb-4"
+          style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 500 }}
+        >
+          Studio N Hair Artistry
+        </h1>
+        <p 
+          className="text-lg md:text-xl lg:text-2xl text-[#F7F5F2] font-normal mb-12"
+          style={{ fontFamily: "'Inter', system-ui, -apple-system, sans-serif", fontWeight: 400 }}
+        >
+          The fine art of beautiful hair.
+        </p>
+        {/* Book Now Button */}
         <button
           onClick={onBookNow}
           className="bg-[#F7F5F2] text-[#2E2E2C] px-12 py-5 text-xl font-medium hover:bg-[#C6B27C] transition-all hover:scale-105 shadow-2xl shadow-black/50"
