@@ -49,7 +49,7 @@ function App() {
               <div className="flex items-center">
                 <button onClick={() => navigate('/')} className="cursor-pointer">
                   <img
-                    src="/studio_n_hair_artistry_logo_with_text_(2).png"
+                    src="/studion-logo.png"
                     alt="Studio N Hair Artistry"
                     className="h-16 w-auto"
                   />
@@ -104,7 +104,7 @@ function App() {
               <div className="flex items-center">
                 <button onClick={() => navigate('/')} className="cursor-pointer">
                   <img
-                    src="/studio_n_hair_artistry_logo_with_text_(2).png"
+                    src="/studion-logo.png"
                     alt="Studio N Hair Artistry"
                     className="h-16 w-auto"
                   />
