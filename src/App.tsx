@@ -58,10 +58,10 @@ function App() {
 
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-8">
-                  <button onClick={() => navigate('/')} className="hover:text-white transition-colors">Home</button>
-                  <button onClick={() => navigate('/services')} className="hover:text-white transition-colors">Services</button>
-                  <button onClick={() => navigate('/')} className="hover:text-white transition-colors">About</button>
-                  <button onClick={() => navigate('/gallery')} className="hover:text-white transition-colors">Gallery</button>
+                  <button onClick={() => navigate('/')} className="text-[#BE9852] hover:text-[#BE9852]/80 transition-colors font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Home</button>
+                  <button onClick={() => navigate('/services')} className="text-[#BE9852] hover:text-[#BE9852]/80 transition-colors font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Services</button>
+                  <button onClick={() => navigate('/')} className="text-[#BE9852] hover:text-[#BE9852]/80 transition-colors font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>About</button>
+                  <button onClick={() => navigate('/gallery')} className="text-[#BE9852] hover:text-[#BE9852]/80 transition-colors font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Gallery</button>
                   <button onClick={handleBookNow} className="bg-white text-[#333333] px-6 py-2 hover:bg-gray-100 transition-colors font-semibold">Book Now</button>
                 </div>
               </div>
@@ -76,10 +76,10 @@ function App() {
             {isMenuOpen && (
               <div className="md:hidden bg-[#254f6c] border-t border-white/20">
                 <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                  <button onClick={() => navigate('/')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Home</button>
-                  <button onClick={() => navigate('/services')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Services</button>
-                  <button onClick={() => navigate('/')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">About</button>
-                  <button onClick={() => navigate('/gallery')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Gallery</button>
+                  <button onClick={() => navigate('/')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors text-[#BE9852] font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Home</button>
+                  <button onClick={() => navigate('/services')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors text-[#BE9852] font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Services</button>
+                  <button onClick={() => navigate('/')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors text-[#BE9852] font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>About</button>
+                  <button onClick={() => navigate('/gallery')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors text-[#BE9852] font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Gallery</button>
                   <button onClick={handleBookNow} className="block w-full text-left px-3 py-2 bg-white text-[#333333] font-semibold mt-2 hover:bg-gray-100 transition-colors">Book Now</button>
                 </div>
               </div>
@@ -113,10 +113,10 @@ function App() {
 
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-8">
-                  <button onClick={() => navigate('/')} className="hover:text-white transition-colors">Home</button>
-                  <button onClick={() => navigate('/services')} className="hover:text-white transition-colors">Services</button>
-                  <button onClick={() => navigate('/')} className="hover:text-white transition-colors">About</button>
-                  <button onClick={() => navigate('/gallery')} className="hover:text-white transition-colors">Gallery</button>
+                  <button onClick={() => navigate('/')} className="text-[#BE9852] hover:text-[#BE9852]/80 transition-colors font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Home</button>
+                  <button onClick={() => navigate('/services')} className="text-[#BE9852] hover:text-[#BE9852]/80 transition-colors font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Services</button>
+                  <button onClick={() => navigate('/')} className="text-[#BE9852] hover:text-[#BE9852]/80 transition-colors font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>About</button>
+                  <button onClick={() => navigate('/gallery')} className="text-[#BE9852] hover:text-[#BE9852]/80 transition-colors font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Gallery</button>
                   <button onClick={handleBookNow} className="bg-white text-[#333333] px-6 py-2 hover:bg-gray-100 transition-colors font-semibold">Book Now</button>
                 </div>
               </div>
@@ -131,10 +131,10 @@ function App() {
             {isMenuOpen && (
               <div className="md:hidden bg-[#254f6c] border-t border-white/20">
                 <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                  <button onClick={() => navigate('/')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Home</button>
-                  <button onClick={() => navigate('/services')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Services</button>
-                  <button onClick={() => navigate('/')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">About</button>
-                  <button onClick={() => navigate('/gallery')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Gallery</button>
+                  <button onClick={() => navigate('/')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors text-[#BE9852] font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Home</button>
+                  <button onClick={() => navigate('/services')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors text-[#BE9852] font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Services</button>
+                  <button onClick={() => navigate('/')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors text-[#BE9852] font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>About</button>
+                  <button onClick={() => navigate('/gallery')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors text-[#BE9852] font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Gallery</button>
                   <button onClick={handleBookNow} className="block w-full text-left px-3 py-2 bg-white text-[#333333] font-semibold mt-2 hover:bg-gray-100 transition-colors">Book Now</button>
                 </div>
               </div>
@@ -164,10 +164,10 @@ function App() {
 
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-8">
-                <button onClick={() => scrollToSection('home')} className="hover:text-white transition-colors">Home</button>
-                <button onClick={() => navigate('/services')} className="hover:text-white transition-colors">Services</button>
-                <button onClick={() => scrollToSection('about')} className="hover:text-white transition-colors">About</button>
-                <button onClick={() => navigate('/gallery')} className="hover:text-white transition-colors">Gallery</button>
+                <button onClick={() => scrollToSection('home')} className="text-[#BE9852] hover:text-[#BE9852]/80 transition-colors font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Home</button>
+                <button onClick={() => navigate('/services')} className="text-[#BE9852] hover:text-[#BE9852]/80 transition-colors font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Services</button>
+                <button onClick={() => scrollToSection('about')} className="text-[#BE9852] hover:text-[#BE9852]/80 transition-colors font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>About</button>
+                <button onClick={() => navigate('/gallery')} className="text-[#BE9852] hover:text-[#BE9852]/80 transition-colors font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Gallery</button>
                 <button onClick={handleBookNow} className="bg-white text-[#333333] px-6 py-2 hover:bg-gray-100 transition-colors font-semibold">Book Now</button>
               </div>
             </div>
@@ -183,10 +183,10 @@ function App() {
         {isMenuOpen && (
           <div className="md:hidden bg-[#254f6c] border-t border-white/20">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <button onClick={() => scrollToSection('home')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Home</button>
-              <button onClick={() => navigate('/services')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Services</button>
-              <button onClick={() => scrollToSection('about')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">About</button>
-              <button onClick={() => navigate('/gallery')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors">Gallery</button>
+              <button onClick={() => scrollToSection('home')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors text-[#BE9852] font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Home</button>
+              <button onClick={() => navigate('/services')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors text-[#BE9852] font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Services</button>
+              <button onClick={() => scrollToSection('about')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors text-[#BE9852] font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>About</button>
+              <button onClick={() => navigate('/gallery')} className="block w-full text-left px-3 py-2 hover:bg-white/10 transition-colors text-[#BE9852] font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Gallery</button>
               <button onClick={handleBookNow} className="block w-full text-left px-3 py-2 bg-white text-[#333333] font-semibold mt-2 hover:bg-gray-100 transition-colors">Book Now</button>
             </div>
           </div>
