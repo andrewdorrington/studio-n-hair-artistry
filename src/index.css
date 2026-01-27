@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Lora:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
   --color-off-white: #F7F5F2;
@@ -13,37 +13,57 @@
 }
 
 body {
-  font-family: 'Lora', serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: #2E2E2C;
   background-color: #F7F5F2;
+  font-weight: 400;
+  line-height: 1.65;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
 h1 {
-  font-weight: 800;
-  letter-spacing: -0.03em;
-}
-
-h2 {
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
-h3 {
   font-weight: 600;
   letter-spacing: -0.01em;
 }
 
-h4, h5, h6 {
+h2 {
   font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
-p, span, li, a, button {
-  font-family: 'Lora', serif;
+h3 {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+h4 {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+h5, h6 {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+p, span, li, a {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+button, nav button, nav a {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+label, input, textarea, select {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-weight: 400;
 }

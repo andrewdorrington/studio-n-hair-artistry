@@ -55,7 +55,7 @@ function ServicesPage() {
                     href={bookingUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#2E2E2C] hover:text-[#C6B27C] transition-colors font-semibold text-sm"
+                    className="text-[#2E2E2C] hover:text-[#C6B27C] transition-colors font-medium text-sm"
                   >
                     Book Now →
                   </a>

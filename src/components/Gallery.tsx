@@ -50,7 +50,7 @@ function Gallery() {
               window.history.pushState({}, '', '/gallery');
               window.dispatchEvent(new PopStateEvent('popstate'));
             }}
-            className="inline-block border-2 border-[#2E2E2C] text-[#2E2E2C] px-8 py-3 font-semibold hover:bg-[#C6B27C] hover:border-[#C6B27C] transition-all cursor-pointer"
+            className="inline-block border-2 border-[#2E2E2C] text-[#2E2E2C] px-8 py-3 font-medium hover:bg-[#C6B27C] hover:border-[#C6B27C] transition-all cursor-pointer"
           >
             See More →
           </a>

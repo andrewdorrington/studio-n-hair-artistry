@@ -79,7 +79,7 @@ function Hero({ onBookNow }: HeroProps) {
       <div className="absolute inset-0 flex items-center justify-center z-20">
         <button
           onClick={onBookNow}
-          className="bg-[#F7F5F2] text-[#2E2E2C] px-12 py-5 text-xl font-semibold hover:bg-[#C6B27C] transition-all hover:scale-105 shadow-2xl shadow-black/50"
+          className="bg-[#F7F5F2] text-[#2E2E2C] px-12 py-5 text-xl font-medium hover:bg-[#C6B27C] transition-all hover:scale-105 shadow-2xl shadow-black/50"
         >
           Book Now
         </button>
