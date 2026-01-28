@@ -86,7 +86,7 @@ function Hero({ onBookNow }: HeroProps) {
                 className="w-full h-full object-cover"
                 style={{
                   transform: prefersReducedMotion ? 'scale(1)' : (isLoaded && animatingSlide === index) ? 'scale(1)' : 'scale(1.1)',
-                  transition: prefersReducedMotion ? 'none' : 'transform 2s ease-out',
+                  transition: prefersReducedMotion ? 'none' : 'transform 5s ease-out',
                 }}
                 onError={(e) => {
                   console.error('Failed to load image:', slide.image);
