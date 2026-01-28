@@ -244,39 +244,21 @@ function App() {
 
       <footer className="bg-[#2E2E2C] border-t border-[#B8ADA3] py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-items-center md:justify-items-start">
+            <div className="text-center md:text-left">
               <img
                 src="/studion-logo.png"
                 alt="Studio N Hair Artistry"
-                className="h-[115px] w-auto mb-4"
+                className="h-[115px] w-auto mb-4 mx-auto md:mx-0"
               />
               <p className="text-[#F7F5F2] text-sm">
                 Transforming beauty through artistry and expertise.
               </p>
             </div>
 
-            <div>
-              <h3 className="text-[#F7F5F2] font-semibold mb-4">Contact</h3>
-              <div className="space-y-2 text-sm text-[#F7F5F2]">
-                <div className="flex items-center gap-2">
-                  <Phone size={16} />
-                  <span>(555) 123-4567</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Mail size={16} />
-                  <span>info@studiohair.com</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <MapPin size={16} />
-                  <span>123 Beauty Lane, NY 10001</span>
-                </div>
-              </div>
-            </div>
-
-            <div>
+            <div className="text-center md:text-left">
               <h3 className="text-[#F7F5F2] font-semibold mb-4">Follow Us</h3>
-              <div className="flex gap-4">
+              <div className="flex gap-4 justify-center md:justify-start">
                 <a href="#" className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors">
                   <Instagram size={24} />
                 </a>
