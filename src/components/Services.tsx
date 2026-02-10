@@ -1,19 +1,19 @@
 const services = [
   {
     title: 'Haircuts',
-    image: '/placeholder-image.jpg',
+    image: '/haircutservice.jpg',
     description: 'Expert cuts tailored to your unique style and personality. From classic to contemporary, we create looks that turn heads.',
     price: 'From $65'
   },
   {
     title: 'Blow waves',
-    image: '/placeholder-image.jpg',
+    image: '/blowwaveservice.jpg',
     description: 'Professional blow-dry styling to give your hair volume, smoothness, and the perfect finish for any occasion.',
     price: 'From $45'
   },
   {
     title: 'Colour Services',
-    image: '/placeholder-image.jpg',
+    image: '/colourservice.jpg',
     description: 'Full color, highlights, balayage, and ombre. Our colorists blend art and science for stunning, vibrant results.',
     price: 'From $120'
   }
