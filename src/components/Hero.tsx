@@ -14,17 +14,17 @@ function Hero({ onBookNow }: HeroProps) {
   const slides = [
     { 
       id: 1, 
-      image: '/hero-1.png', 
+      image: '/hero1.jpg', 
       alt: 'Luxury salon vanity station with gold-framed mirrors and marble countertop' 
     },
     { 
       id: 2, 
-      image: '/hero-2.png', 
+      image: '/hero2.jpg', 
       alt: 'Modern minimalist salon interior with white styling stations and natural light' 
     },
     { 
       id: 3, 
-      image: '/hero-3.png', 
+      image: '/hero3.jpg', 
       alt: 'Industrial-chic salon with exposed brick walls and olive green styling chairs' 
     },
   ];
