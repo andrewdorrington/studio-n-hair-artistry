@@ -1,5 +1,3 @@
-import { Scissors } from 'lucide-react';
-
 function About() {
   return (
     <section id="about" className="py-24 bg-[#DED6CC]">
@@ -20,11 +18,17 @@ function About() {
           </div>
 
           <div className="relative">
-            <div className="aspect-[4/5] bg-[#F7F5F2] border border-[#C6B27C] flex items-center justify-center">
-              <div className="text-center">
-                <Scissors className="text-[#2E2E2C] mx-auto mb-4" size={80} />
-                <p className="text-[#2E2E2C] text-lg">Your transformation awaits</p>
-              </div>
+            <div className="aspect-[4/5] bg-[#F7F5F2] border border-[#C6B27C] overflow-hidden">
+              <img
+                src="/nhat.jpeg"
+                alt="About Me"
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  target.parentElement!.style.backgroundColor = '#F7F5F2';
+                }}
+              />
             </div>
           </div>
         </div>
