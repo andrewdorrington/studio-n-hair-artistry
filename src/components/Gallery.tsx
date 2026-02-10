@@ -1,13 +1,8 @@
-import { Image } from 'lucide-react';
-
 function Gallery() {
   const galleryItems = [
-    { id: 1, category: 'Color' },
-    { id: 2, category: 'Styling' },
-    { id: 3, category: 'Cuts' },
-    { id: 4, category: 'Bridal' },
-    { id: 5, category: 'Extensions' },
-    { id: 6, category: 'Treatments' },
+    { id: 1, image: '/gallery1.jpg', category: 'Color' },
+    { id: 2, image: '/gallery2.jpg', category: 'Styling' },
+    { id: 3, image: '/gallery3.jpg', category: 'Cuts' },
   ];
 
   return (
@@ -23,15 +18,21 @@ function Gallery() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {galleryItems.slice(0, 3).map((item) => (
+          {galleryItems.map((item) => (
             <div
               key={item.id}
               className="group relative aspect-square bg-[#DED6CC] border border-[#C6B27C] overflow-hidden transition-all duration-300 cursor-pointer shadow-sm hover:shadow-lg"
             >
-              <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <Image className="text-[#2E2E2C] mb-4 group-hover:scale-110 transition-transform" size={48} />
-                <span className="text-[#2E2E2C] text-lg font-medium">{item.category}</span>
-              </div>
+              <img
+                src={item.image}
+                alt={item.category}
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  target.parentElement!.style.backgroundColor = '#DED6CC';
+                }}
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                 <div>
                   <h3 className="text-white font-semibold text-xl mb-2">{item.category} Work</h3>
