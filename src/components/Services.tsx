@@ -1,27 +1,21 @@
 const services = [
   {
-    title: 'Haircuts & Styling',
+    title: 'Haircuts',
     image: '/placeholder-image.jpg',
     description: 'Expert cuts tailored to your unique style and personality. From classic to contemporary, we create looks that turn heads.',
     price: 'From $65'
   },
   {
-    title: 'Color Services',
+    title: 'Blow waves',
+    image: '/placeholder-image.jpg',
+    description: 'Professional blow-dry styling to give your hair volume, smoothness, and the perfect finish for any occasion.',
+    price: 'From $45'
+  },
+  {
+    title: 'Colour Services',
     image: '/placeholder-image.jpg',
     description: 'Full color, highlights, balayage, and ombre. Our colorists blend art and science for stunning, vibrant results.',
     price: 'From $120'
-  },
-  {
-    title: 'Hair Treatments',
-    image: '/placeholder-image.jpg',
-    description: 'Deep conditioning, keratin treatments, and repair services to restore and maintain your hair\'s natural health and shine.',
-    price: 'From $85'
-  },
-  {
-    title: 'Extensions',
-    image: '/placeholder-image.jpg',
-    description: 'Add length and volume with premium hair extensions. Natural-looking results that seamlessly blend with your hair.',
-    price: 'From $300'
   }
 ];
 
@@ -43,7 +37,7 @@ function Services() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           {services.map((service, index) => (
             <div
               key={index}
