@@ -234,7 +234,7 @@ function ServicesPage() {
                       {category.services.map((service, serviceIndex) => (
                         <div 
                           key={serviceIndex} 
-                          className={`flex justify-between items-center py-2 border-b border-[#B8ADA3]/20 last:border-b-0 transition-all duration-300 ${service.name.startsWith('  ') ? 'pl-4' : ''}`}
+                          className={`flex ${service.name === '' ? 'justify-start' : 'justify-between'} items-center py-2 border-b border-[#B8ADA3]/20 last:border-b-0 transition-all duration-300 ${service.name.startsWith('  ') ? 'pl-4' : ''}`}
                           style={{
                             transform: categoryIndex === activeIndex 
                               ? 'translateX(0)' 
@@ -242,9 +242,15 @@ function ServicesPage() {
                             opacity: categoryIndex === activeIndex ? 1 : 0.9,
                           }}
                         >
-                          <span className="text-[#F7F5F2] text-base md:text-lg pr-4">{service.name}</span>
-                          {service.price && (
+                          {service.name === '' ? (
                             <span className="text-[#C6B27C] font-semibold text-base md:text-lg whitespace-nowrap">{service.price}</span>
+                          ) : (
+                            <>
+                              <span className="text-[#F7F5F2] text-base md:text-lg pr-4">{service.name}</span>
+                              {service.price && (
+                                <span className="text-[#C6B27C] font-semibold text-base md:text-lg whitespace-nowrap">{service.price}</span>
+                              )}
+                            </>
                           )}
                         </div>
                       ))}
