@@ -133,23 +133,23 @@ function ServicesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F7F5F2]">
-      <section className="py-16 bg-[#2E2E2C]">
+    <div className="min-h-screen bg-[#1a1a18]">
+      <section className="py-8 md:py-12 bg-[#2E2E2C] border-b border-[#B8ADA3]/10">
         <div className="max-w-full mx-auto">
-          <div className="text-center mb-20 px-4 sm:px-6 lg:px-8 pt-8">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#F7F5F2]" style={{ fontFamily: "'brandon-grot-w01-light', sans-serif" }}>
+          <div className="text-center mb-8 px-4 sm:px-6 lg:px-8 pt-4">
+            <h1 className="text-3xl md:text-4xl font-bold mb-2 text-[#F7F5F2]" style={{ fontFamily: "'brandon-grot-w01-light', sans-serif" }}>
               Our <span className="text-[#C6B27C]">Services</span>
             </h1>
-            <p className="text-xl text-[#F7F5F2]/80 max-w-2xl mx-auto">
-              Discover our comprehensive range of professional hair services designed to bring out your best look.
+            <p className="text-base md:text-lg text-[#F7F5F2]/70 max-w-2xl mx-auto">
+              Discover our comprehensive range of professional hair services.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="relative bg-[#F7F5F2]">
+      <section className="relative bg-[#1a1a18]">
         <div className="max-w-full mx-auto">
-          <div className="space-y-4 md:space-y-6">
+          <div className="space-y-2 md:space-y-3">
             {serviceCategories.map((category, categoryIndex) => {
               const scale = getScale(categoryIndex);
               const opacity = getOpacity(categoryIndex);
@@ -159,7 +159,7 @@ function ServicesPage() {
                 <div
                   key={categoryIndex}
                   ref={(el) => (categoryRefs.current[categoryIndex] = el)}
-                  className="relative w-full min-h-[700px] md:min-h-[800px] lg:min-h-[900px] flex items-center overflow-hidden transition-all duration-700 ease-out"
+                  className="relative w-full h-screen flex items-center overflow-hidden transition-all duration-700 ease-out"
                   style={{
                     transform: `scale(${scale})`,
                     opacity: opacity,
@@ -174,32 +174,36 @@ function ServicesPage() {
                       alt={category.category}
                       className="w-full h-full object-cover transition-transform duration-700 ease-out"
                       style={{
-                        transform: categoryIndex === activeIndex ? 'scale(1.05)' : 'scale(1)',
+                        transform: categoryIndex === activeIndex ? 'scale(1.08)' : 'scale(1)',
                       }}
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';
-                        target.parentElement!.style.backgroundColor = '#2E2E2C';
+                        target.parentElement!.style.backgroundColor = '#1a1a18';
                       }}
                     />
-                    {/* Dynamic gradient overlay based on active state */}
+                    {/* Darker gradient overlay for immersive feel */}
                     <div 
                       className={`absolute inset-0 bg-gradient-to-${category.side === 'left' ? 'r' : 'l'} transition-opacity duration-700`}
                       style={{
                         background: categoryIndex === activeIndex 
-                          ? `linear-gradient(to ${category.side === 'left' ? 'right' : 'left'}, rgba(0,0,0,0.4), rgba(0,0,0,0.15), transparent)`
-                          : `linear-gradient(to ${category.side === 'left' ? 'right' : 'left'}, rgba(0,0,0,0.3), rgba(0,0,0,0.1), transparent)`
+                          ? `linear-gradient(to ${category.side === 'left' ? 'right' : 'left'}, rgba(0,0,0,0.65), rgba(0,0,0,0.4), rgba(0,0,0,0.2))`
+                          : `linear-gradient(to ${category.side === 'left' ? 'right' : 'left'}, rgba(0,0,0,0.6), rgba(0,0,0,0.35), rgba(0,0,0,0.15))`
                       }}
                     ></div>
+                    {/* Additional dark overlay for depth */}
+                    <div className="absolute inset-0 bg-black/20"></div>
                   </div>
 
                   {/* Services Panel - Takes 1/4 of width, positioned on alternating sides */}
                   <div 
-                    className={`absolute ${category.side === 'left' ? 'right-0' : 'left-0'} w-[25%] min-w-[280px] h-full bg-[#2E2E2C] flex flex-col justify-center p-8 md:p-10 lg:p-12 transition-all duration-700`}
+                    className={`absolute ${category.side === 'left' ? 'right-0 border-l' : 'left-0 border-r'} w-[25%] min-w-[280px] h-full flex flex-col justify-center p-8 md:p-10 lg:p-12 transition-all duration-700`}
                     style={{
+                      borderColor: 'rgba(198, 178, 124, 0.2)',
                       boxShadow: categoryIndex === activeIndex 
-                        ? '0 20px 60px -15px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(198, 178, 124, 0.15)'
-                        : '0 10px 30px -8px rgba(0, 0, 0, 0.4)',
+                        ? '0 25px 80px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(198, 178, 124, 0.2), inset 0 0 60px rgba(198, 178, 124, 0.05)'
+                        : '0 15px 40px -10px rgba(0, 0, 0, 0.6)',
+                      backgroundColor: categoryIndex === activeIndex ? '#1f1f1d' : '#1a1a18',
                     }}
                   >
                     <h2 
