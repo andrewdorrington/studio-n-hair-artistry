@@ -111,7 +111,7 @@ function Hero({ onBookNow }: HeroProps) {
       <div className="absolute inset-0 flex flex-col items-center justify-center z-20 text-center px-4">
         <h1 
           className="text-5xl md:text-6xl lg:text-7xl font-medium text-[#F7F5F2] mb-4"
-          style={{ fontFamily: "'brandon-grot-w01-light', sans-serif" }}
+          style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 500 }}
         >
           Studio N Hair Artistry
         </h1>
