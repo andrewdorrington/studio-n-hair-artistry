@@ -19,7 +19,7 @@ const services = [
   }
 ];
 
-const bookingUrl = 'https://www.picktime.com/f687a63b-5f57-4bcb-99b7-c8a50dd745ae';
+const bookingUrl = 'https://www.picktime.com/926c9651-ba4b-4498-a119-98c3f369501d';
 
 function Services() {
   return (

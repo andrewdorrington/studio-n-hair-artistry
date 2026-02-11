@@ -2,7 +2,7 @@ import { MapPin, Phone, Mail, Clock, Calendar } from 'lucide-react';
 
 function Contact() {
   const handleBookNow = () => {
-    window.open('https://www.picktime.com/f687a63b-5f57-4bcb-99b7-c8a50dd745ae', '_blank');
+    window.open('https://www.picktime.com/926c9651-ba4b-4498-a119-98c3f369501d', '_blank');
   };
 
   return (
@@ -92,7 +92,7 @@ function Contact() {
               <h3 className="text-3xl font-semibold mb-8 text-center text-gray-900">Book Your Appointment</h3>
               <div className="flex justify-center">
                 <a 
-                  href="https://www.picktime.com/f687a63b-5f57-4bcb-99b7-c8a50dd745ae" 
+                  href="https://www.picktime.com/926c9651-ba4b-4498-a119-98c3f369501d" 
                   className="ptbkbtn" 
                   target="_blank" 
                   rel="noopener noreferrer"
