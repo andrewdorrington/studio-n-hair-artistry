@@ -6,7 +6,7 @@ const services = [
     price: 'From $65'
   },
   {
-    title: 'Blow waves',
+    title: 'Blow Waves & Styling',
     image: '/blowwaveservice.jpg',
     description: 'Professional blow-dry styling to give your hair volume, smoothness, and the perfect finish for any occasion.',
     price: 'From $45'
