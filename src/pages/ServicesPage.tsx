@@ -80,9 +80,9 @@ const bookingUrl = 'https://www.picktime.com/926c9651-ba4b-4498-a119-98c3f369501
 function ServicesPage() {
   return (
     <div className="min-h-screen bg-[#F7F5F2]">
-      <section className="py-12 bg-[#F7F5F2]">
+      <section className="py-16 bg-[#F7F5F2]">
         <div className="max-w-full mx-auto">
-          <div className="text-center mb-16 px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20 px-4 sm:px-6 lg:px-8">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#2E2E2C]" style={{ fontFamily: "'brandon-grot-w01-light', sans-serif" }}>
               Our <span className="text-[#2E2E2C]">Services</span>
             </h1>
@@ -91,14 +91,14 @@ function ServicesPage() {
             </p>
           </div>
 
-          <div className="space-y-0">
+          <div className="space-y-8 md:space-y-12">
             {serviceCategories.map((category, categoryIndex) => (
               <div
                 key={categoryIndex}
-                className="relative w-full h-[500px] md:h-[600px] flex items-center"
+                className="relative w-full min-h-[700px] md:min-h-[800px] lg:min-h-[900px] flex items-center overflow-hidden"
               >
                 {/* Background Image - Takes 4/5 of width */}
-                <div className={`absolute inset-0 ${category.side === 'left' ? 'left-0 right-[20%]' : 'right-0 left-[20%]'}`}>
+                <div className={`absolute inset-0 ${category.side === 'left' ? 'left-0 right-[25%]' : 'right-0 left-[25%]'}`}>
                   <img
                     src={category.image}
                     alt={category.category}
@@ -106,37 +106,37 @@ function ServicesPage() {
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
                       target.style.display = 'none';
-                      target.parentElement!.style.backgroundColor = '#DED6CC';
+                      target.parentElement!.style.backgroundColor = '#2E2E2C';
                     }}
                   />
-                  {/* Dark overlay for better text contrast */}
-                  <div className="absolute inset-0 bg-black/20"></div>
+                  {/* Subtle gradient overlay */}
+                  <div className={`absolute inset-0 bg-gradient-to-${category.side === 'left' ? 'r' : 'l'} from-black/30 via-black/10 to-transparent`}></div>
                 </div>
 
-                {/* Services Panel - Takes 1/5 of width, positioned on alternating sides */}
-                <div className={`absolute ${category.side === 'left' ? 'right-0' : 'left-0'} w-[20%] h-full bg-[#DED6CC] border-l border-r border-[#C6B27C] flex flex-col justify-center p-6 md:p-8`}>
-                  <h2 className="text-2xl md:text-3xl font-semibold mb-2 text-[#2E2E2C]" style={{ fontFamily: "'brandon-grot-w01-light', sans-serif" }}>
+                {/* Services Panel - Takes 1/4 of width, positioned on alternating sides */}
+                <div className={`absolute ${category.side === 'left' ? 'right-0' : 'left-0'} w-[25%] min-w-[280px] h-full bg-[#2E2E2C] flex flex-col justify-center p-8 md:p-10 lg:p-12 shadow-2xl`}>
+                  <h2 className="text-3xl md:text-4xl font-semibold mb-3 text-[#F7F5F2]" style={{ fontFamily: "'brandon-grot-w01-light', sans-serif" }}>
                     {category.category}
                   </h2>
                   {category.duration && (
-                    <p className="text-xs md:text-sm text-[#2E2E2C]/70 mb-4 italic">
+                    <p className="text-sm md:text-base text-[#C6B27C] mb-6 italic font-light">
                       {category.duration}
                     </p>
                   )}
-                  <div className="space-y-2 md:space-y-3 mb-6">
+                  <div className="space-y-4 mb-8">
                     {category.services.map((service, serviceIndex) => (
-                      <div key={serviceIndex} className="flex flex-col md:flex-row md:justify-between md:items-center py-1 md:py-2 border-b border-[#B8ADA3]/30 last:border-b-0">
-                        <span className="text-[#2E2E2C] text-sm md:text-base">{service.name}</span>
-                        <span className="text-[#2E2E2C] font-semibold text-sm md:text-base md:ml-4">{service.price}</span>
+                      <div key={serviceIndex} className="flex justify-between items-center py-2 border-b border-[#B8ADA3]/20 last:border-b-0">
+                        <span className="text-[#F7F5F2] text-base md:text-lg pr-4">{service.name}</span>
+                        <span className="text-[#C6B27C] font-semibold text-base md:text-lg whitespace-nowrap">{service.price}</span>
                       </div>
                     ))}
                   </div>
-                  <div className="pt-4 border-t border-[#B8ADA3]">
+                  <div className="pt-6 border-t border-[#B8ADA3]/30">
                     <a
                       href={bookingUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#2E2E2C] hover:text-[#C6B27C] transition-colors font-medium text-xs md:text-sm inline-block"
+                      className="inline-block bg-[#C6B27C] text-[#2E2E2C] px-6 py-3 font-semibold text-sm md:text-base hover:bg-[#B8ADA3] transition-all duration-300 hover:scale-105"
                     >
                       Book Now →
                     </a>

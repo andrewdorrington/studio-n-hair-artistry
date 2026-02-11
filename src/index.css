@@ -4,7 +4,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
 @import url('https://use.typekit.net/brandon-grot-w01-light.css');
-@import url('https://fonts.cdnfonts.com/css/lovelo');
 
 :root {
   --color-off-white: #F7F5F2;
@@ -60,8 +59,8 @@ p, span, li, a {
 }
 
 button, nav button, nav a {
-  font-family: 'Lovelo', sans-serif;
-  font-weight: 400;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 500;
   letter-spacing: 0.04em;
 }
 
