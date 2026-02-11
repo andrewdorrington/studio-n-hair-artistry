@@ -7,8 +7,8 @@ const serviceCategories = [
     services: [
       { name: 'Trim', price: '$45' },
       { name: 'Restyle cut', price: '$60' },
-      { name: 'Add Hair wash and dry', price: '+$15' },
       { name: 'Girls', price: '$35' },
+      { name: 'Add Hair wash and dry', price: '+$15' },
     ],
     side: 'left'
   },
@@ -23,11 +23,12 @@ const serviceCategories = [
     side: 'right'
   },
   {
-    category: 'Blow Wave',
+    category: 'Blow Wave & Styling',
     image: '/blowwaveservice.jpg',
     services: [
-      { name: 'Wash and blow wave medium', price: '$55' },
-      { name: 'Long', price: '$65' },
+      { name: 'Wash and blow wave', price: '' },
+      { name: '  Medium', price: '$55' },
+      { name: '  Long', price: '$65' },
       { name: 'Upstyle formal', price: 'From $80' },
     ],
     side: 'left'
@@ -39,7 +40,7 @@ const serviceCategories = [
     services: [
       { name: 'Re growth 6-8 week', price: '$85' },
       { name: 'Full tint Short', price: '$120' },
-      { name: 'Full tint Med', price: '$140' },
+      { name: 'Full tint Medium', price: '$140' },
       { name: 'Full tint Long', price: '$160' },
     ],
     side: 'right'
@@ -50,9 +51,8 @@ const serviceCategories = [
     duration: '1-3 hour service',
     services: [
       { name: 'Quarter head foil', price: '$85' },
-      { name: 'Half', price: '$150' },
-      { name: 'Full (include toner)', price: '$180' },
-      { name: 'Balayage', price: 'From $180' },
+      { name: 'Half head foil', price: '$150' },
+      { name: 'Full (include toner) / Balayage', price: 'From $180' },
     ],
     side: 'left'
   },
@@ -62,7 +62,7 @@ const serviceCategories = [
     duration: '2 hours service',
     services: [
       { name: 'Short hair', price: 'From $120' },
-      { name: 'Medium', price: 'From $150' },
+      { name: 'Medium hair', price: 'From $150' },
     ],
     side: 'right'
   },
@@ -71,7 +71,7 @@ const serviceCategories = [
     image: '/haircutservice.jpg',
     duration: '5 hours service',
     services: [
-      { name: 'Permanent straightening', price: 'From $500' },
+      { name: '', price: 'From $500' },
     ],
     side: 'left'
   },
@@ -234,7 +234,7 @@ function ServicesPage() {
                       {category.services.map((service, serviceIndex) => (
                         <div 
                           key={serviceIndex} 
-                          className="flex justify-between items-center py-2 border-b border-[#B8ADA3]/20 last:border-b-0 transition-all duration-300"
+                          className={`flex justify-between items-center py-2 border-b border-[#B8ADA3]/20 last:border-b-0 transition-all duration-300 ${service.name.startsWith('  ') ? 'pl-4' : ''}`}
                           style={{
                             transform: categoryIndex === activeIndex 
                               ? 'translateX(0)' 
@@ -243,7 +243,9 @@ function ServicesPage() {
                           }}
                         >
                           <span className="text-[#F7F5F2] text-base md:text-lg pr-4">{service.name}</span>
-                          <span className="text-[#C6B27C] font-semibold text-base md:text-lg whitespace-nowrap">{service.price}</span>
+                          {service.price && (
+                            <span className="text-[#C6B27C] font-semibold text-base md:text-lg whitespace-nowrap">{service.price}</span>
+                          )}
                         </div>
                       ))}
                     </div>
