@@ -114,26 +114,27 @@ function ServicesPage() {
   const getScale = (index: number) => {
     const distance = Math.abs(index - activeIndex);
     if (distance === 0) return 1; // Active category is full size
-    if (distance === 1) return 0.92; // Adjacent categories slightly smaller
-    return 0.85; // Further categories even smaller
+    if (distance === 1) return 0.97; // Adjacent categories very slightly smaller
+    return 0.95; // Further categories slightly smaller
   };
 
   const getOpacity = (index: number) => {
     const distance = Math.abs(index - activeIndex);
     if (distance === 0) return 1;
-    if (distance === 1) return 0.85;
-    return 0.7;
+    if (distance === 1) return 0.95;
+    return 0.9;
   };
 
   const getShadow = (index: number) => {
     const distance = Math.abs(index - activeIndex);
-    if (distance === 0) return '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(198, 178, 124, 0.1)';
-    if (distance === 1) return '0 15px 30px -8px rgba(0, 0, 0, 0.3)';
-    return '0 8px 16px -4px rgba(0, 0, 0, 0.2)';
+    // Large vignette-style shadows
+    if (distance === 0) return '0 0 150px 80px rgba(0, 0, 0, 0.4), 0 0 300px 150px rgba(0, 0, 0, 0.2), inset 0 0 100px rgba(0, 0, 0, 0.1)';
+    if (distance === 1) return '0 0 120px 60px rgba(0, 0, 0, 0.35), 0 0 250px 120px rgba(0, 0, 0, 0.15)';
+    return '0 0 100px 50px rgba(0, 0, 0, 0.3), 0 0 200px 100px rgba(0, 0, 0, 0.1)';
   };
 
   return (
-    <div className="min-h-screen bg-[#1a1a18]">
+    <div className="min-h-screen bg-[#F7F5F2]">
       <section className="py-8 md:py-12 bg-[#2E2E2C] border-b border-[#B8ADA3]/10">
         <div className="max-w-full mx-auto">
           <div className="text-center mb-8 px-4 sm:px-6 lg:px-8 pt-4">
@@ -147,7 +148,7 @@ function ServicesPage() {
         </div>
       </section>
 
-      <section className="relative bg-[#1a1a18]">
+      <section className="relative bg-[#F7F5F2]">
         <div className="max-w-full mx-auto">
           <div className="space-y-2 md:space-y-3">
             {serviceCategories.map((category, categoryIndex) => {
@@ -159,7 +160,7 @@ function ServicesPage() {
                 <div
                   key={categoryIndex}
                   ref={(el) => (categoryRefs.current[categoryIndex] = el)}
-                  className="relative w-full h-screen flex items-center overflow-hidden transition-all duration-700 ease-out"
+                  className="relative w-full h-screen flex items-center overflow-hidden transition-all duration-500 ease-out"
                   style={{
                     transform: `scale(${scale})`,
                     opacity: opacity,
@@ -172,45 +173,47 @@ function ServicesPage() {
                     <img
                       src={category.image}
                       alt={category.category}
-                      className="w-full h-full object-cover transition-transform duration-700 ease-out"
+                      className="w-full h-full object-cover transition-transform duration-500 ease-out"
                       style={{
-                        transform: categoryIndex === activeIndex ? 'scale(1.08)' : 'scale(1)',
+                        transform: categoryIndex === activeIndex ? 'scale(1.02)' : 'scale(1)',
                       }}
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';
-                        target.parentElement!.style.backgroundColor = '#1a1a18';
+                        target.parentElement!.style.backgroundColor = '#DED6CC';
                       }}
                     />
-                    {/* Darker gradient overlay for immersive feel */}
+                    {/* Subtle gradient overlay */}
                     <div 
-                      className={`absolute inset-0 bg-gradient-to-${category.side === 'left' ? 'r' : 'l'} transition-opacity duration-700`}
+                      className={`absolute inset-0 bg-gradient-to-${category.side === 'left' ? 'r' : 'l'} transition-opacity duration-500`}
                       style={{
                         background: categoryIndex === activeIndex 
-                          ? `linear-gradient(to ${category.side === 'left' ? 'right' : 'left'}, rgba(0,0,0,0.65), rgba(0,0,0,0.4), rgba(0,0,0,0.2))`
-                          : `linear-gradient(to ${category.side === 'left' ? 'right' : 'left'}, rgba(0,0,0,0.6), rgba(0,0,0,0.35), rgba(0,0,0,0.15))`
+                          ? `linear-gradient(to ${category.side === 'left' ? 'right' : 'left'}, rgba(0,0,0,0.3), rgba(0,0,0,0.15), transparent)`
+                          : `linear-gradient(to ${category.side === 'left' ? 'right' : 'left'}, rgba(0,0,0,0.25), rgba(0,0,0,0.1), transparent)`
                       }}
                     ></div>
-                    {/* Additional dark overlay for depth */}
-                    <div className="absolute inset-0 bg-black/20"></div>
+                    {/* Vignette overlay for blur effect */}
+                    <div className="absolute inset-0" style={{
+                      boxShadow: 'inset 0 0 200px 100px rgba(247, 245, 242, 0.3), inset 0 0 400px 200px rgba(247, 245, 242, 0.15)'
+                    }}></div>
                   </div>
 
                   {/* Services Panel - Takes 1/4 of width, positioned on alternating sides */}
                   <div 
-                    className={`absolute ${category.side === 'left' ? 'right-0 border-l' : 'left-0 border-r'} w-[25%] min-w-[280px] h-full flex flex-col justify-center p-8 md:p-10 lg:p-12 transition-all duration-700`}
+                    className={`absolute ${category.side === 'left' ? 'right-0 border-l' : 'left-0 border-r'} w-[25%] min-w-[280px] h-full flex flex-col justify-center p-8 md:p-10 lg:p-12 transition-all duration-500`}
                     style={{
                       borderColor: 'rgba(198, 178, 124, 0.2)',
                       boxShadow: categoryIndex === activeIndex 
-                        ? '0 25px 80px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(198, 178, 124, 0.2), inset 0 0 60px rgba(198, 178, 124, 0.05)'
-                        : '0 15px 40px -10px rgba(0, 0, 0, 0.6)',
-                      backgroundColor: categoryIndex === activeIndex ? '#1f1f1d' : '#1a1a18',
+                        ? '0 0 100px 50px rgba(0, 0, 0, 0.3), 0 0 200px 100px rgba(0, 0, 0, 0.15), inset 0 0 60px rgba(198, 178, 124, 0.05)'
+                        : '0 0 80px 40px rgba(0, 0, 0, 0.25), 0 0 150px 75px rgba(0, 0, 0, 0.1)',
+                      backgroundColor: categoryIndex === activeIndex ? '#2E2E2C' : '#2E2E2C',
                     }}
                   >
                     <h2 
-                      className="text-3xl md:text-4xl font-semibold mb-3 text-[#F7F5F2] transition-all duration-700" 
+                      className="text-3xl md:text-4xl font-semibold mb-3 text-[#F7F5F2] transition-all duration-500" 
                       style={{ 
                         fontFamily: "'brandon-grot-w01-light', sans-serif",
-                        transform: categoryIndex === activeIndex ? 'translateX(0)' : (category.side === 'left' ? 'translateX(-10px)' : 'translateX(10px)'),
+                        transform: categoryIndex === activeIndex ? 'translateX(0)' : (category.side === 'left' ? 'translateX(-3px)' : 'translateX(3px)'),
                       }}
                     >
                       {category.category}
@@ -228,8 +231,8 @@ function ServicesPage() {
                           style={{
                             transform: categoryIndex === activeIndex 
                               ? 'translateX(0)' 
-                              : (category.side === 'left' ? 'translateX(-5px)' : 'translateX(5px)'),
-                            opacity: categoryIndex === activeIndex ? 1 : 0.8,
+                              : (category.side === 'left' ? 'translateX(-2px)' : 'translateX(2px)'),
+                            opacity: categoryIndex === activeIndex ? 1 : 0.9,
                           }}
                         >
                           <span className="text-[#F7F5F2] text-base md:text-lg pr-4">{service.name}</span>
