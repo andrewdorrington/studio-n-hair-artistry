@@ -26,7 +26,7 @@ function Services() {
     <section id="services" className="py-24 bg-[#F7F5F2]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: "'brandon-grot-w01-light', sans-serif" }}>
             Our <span className="text-[#2E2E2C]">Services</span>
           </h2>
           <h2 className="text-xl md:text-2xl font-medium mb-4 text-[#2E2E2C]">

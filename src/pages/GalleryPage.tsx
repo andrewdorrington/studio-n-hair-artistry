@@ -3,6 +3,9 @@ function GalleryPage() {
     { id: 1, image: '/gallery1.jpg', category: 'Color' },
     { id: 2, image: '/gallery2.jpg', category: 'Styling' },
     { id: 3, image: '/gallery3.jpg', category: 'Cuts' },
+    { id: 4, image: '/haircutservice.jpg', category: 'Haircuts' },
+    { id: 5, image: '/blowwaveservice.jpg', category: 'Blow Waves' },
+    { id: 6, image: '/colourservice.jpg', category: 'Colour Services' },
   ];
 
   return (
@@ -10,7 +13,7 @@ function GalleryPage() {
       <section className="py-24 bg-[#F7F5F2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#2E2E2C]">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#2E2E2C]" style={{ fontFamily: "'brandon-grot-w01-light', sans-serif" }}>
               Our <span className="text-[#2E2E2C]">Gallery</span>
             </h1>
             <p className="text-xl text-[#2E2E2C] max-w-2xl mx-auto">
