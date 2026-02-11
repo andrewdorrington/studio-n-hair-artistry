@@ -88,17 +88,24 @@ function ServicesPage() {
     const handleScroll = () => {
       setScrollY(window.scrollY);
       
-      // Find which category is most in view
-      const viewportCenter = window.innerHeight / 2 + window.scrollY;
+      // Find which category is most in view - trigger earlier
+      const viewportTop = window.scrollY;
+      const viewportBottom = window.scrollY + window.innerHeight;
+      const triggerPoint = window.scrollY + window.innerHeight * 0.3; // Trigger at 30% from top instead of center
       
       categoryRefs.current.forEach((ref, index) => {
         if (ref) {
           const rect = ref.getBoundingClientRect();
-          const elementCenter = rect.top + rect.height / 2 + window.scrollY;
-          const distanceFromCenter = Math.abs(viewportCenter - elementCenter);
+          const elementTop = rect.top + window.scrollY;
+          const elementBottom = rect.bottom + window.scrollY;
+          const elementCenter = elementTop + rect.height / 2;
           
-          // If this element is closest to center and in viewport
-          if (distanceFromCenter < window.innerHeight && rect.top < window.innerHeight && rect.bottom > 0) {
+          // Check if trigger point is within this element's bounds
+          if (triggerPoint >= elementTop && triggerPoint <= elementBottom) {
+            setActiveIndex(index);
+          }
+          // Also check if element center is near viewport top third
+          else if (elementCenter >= viewportTop && elementCenter <= triggerPoint) {
             setActiveIndex(index);
           }
         }
@@ -127,10 +134,10 @@ function ServicesPage() {
 
   const getShadow = (index: number) => {
     const distance = Math.abs(index - activeIndex);
-    // Large vignette-style shadows
-    if (distance === 0) return '0 0 150px 80px rgba(0, 0, 0, 0.4), 0 0 300px 150px rgba(0, 0, 0, 0.2), inset 0 0 100px rgba(0, 0, 0, 0.1)';
-    if (distance === 1) return '0 0 120px 60px rgba(0, 0, 0, 0.35), 0 0 250px 120px rgba(0, 0, 0, 0.15)';
-    return '0 0 100px 50px rgba(0, 0, 0, 0.3), 0 0 200px 100px rgba(0, 0, 0, 0.1)';
+    // Darker, more subtle vignette-style shadows
+    if (distance === 0) return '0 0 150px 80px rgba(0, 0, 0, 0.5), 0 0 300px 150px rgba(0, 0, 0, 0.3), inset 0 0 100px rgba(0, 0, 0, 0.15)';
+    if (distance === 1) return '0 0 120px 60px rgba(0, 0, 0, 0.45), 0 0 250px 120px rgba(0, 0, 0, 0.25)';
+    return '0 0 100px 50px rgba(0, 0, 0, 0.4), 0 0 200px 100px rgba(0, 0, 0, 0.2)';
   };
 
   return (
@@ -160,7 +167,7 @@ function ServicesPage() {
                 <div
                   key={categoryIndex}
                   ref={(el) => (categoryRefs.current[categoryIndex] = el)}
-                  className="relative w-full h-screen flex items-center overflow-hidden transition-all duration-500 ease-out"
+                  className="relative w-full h-screen flex items-center overflow-hidden transition-all duration-300 ease-out"
                   style={{
                     transform: `scale(${scale})`,
                     opacity: opacity,
@@ -173,7 +180,7 @@ function ServicesPage() {
                     <img
                       src={category.image}
                       alt={category.category}
-                      className="w-full h-full object-cover transition-transform duration-500 ease-out"
+                      className="w-full h-full object-cover transition-transform duration-300 ease-out"
                       style={{
                         transform: categoryIndex === activeIndex ? 'scale(1.02)' : 'scale(1)',
                       }}
@@ -185,32 +192,32 @@ function ServicesPage() {
                     />
                     {/* Subtle gradient overlay */}
                     <div 
-                      className={`absolute inset-0 bg-gradient-to-${category.side === 'left' ? 'r' : 'l'} transition-opacity duration-500`}
+                      className={`absolute inset-0 bg-gradient-to-${category.side === 'left' ? 'r' : 'l'} transition-opacity duration-300`}
                       style={{
                         background: categoryIndex === activeIndex 
                           ? `linear-gradient(to ${category.side === 'left' ? 'right' : 'left'}, rgba(0,0,0,0.3), rgba(0,0,0,0.15), transparent)`
                           : `linear-gradient(to ${category.side === 'left' ? 'right' : 'left'}, rgba(0,0,0,0.25), rgba(0,0,0,0.1), transparent)`
                       }}
                     ></div>
-                    {/* Vignette overlay for blur effect */}
+                    {/* Darker vignette overlay for blur effect */}
                     <div className="absolute inset-0" style={{
-                      boxShadow: 'inset 0 0 200px 100px rgba(247, 245, 242, 0.3), inset 0 0 400px 200px rgba(247, 245, 242, 0.15)'
+                      boxShadow: 'inset 0 0 200px 100px rgba(0, 0, 0, 0.2), inset 0 0 400px 200px rgba(0, 0, 0, 0.1)'
                     }}></div>
                   </div>
 
                   {/* Services Panel - Takes 1/4 of width, positioned on alternating sides */}
                   <div 
-                    className={`absolute ${category.side === 'left' ? 'right-0 border-l' : 'left-0 border-r'} w-[25%] min-w-[280px] h-full flex flex-col justify-center p-8 md:p-10 lg:p-12 transition-all duration-500`}
+                    className={`absolute ${category.side === 'left' ? 'right-0 border-l' : 'left-0 border-r'} w-[25%] min-w-[280px] h-full flex flex-col justify-center p-8 md:p-10 lg:p-12 transition-all duration-300`}
                     style={{
                       borderColor: 'rgba(198, 178, 124, 0.2)',
                       boxShadow: categoryIndex === activeIndex 
-                        ? '0 0 100px 50px rgba(0, 0, 0, 0.3), 0 0 200px 100px rgba(0, 0, 0, 0.15), inset 0 0 60px rgba(198, 178, 124, 0.05)'
-                        : '0 0 80px 40px rgba(0, 0, 0, 0.25), 0 0 150px 75px rgba(0, 0, 0, 0.1)',
+                        ? '0 0 100px 50px rgba(0, 0, 0, 0.5), 0 0 200px 100px rgba(0, 0, 0, 0.3), inset 0 0 60px rgba(198, 178, 124, 0.05)'
+                        : '0 0 80px 40px rgba(0, 0, 0, 0.4), 0 0 150px 75px rgba(0, 0, 0, 0.25)',
                       backgroundColor: categoryIndex === activeIndex ? '#2E2E2C' : '#2E2E2C',
                     }}
                   >
                     <h2 
-                      className="text-3xl md:text-4xl font-semibold mb-3 text-[#F7F5F2] transition-all duration-500" 
+                      className="text-3xl md:text-4xl font-semibold mb-3 text-[#F7F5F2] transition-all duration-300" 
                       style={{ 
                         fontFamily: "'brandon-grot-w01-light', sans-serif",
                         transform: categoryIndex === activeIndex ? 'translateX(0)' : (category.side === 'left' ? 'translateX(-3px)' : 'translateX(3px)'),
@@ -227,7 +234,7 @@ function ServicesPage() {
                       {category.services.map((service, serviceIndex) => (
                         <div 
                           key={serviceIndex} 
-                          className="flex justify-between items-center py-2 border-b border-[#B8ADA3]/20 last:border-b-0 transition-all duration-500"
+                          className="flex justify-between items-center py-2 border-b border-[#B8ADA3]/20 last:border-b-0 transition-all duration-300"
                           style={{
                             transform: categoryIndex === activeIndex 
                               ? 'translateX(0)' 
