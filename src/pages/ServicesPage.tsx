@@ -9,18 +9,11 @@ const serviceCategories = [
       { name: 'Restyle cut', price: '$60' },
       { name: 'Girls', price: '$35' },
       { name: 'Add Hair wash and dry', price: '+$15' },
-    ],
-    side: 'left'
-  },
-  {
-    category: 'Men',
-    image: '/haircutservice.jpg',
-    services: [
       { name: 'Haircut', price: '$40' },
       { name: 'Buzz cut', price: '$25' },
       { name: 'Boys', price: '$30' },
     ],
-    side: 'right'
+    side: 'left'
   },
   {
     category: 'Blow Wave & Styling',

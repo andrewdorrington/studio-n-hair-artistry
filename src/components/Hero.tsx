@@ -119,7 +119,7 @@ function Hero({ onBookNow }: HeroProps) {
           className="text-lg md:text-xl lg:text-2xl text-[#F7F5F2] font-normal mb-12"
           style={{ fontFamily: "'Inter', system-ui, -apple-system, sans-serif", fontWeight: 400 }}
         >
-          The fine art of beautiful hair.
+          Effortless beauty, expertly crafted
         </p>
         {/* Book Now Button */}
         <button
