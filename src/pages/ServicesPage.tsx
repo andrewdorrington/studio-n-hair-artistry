@@ -2,10 +2,9 @@ import React from 'react';
 
 const serviceCategories = [
   {
-    category: 'Haircut',
+    category: 'Ladies',
     image: '/haircutservice.jpg',
     services: [
-      { name: 'Ladies', price: '', isHeading: true },
       { name: 'Trim', price: '$45' },
       { name: 'Restyle cut', price: '$60' },
       { name: 'Girls', price: '$35' },
@@ -243,7 +242,7 @@ function ServicesPage() {
                         ) : isHeading ? (
                           <h3
                             key={serviceIndex}
-                            className="text-2xl md:text-3xl font-semibold mb-3 text-[#F7F5F2] transition-all duration-300"
+                            className="text-3xl md:text-4xl font-semibold mb-3 text-[#F7F5F2] transition-all duration-300"
                             style={{ 
                               fontFamily: "'brandon-grot-w01-light', sans-serif",
                               transform: categoryIndex === activeIndex ? 'translateX(0)' : (category.side === 'left' ? 'translateX(-3px)' : 'translateX(3px)'),

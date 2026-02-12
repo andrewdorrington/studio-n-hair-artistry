@@ -25,14 +25,6 @@ function About() {
                 Natalie has perfected the art of the "efficient appointment." She delivers premium, master-stylist results in a fraction of the time, respecting the busy schedules of her professional and local clientele.
               </p>
             </div>
-
-            <blockquote className="text-xl md:text-2xl font-medium text-[#2E2E2C] mb-6 italic border-l-4 border-[#C6B27C] pl-6">
-              "Your hair should be your best accessory, not your biggest chore."
-            </blockquote>
-
-            <p className="text-lg text-[#2E2E2C] leading-relaxed">
-              Whether it's a sun-kissed lived-in blonde or a precision cut that styles itself, Natalie's mission is to give you that 'just-stepped-out-of-the-salon' confidence, every single day.
-            </p>
           </div>
 
           <div className="relative">
