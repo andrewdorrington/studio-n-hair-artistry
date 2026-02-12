@@ -7,7 +7,7 @@ const services = [
   },
   {
     title: 'Blow Waves & Styling',
-    image: '/blowwaveservice.jpg',
+    image: '/hero2nhat.jpeg',
     description: 'Professional blow-dry styling to give your hair volume, smoothness, and the perfect finish for any occasion.',
     price: 'From $45'
   },
