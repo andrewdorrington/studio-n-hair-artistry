@@ -1,11 +1,13 @@
 function Gallery() {
   const galleryItems = [
     { id: 1, image: '/gallery1.jpg', category: 'Color' },
-    { id: 2, image: '/gallery2.jpg', category: 'Styling' },
-    { id: 3, image: '/gallery3.jpg', category: 'Cuts' },
-    { id: 4, image: '/haircutservice.jpg', category: 'Haircuts' },
-    { id: 5, image: '/blowwaveservice.jpg', category: 'Blow Waves' },
-    { id: 6, image: '/colourservice.jpg', category: 'Colour Services' },
+    { id: 2, image: '/gallery2new.jpeg', category: 'Styling' },
+    { id: 3, image: '/gallery3new.jpeg', category: 'Cuts' },
+    { id: 4, image: '/gallery2.jpg', category: 'Styling' },
+    { id: 5, image: '/gallery3.jpg', category: 'Cuts' },
+    { id: 6, image: '/haircutservice.jpg', category: 'Haircuts' },
+    { id: 7, image: '/blowwaveservice.jpg', category: 'Blow Waves' },
+    { id: 8, image: '/colourservice.jpg', category: 'Colour Services' },
   ];
 
   return (

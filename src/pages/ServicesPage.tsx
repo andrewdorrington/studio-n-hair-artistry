@@ -19,7 +19,7 @@ const serviceCategories = [
   },
   {
     category: 'Blow Wave & Styling',
-    image: '/blowwaveservice.jpg',
+    image: '/hero2nhat.jpeg',
     services: [
       { name: 'Wash and blow wave', price: '' },
       { name: '  Medium', price: '$55' },
