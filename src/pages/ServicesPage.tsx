@@ -41,7 +41,7 @@ const serviceCategories = [
   },
   {
     category: 'Foil and Highlight',
-    image: '/colourservice.jpg',
+    image: '/blowwaveservice.jpg',
     duration: '1-3 hour service',
     services: [
       { name: 'Quarter head foil', price: '$85' },
@@ -52,7 +52,7 @@ const serviceCategories = [
   },
   {
     category: 'Hair Perm',
-    image: '/haircutservice.jpg',
+    image: '/hero1.jpg',
     duration: '2 hours service',
     services: [
       { name: 'Short hair', price: 'From $120' },
@@ -62,7 +62,7 @@ const serviceCategories = [
   },
   {
     category: 'Permanent Straightening',
-    image: '/haircutservice.jpg',
+    image: '/hero3.jpg',
     duration: '5 hours service',
     services: [
       { name: '', price: 'From $500' },
