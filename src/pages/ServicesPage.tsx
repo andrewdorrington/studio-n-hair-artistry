@@ -9,6 +9,7 @@ const serviceCategories = [
       { name: 'Restyle cut', price: '$60' },
       { name: 'Girls', price: '$35' },
       { name: 'Add Hair wash and dry', price: '+$15' },
+      { name: 'Mens', price: '', isHeading: true },
       { name: 'Haircut', price: '$40' },
       { name: 'Buzz cut', price: '$25' },
       { name: 'Boys', price: '$30' },
@@ -224,29 +225,43 @@ function ServicesPage() {
                       </p>
                     )}
                     <div className="space-y-4 mb-8">
-                      {category.services.map((service, serviceIndex) => (
-                        <div 
-                          key={serviceIndex} 
-                          className={`flex ${service.name === '' ? 'justify-start' : 'justify-between'} items-center py-2 border-b border-[#B8ADA3]/20 last:border-b-0 transition-all duration-300 ${service.name.startsWith('  ') ? 'pl-4' : ''}`}
-                          style={{
-                            transform: categoryIndex === activeIndex 
-                              ? 'translateX(0)' 
-                              : (category.side === 'left' ? 'translateX(-2px)' : 'translateX(2px)'),
-                            opacity: categoryIndex === activeIndex ? 1 : 0.9,
-                          }}
-                        >
-                          {service.name === '' ? (
-                            <span className="text-[#C6B27C] font-semibold text-base md:text-lg whitespace-nowrap">{service.price}</span>
-                          ) : (
-                            <>
-                              <span className="text-[#F7F5F2] text-base md:text-lg pr-4">{service.name}</span>
-                              {service.price && (
-                                <span className="text-[#C6B27C] font-semibold text-base md:text-lg whitespace-nowrap">{service.price}</span>
-                              )}
-                            </>
-                          )}
-                        </div>
-                      ))}
+                      {category.services.map((service, serviceIndex) => {
+                        const isHeading = (service as any).isHeading;
+                        return isHeading ? (
+                          <h3
+                            key={serviceIndex}
+                            className="text-3xl md:text-4xl font-semibold mb-3 text-[#F7F5F2] transition-all duration-300"
+                            style={{ 
+                              fontFamily: "'brandon-grot-w01-light', sans-serif",
+                              transform: categoryIndex === activeIndex ? 'translateX(0)' : (category.side === 'left' ? 'translateX(-3px)' : 'translateX(3px)'),
+                            }}
+                          >
+                            {service.name}
+                          </h3>
+                        ) : (
+                          <div 
+                            key={serviceIndex} 
+                            className={`flex ${service.name === '' ? 'justify-start' : 'justify-between'} items-center py-2 border-b border-[#B8ADA3]/20 last:border-b-0 transition-all duration-300 ${service.name.startsWith('  ') ? 'pl-4' : ''}`}
+                            style={{
+                              transform: categoryIndex === activeIndex 
+                                ? 'translateX(0)' 
+                                : (category.side === 'left' ? 'translateX(-2px)' : 'translateX(2px)'),
+                              opacity: categoryIndex === activeIndex ? 1 : 0.9,
+                            }}
+                          >
+                            {service.name === '' ? (
+                              <span className="text-[#C6B27C] font-semibold text-base md:text-lg whitespace-nowrap">{service.price}</span>
+                            ) : (
+                              <>
+                                <span className="text-[#F7F5F2] text-base md:text-lg pr-4">{service.name}</span>
+                                {service.price && (
+                                  <span className="text-[#C6B27C] font-semibold text-base md:text-lg whitespace-nowrap">{service.price}</span>
+                                )}
+                              </>
+                            )}
+                          </div>
+                        );
+                      })}
                     </div>
                     <div className="pt-6 border-t border-[#B8ADA3]/30">
                       <a
