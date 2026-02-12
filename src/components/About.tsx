@@ -12,43 +12,25 @@ function About() {
               With a career spanning over 25 years, Natalie has mastered the rarest skill in hair artistry: the ability to create looks that are as easy to wear as they are beautiful to look at.
             </p>
 
-            <p className="text-lg text-[#2E2E2C] mb-8 leading-relaxed">
+            <p className="text-lg text-[#2E2E2C] mb-6 leading-relaxed">
               As the founder of Studio N Hair Artistry, Natalie has moved away from the "over-styled" look of the past. Instead, she focuses on low-maintenance luxury hair that moves naturally, grows out seamlessly, and works with your lifestyle rather than against it.
             </p>
 
-            <h3 className="text-2xl md:text-3xl font-semibold mb-6 text-[#2E2E2C]">
-              Why Mount Waverley chooses Natalie:
-            </h3>
+            <p className="text-lg text-[#2E2E2C] mb-6 leading-relaxed">
+              Decades of experience means she understands hair behaviour better than anyone. She knows exactly how a cut will settle and how a colour will fade, ensuring your look lasts weeks, not days.
+            </p>
 
-            <div className="space-y-6 mb-8">
-              <div>
-                <h4 className="text-lg font-semibold text-[#2E2E2C] mb-2">The 25-Year Edge:</h4>
-                <p className="text-lg text-[#2E2E2C] leading-relaxed">
-                  Decades of experience means she understands hair behaviour better than anyone. She knows exactly how a cut will settle and how a colour will fade, ensuring your look lasts weeks, not days.
-                </p>
-              </div>
+            <p className="text-lg text-[#2E2E2C] mb-6 leading-relaxed">
+              A specialist in wavy and curly hair, Natalie's signature "dry-cut" and layering techniques are designed to enhance your natural movement, cutting your morning styling time in half.
+            </p>
 
-              <div>
-                <h4 className="text-lg font-semibold text-[#2E2E2C] mb-2">Effortless Textures:</h4>
-                <p className="text-lg text-[#2E2E2C] leading-relaxed">
-                  A specialist in wavy and curly hair, Natalie's signature "dry-cut" and layering techniques are designed to enhance your natural movement, cutting your morning styling time in half.
-                </p>
-              </div>
+            <p className="text-lg text-[#2E2E2C] mb-6 leading-relaxed">
+              No guesswork. Natalie provides a master-level assessment of your hair's health and potential, offering "straight-talk" advice to achieve the glow-up you want with the health your hair needs.
+            </p>
 
-              <div>
-                <h4 className="text-lg font-semibold text-[#2E2E2C] mb-2">Intuitive Consultation:</h4>
-                <p className="text-lg text-[#2E2E2C] leading-relaxed">
-                  No guesswork. Natalie provides a master-level assessment of your hair's health and potential, offering "straight-talk" advice to achieve the glow-up you want with the health your hair needs.
-                </p>
-              </div>
-
-              <div>
-                <h4 className="text-lg font-semibold text-[#2E2E2C] mb-2">Time-Conscious Excellence:</h4>
-                <p className="text-lg text-[#2E2E2C] leading-relaxed">
-                  Natalie has perfected the art of the "efficient appointment." She delivers premium, master-stylist results in a fraction of the time, respecting the busy schedules of her professional and local clientele.
-                </p>
-              </div>
-            </div>
+            <p className="text-lg text-[#2E2E2C] mb-8 leading-relaxed">
+              Natalie has perfected the art of the "efficient appointment." She delivers premium, master-stylist results in a fraction of the time, respecting the busy schedules of her professional and local clientele.
+            </p>
 
             <blockquote className="text-xl md:text-2xl font-medium text-[#2E2E2C] mb-6 italic border-l-4 border-[#C6B27C] pl-6">
               "Your hair should be your best accessory, not your biggest chore."
