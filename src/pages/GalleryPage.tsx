@@ -13,7 +13,7 @@ function GalleryPage() {
       <section className="py-24 bg-[#F7F5F2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-semibold mb-4 text-[#2E2E2C]" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, letterSpacing: '0.05em' }}>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#2E2E2C]" style={{ fontFamily: "'brandon-grot-w01-light', sans-serif" }}>
               Our <span className="text-[#2E2E2C]">Gallery</span>
             </h1>
             <p className="text-xl text-[#2E2E2C] max-w-2xl mx-auto">
