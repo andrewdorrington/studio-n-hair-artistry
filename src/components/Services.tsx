@@ -29,9 +29,6 @@ function Services() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: "'brandon-grot-w01-light', sans-serif" }}>
             Our <span className="text-[#2E2E2C]">Services</span>
           </h2>
-          <h2 className="text-xl md:text-2xl font-medium mb-4 text-[#2E2E2C]">
-            Hair Salon in Mount Waverley
-          </h2>
           <p className="text-xl text-[#2E2E2C] max-w-2xl mx-auto">
             Discover our comprehensive range of professional hair services designed to bring out your best look.
           </p>

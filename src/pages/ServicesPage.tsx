@@ -136,7 +136,7 @@ function ServicesPage() {
 
   return (
     <div className="min-h-screen bg-[#F7F5F2]">
-      <section className="py-8 md:py-12 bg-[#2E2E2C] border-b border-[#B8ADA3]/10">
+      <section className="py-8 md:py-12 bg-[#2E2E2C] border-b border-[#B8ADA3]/10" style={{ boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)' }}>
         <div className="max-w-full mx-auto">
           <div className="text-center mb-8 px-4 sm:px-6 lg:px-8 pt-4">
             <h1 className="text-3xl md:text-4xl font-bold mb-2 text-[#F7F5F2]" style={{ fontFamily: "'brandon-grot-w01-light', sans-serif" }}>
