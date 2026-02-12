@@ -140,7 +140,7 @@ function ServicesPage() {
       <section className="py-8 md:py-12 bg-[#2E2E2C] border-b border-[#B8ADA3]/10">
         <div className="max-w-full mx-auto">
           <div className="text-center mb-8 px-4 sm:px-6 lg:px-8 pt-4">
-            <h1 className="text-3xl md:text-4xl font-bold mb-2 text-[#F7F5F2]" style={{ fontFamily: "'brandon-grot-w01-light', sans-serif" }}>
+            <h1 className="text-4xl md:text-5xl font-semibold mb-2 text-[#F7F5F2]" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, letterSpacing: '0.05em' }}>
               Our <span className="text-[#C6B27C]">Services</span>
             </h1>
             <p className="text-base md:text-lg text-[#F7F5F2]/70 max-w-2xl mx-auto">
