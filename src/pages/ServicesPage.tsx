@@ -36,19 +36,12 @@ const serviceCategories = [
       { name: 'Full tint Short', price: '$120' },
       { name: 'Full tint Medium', price: '$140' },
       { name: 'Full tint Long', price: '$160' },
-    ],
-    side: 'right'
-  },
-  {
-    category: 'Foil and Highlight',
-    image: '/blowwaveservice.jpg',
-    duration: '1-3 hour service',
-    services: [
+      { name: 'Foil and Highlight', price: '', isHeading: true },
       { name: 'Quarter head foil', price: '$85' },
       { name: 'Half head foil', price: '$150' },
       { name: 'Full (include toner) / Balayage', price: 'From $180' },
     ],
-    side: 'left'
+    side: 'right'
   },
   {
     category: 'Hair Perm',
@@ -57,17 +50,10 @@ const serviceCategories = [
     services: [
       { name: 'Short hair', price: 'From $120' },
       { name: 'Medium hair', price: 'From $150' },
-    ],
-    side: 'right'
-  },
-  {
-    category: 'Permanent Straightening',
-    image: '/hero3.jpg',
-    duration: '5 hours service',
-    services: [
+      { name: 'Permanent Straightening', price: '', isHeading: true },
       { name: '', price: 'From $500' },
     ],
-    side: 'left'
+    side: 'right'
   },
 ];
 
