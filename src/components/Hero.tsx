@@ -9,6 +9,7 @@ function Hero({ onBookNow }: HeroProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [animatingSlide, setAnimatingSlide] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   
   // Hero banner images
   const slides = [
@@ -34,10 +35,17 @@ function Hero({ onBookNow }: HeroProps) {
     },
   ];
 
-  // Check for reduced motion preference
+  // Check for reduced motion preference and mobile
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     setPrefersReducedMotion(mediaQuery.matches);
+    
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   // Trigger zoom animation when slide changes
@@ -88,9 +96,9 @@ function Hero({ onBookNow }: HeroProps) {
               <img
                 src={slide.image}
                 alt={slide.alt}
-                className="w-full h-full object-cover"
+                className={`w-full h-full ${isMobile ? 'object-contain' : 'object-cover'}`}
                 style={{
-                  transform: prefersReducedMotion ? 'scale(1)' : (isLoaded && animatingSlide === index) ? 'scale(1)' : 'scale(1.1)',
+                  transform: prefersReducedMotion ? 'scale(1)' : (isLoaded && animatingSlide === index) ? 'scale(1)' : (isMobile ? 'scale(1)' : 'scale(1.1)'),
                   transition: prefersReducedMotion ? 'none' : 'transform 5s ease-out',
                   imageRendering: 'high-quality',
                 }}

@@ -194,7 +194,93 @@ function ServicesPage() {
 
       <section className="relative bg-[#F7F5F2]">
         <div className="max-w-full mx-auto">
-          <div className="space-y-2 md:space-y-3">
+          {/* Mobile View - List Format */}
+          <div className="md:hidden">
+            {serviceCategories.map((category, categoryIndex) => (
+              <div
+                key={categoryIndex}
+                className="w-full bg-[#2E2E2C] p-5"
+                style={{
+                  borderTop: categoryIndex > 0 ? '1px solid rgba(198, 178, 124, 0.2)' : 'none'
+                }}
+              >
+                <h2 
+                  className="text-2xl font-semibold mb-2 text-[#F7F5F2]" 
+                  style={{ 
+                    fontFamily: "'brandon-grot-w01-light', sans-serif",
+                  }}
+                >
+                  {category.category}
+                </h2>
+                {category.duration && (
+                  <p className="text-xs text-[#C6B27C] mb-4 italic font-light">
+                    {category.duration}
+                  </p>
+                )}
+                <div className="space-y-3 mb-0">
+                  {category.services.map((service, serviceIndex) => {
+                    const isHeading = (service as any).isHeading;
+                    const isMainHeading = (service as any).isMainHeading;
+                    return isMainHeading ? (
+                      <h3
+                        key={serviceIndex}
+                        className="text-2xl font-semibold mb-2 text-[#F7F5F2]"
+                        style={{ 
+                          fontFamily: "'brandon-grot-w01-light', sans-serif",
+                        }}
+                      >
+                        {service.name}
+                      </h3>
+                    ) : isHeading ? (
+                      <div key={serviceIndex}>
+                        <h3
+                          className="text-2xl font-semibold mb-2 text-[#F7F5F2]"
+                          style={{ 
+                            fontFamily: "'brandon-grot-w01-light', sans-serif",
+                          }}
+                        >
+                          {service.name}
+                        </h3>
+                        {(service as any).duration && (
+                          <p className="text-xs text-[#C6B27C] mb-3 italic font-light">
+                            {(service as any).duration}
+                          </p>
+                        )}
+                      </div>
+                    ) : (
+                      <div 
+                        key={serviceIndex} 
+                        className={`flex ${service.name === '' ? 'justify-start' : 'justify-between'} items-center py-1.5 border-b border-[#B8ADA3]/20 last:border-b-0 ${service.name.startsWith('  ') ? 'pl-3' : ''}`}
+                      >
+                        {service.name === '' ? (
+                          <span className="text-[#F7F5F2] font-semibold text-sm whitespace-nowrap">{service.price}</span>
+                        ) : (
+                          <>
+                            <span className="text-[#F7F5F2] text-sm pr-2 break-words">{service.name}</span>
+                            {service.price && (
+                              <span className="text-[#C6B27C] font-semibold text-sm whitespace-nowrap ml-2">{service.price}</span>
+                            )}
+                          </>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+            {/* Single Book Now Button at Bottom for Mobile */}
+            <div className="w-full bg-[#2E2E2C] p-5 border-t border-[#B8ADA3]/30">
+              <button
+                onClick={() => setIsBookingModalOpen(true)}
+                className="w-full bg-[#C6B27C] text-[#2E2E2C] px-5 py-3 font-semibold text-base transition-transform duration-300 hover:scale-105 text-center"
+              >
+                Book Now →
+              </button>
+            </div>
+          </div>
+
+          {/* Desktop View - Original Layout */}
+          <div className="hidden md:block space-y-3">
             {serviceCategories.map((category, categoryIndex) => {
               const scale = getScale(categoryIndex);
               const opacity = getOpacity(categoryIndex);
@@ -204,7 +290,7 @@ function ServicesPage() {
                 <div
                   key={categoryIndex}
                   ref={(el) => (categoryRefs.current[categoryIndex] = el)}
-                  className="relative w-full h-[600px] md:h-screen flex flex-col md:flex-row items-stretch overflow-hidden transition-all duration-300 ease-out"
+                  className="relative w-full h-screen flex flex-row items-stretch overflow-hidden transition-all duration-300 ease-out"
                   style={{
                     transform: `scale(${scale})`,
                     opacity: opacity,
@@ -212,8 +298,8 @@ function ServicesPage() {
                     transformOrigin: 'center center',
                   }}
                 >
-                  {/* Background Image - Full width on mobile, 4/5 on desktop */}
-                  <div className={`absolute inset-0 ${category.side === 'left' ? 'md:left-0 md:right-[25%]' : 'md:right-0 md:left-[25%]'}`}>
+                  {/* Background Image - 4/5 on desktop */}
+                  <div className={`absolute inset-0 ${category.side === 'left' ? 'left-0 right-[25%]' : 'right-0 left-[25%]'}`}>
                     <img
                       src={category.image}
                       alt={category.category}
@@ -227,46 +313,32 @@ function ServicesPage() {
                         target.parentElement!.style.backgroundColor = '#DED6CC';
                       }}
                     />
-                    {/* Subtle gradient overlay - vertical on mobile, horizontal on desktop */}
-                    <div className="absolute inset-0 transition-opacity duration-300">
-                      {/* Mobile gradient - always vertical */}
-                      <div 
-                        className="md:hidden absolute inset-0"
-                        style={{
-                          background: 'linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.3), transparent)'
-                        }}
-                      ></div>
-                      {/* Desktop gradient - horizontal based on side */}
-                      <div 
-                        className={`hidden md:block absolute inset-0`}
-                        style={{
-                          background: categoryIndex === activeIndex 
-                            ? `linear-gradient(to ${category.side === 'left' ? 'right' : 'left'}, rgba(0,0,0,0.3), rgba(0,0,0,0.15), transparent)`
-                            : `linear-gradient(to ${category.side === 'left' ? 'right' : 'left'}, rgba(0,0,0,0.25), rgba(0,0,0,0.1), transparent)`
-                        }}
-                      ></div>
-                    </div>
-                    {/* Darker vignette overlay for blur effect */}
-                    <div className="absolute inset-0 md:hidden" style={{
-                      boxShadow: 'inset 0 0 100px 50px rgba(0, 0, 0, 0.3)'
-                    }}></div>
-                    <div className="absolute inset-0 hidden md:block" style={{
+                    {/* Desktop gradient - horizontal based on side */}
+                    <div 
+                      className="absolute inset-0"
+                      style={{
+                        background: categoryIndex === activeIndex 
+                          ? `linear-gradient(to ${category.side === 'left' ? 'right' : 'left'}, rgba(0,0,0,0.3), rgba(0,0,0,0.15), transparent)`
+                          : `linear-gradient(to ${category.side === 'left' ? 'right' : 'left'}, rgba(0,0,0,0.25), rgba(0,0,0,0.1), transparent)`
+                      }}
+                    ></div>
+                    <div className="absolute inset-0" style={{
                       boxShadow: 'inset 0 0 200px 100px rgba(0, 0, 0, 0.2), inset 0 0 400px 200px rgba(0, 0, 0, 0.1)'
                     }}></div>
                   </div>
 
-                  {/* Services Panel - Full width on mobile, 1/4 on desktop */}
+                  {/* Services Panel - 1/4 on desktop */}
                   <div 
-                    className={`relative md:absolute ${category.side === 'left' ? 'md:right-0 md:border-l' : 'md:left-0 md:border-r'} w-full md:w-[25%] md:min-w-[280px] h-auto md:h-full flex flex-col justify-center p-5 md:p-8 lg:p-10 xl:p-12 transition-all duration-300 bg-[#2E2E2C]/95 md:bg-[#2E2E2C] mt-auto`}
+                    className={`absolute ${category.side === 'left' ? 'right-0 border-l' : 'left-0 border-r'} w-[25%] min-w-[280px] h-full flex flex-col justify-center p-8 lg:p-10 xl:p-12 transition-all duration-300 bg-[#2E2E2C]`}
                     style={{
                       borderColor: 'rgba(198, 178, 124, 0.2)',
-                      boxShadow: isMobile ? 'none' : (categoryIndex === activeIndex 
+                      boxShadow: categoryIndex === activeIndex 
                         ? '0 0 100px 50px rgba(0, 0, 0, 0.5), 0 0 200px 100px rgba(0, 0, 0, 0.3), inset 0 0 60px rgba(198, 178, 124, 0.05)'
-                        : '0 0 80px 40px rgba(0, 0, 0, 0.4), 0 0 150px 75px rgba(0, 0, 0, 0.25)'),
+                        : '0 0 80px 40px rgba(0, 0, 0, 0.4), 0 0 150px 75px rgba(0, 0, 0, 0.25)',
                     }}
                   >
                     <h2 
-                      className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-2 md:mb-3 text-[#F7F5F2] transition-all duration-300 md:transform-none" 
+                      className="text-3xl lg:text-4xl font-semibold mb-3 text-[#F7F5F2] transition-all duration-300" 
                       style={{ 
                         fontFamily: "'brandon-grot-w01-light', sans-serif",
                       }}
@@ -274,18 +346,18 @@ function ServicesPage() {
                       {category.category}
                     </h2>
                     {category.duration && (
-                      <p className="text-xs md:text-sm lg:text-base text-[#C6B27C] mb-4 md:mb-6 italic font-light">
+                      <p className="text-sm lg:text-base text-[#C6B27C] mb-6 italic font-light">
                         {category.duration}
                       </p>
                     )}
-                    <div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
+                    <div className="space-y-4 mb-8">
                       {category.services.map((service, serviceIndex) => {
                         const isHeading = (service as any).isHeading;
                         const isMainHeading = (service as any).isMainHeading;
                         return isMainHeading ? (
                           <h3
                             key={serviceIndex}
-                            className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-2 md:mb-3 text-[#F7F5F2] transition-all duration-300 md:transform-none"
+                            className="text-3xl lg:text-4xl font-semibold mb-3 text-[#F7F5F2] transition-all duration-300"
                             style={{ 
                               fontFamily: "'brandon-grot-w01-light', sans-serif",
                             }}
@@ -295,7 +367,7 @@ function ServicesPage() {
                         ) : isHeading ? (
                           <div key={serviceIndex}>
                             <h3
-                              className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-2 md:mb-3 text-[#F7F5F2] transition-all duration-300 md:transform-none"
+                              className="text-3xl lg:text-4xl font-semibold mb-3 text-[#F7F5F2] transition-all duration-300"
                               style={{ 
                                 fontFamily: "'brandon-grot-w01-light', sans-serif",
                               }}
@@ -303,7 +375,7 @@ function ServicesPage() {
                               {service.name}
                             </h3>
                             {(service as any).duration && (
-                              <p className="text-xs md:text-sm lg:text-base text-[#C6B27C] mb-3 md:mb-4 italic font-light">
+                              <p className="text-sm lg:text-base text-[#C6B27C] mb-4 italic font-light">
                                 {(service as any).duration}
                               </p>
                             )}
@@ -311,19 +383,19 @@ function ServicesPage() {
                         ) : (
                           <div 
                             key={serviceIndex} 
-                            className={`flex ${service.name === '' ? 'justify-start' : 'justify-between'} items-center py-1.5 md:py-2 border-b border-[#B8ADA3]/20 last:border-b-0 transition-all duration-300 ${service.name.startsWith('  ') ? 'pl-3 md:pl-4' : ''}`}
+                            className={`flex ${service.name === '' ? 'justify-start' : 'justify-between'} items-center py-2 border-b border-[#B8ADA3]/20 last:border-b-0 transition-all duration-300 ${service.name.startsWith('  ') ? 'pl-4' : ''}`}
                             style={{
                               transform: 'translateX(0)',
                               opacity: 1,
                             }}
                           >
                             {service.name === '' ? (
-                              <span className="text-[#F7F5F2] font-semibold text-sm md:text-base lg:text-lg whitespace-nowrap">{service.price}</span>
+                              <span className="text-[#F7F5F2] font-semibold text-base lg:text-lg whitespace-nowrap">{service.price}</span>
                             ) : (
                               <>
-                                <span className="text-[#F7F5F2] text-sm md:text-base lg:text-lg pr-2 md:pr-4 break-words">{service.name}</span>
+                                <span className="text-[#F7F5F2] text-base lg:text-lg pr-4 break-words">{service.name}</span>
                                 {service.price && (
-                                  <span className="text-[#C6B27C] font-semibold text-sm md:text-base lg:text-lg whitespace-nowrap ml-2">{service.price}</span>
+                                  <span className="text-[#C6B27C] font-semibold text-base lg:text-lg whitespace-nowrap ml-2">{service.price}</span>
                                 )}
                               </>
                             )}
@@ -331,10 +403,10 @@ function ServicesPage() {
                         );
                       })}
                     </div>
-                    <div className="pt-4 md:pt-6 border-t border-[#B8ADA3]/30">
+                    <div className="pt-6 border-t border-[#B8ADA3]/30">
                       <button
                         onClick={() => setIsBookingModalOpen(true)}
-                        className="inline-block bg-[#C6B27C] text-[#2E2E2C] px-5 md:px-6 py-2.5 md:py-3 font-semibold text-xs md:text-sm lg:text-base transition-transform duration-300 hover:scale-110 w-full md:w-auto text-center"
+                        className="inline-block bg-[#C6B27C] text-[#2E2E2C] px-6 py-3 font-semibold text-sm lg:text-base transition-transform duration-300 hover:scale-110 text-center"
                       >
                         Book Now →
                       </button>
