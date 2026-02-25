@@ -8,9 +8,53 @@ import Gallery from './components/Gallery';
 import ServicesPage from './pages/ServicesPage';
 import GalleryPage from './pages/GalleryPage';
 
+function BookingModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+  if (!isOpen) return null;
+
+  return (
+    <div 
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+      onClick={onClose}
+    >
+      {/* Backdrop */}
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose}></div>
+      
+      {/* Modal */}
+      <div 
+        className="relative bg-[#2E2E2C] rounded-lg shadow-2xl max-w-md w-full p-8 md:p-10 text-center z-10"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-[#F7F5F2] hover:text-[#C6B27C] transition-colors"
+          aria-label="Close"
+        >
+          <X size={24} />
+        </button>
+        
+        <div className="mt-4">
+          <h2 className="text-2xl md:text-3xl font-semibold text-[#F7F5F2] mb-6" style={{ fontFamily: "'brandon-grot-w01-light', sans-serif" }}>
+            Call to Book Now
+          </h2>
+          <a 
+            href="tel:0431207243"
+            className="text-3xl md:text-4xl font-semibold text-[#C6B27C] hover:text-[#F7F5F2] transition-colors block mb-6"
+          >
+            0431 207 243
+          </a>
+          <p className="text-[#F7F5F2]/70 text-sm md:text-base">
+            We're here to help you schedule your appointment
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
 
   useEffect(() => {
     const handleLocationChange = () => {
@@ -36,13 +80,14 @@ function App() {
   };
 
   const handleBookNow = () => {
-    window.open('https://www.picktime.com/926c9651-ba4b-4498-a119-98c3f369501d', '_blank');
+    setIsBookingModalOpen(true);
   };
 
   // If on services page, show ServicesPage
   if (currentPath === '/services') {
     return (
       <div className="min-h-screen bg-[#F7F5F2] text-[#2E2E2C]">
+        <BookingModal isOpen={isBookingModalOpen} onClose={() => setIsBookingModalOpen(false)} />
         <nav className="fixed top-0 w-full bg-[#2E2E2C] backdrop-blur-sm z-50 border-b border-[#B8ADA3]">
           <div className="w-full flex items-center justify-between h-28">
             <div className="flex items-center pl-0">
@@ -96,6 +141,7 @@ function App() {
   if (currentPath === '/gallery') {
     return (
       <div className="min-h-screen bg-[#F7F5F2] text-[#2E2E2C]">
+        <BookingModal isOpen={isBookingModalOpen} onClose={() => setIsBookingModalOpen(false)} />
         <nav className="fixed top-0 w-full bg-[#2E2E2C] backdrop-blur-sm z-50 border-b border-[#B8ADA3]">
           <div className="w-full flex items-center justify-between h-28">
             <div className="flex items-center pl-0">
@@ -241,6 +287,8 @@ function App() {
           </div>
         </section>
       </main>
+
+      <BookingModal isOpen={isBookingModalOpen} onClose={() => setIsBookingModalOpen(false)} />
 
       <footer className="bg-[#2E2E2C] border-t border-[#B8ADA3] py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

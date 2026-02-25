@@ -57,12 +57,56 @@ const serviceCategories = [
   },
 ];
 
-const bookingUrl = 'https://www.picktime.com/926c9651-ba4b-4498-a119-98c3f369501d';
+function BookingModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+  if (!isOpen) return null;
+
+  return (
+    <div 
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+      onClick={onClose}
+    >
+      {/* Backdrop */}
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose}></div>
+      
+      {/* Modal */}
+      <div 
+        className="relative bg-[#2E2E2C] rounded-lg shadow-2xl max-w-md w-full p-8 md:p-10 text-center z-10"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-[#F7F5F2] hover:text-[#C6B27C] transition-colors"
+          aria-label="Close"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        
+        <div className="mt-4">
+          <h2 className="text-2xl md:text-3xl font-semibold text-[#F7F5F2] mb-6" style={{ fontFamily: "'brandon-grot-w01-light', sans-serif" }}>
+            Call to Book Now
+          </h2>
+          <a 
+            href="tel:0431207243"
+            className="text-3xl md:text-4xl font-semibold text-[#C6B27C] hover:text-[#F7F5F2] transition-colors block mb-6"
+          >
+            0431 207 243
+          </a>
+          <p className="text-[#F7F5F2]/70 text-sm md:text-base">
+            We're here to help you schedule your appointment
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function ServicesPage() {
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [scrollY, setScrollY] = React.useState(0);
   const [isMobile, setIsMobile] = React.useState(false);
+  const [isBookingModalOpen, setIsBookingModalOpen] = React.useState(false);
   const categoryRefs = React.useRef<(HTMLDivElement | null)[]>([]);
 
   React.useEffect(() => {
@@ -288,14 +332,12 @@ function ServicesPage() {
                       })}
                     </div>
                     <div className="pt-4 md:pt-6 border-t border-[#B8ADA3]/30">
-                      <a
-                        href={bookingUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <button
+                        onClick={() => setIsBookingModalOpen(true)}
                         className="inline-block bg-[#C6B27C] text-[#2E2E2C] px-5 md:px-6 py-2.5 md:py-3 font-semibold text-xs md:text-sm lg:text-base transition-transform duration-300 hover:scale-110 w-full md:w-auto text-center"
                       >
                         Book Now →
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -304,6 +346,7 @@ function ServicesPage() {
           </div>
         </div>
       </section>
+      <BookingModal isOpen={isBookingModalOpen} onClose={() => setIsBookingModalOpen(false)} />
     </div>
   );
 }

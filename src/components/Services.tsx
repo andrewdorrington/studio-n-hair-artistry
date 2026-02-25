@@ -19,8 +19,6 @@ const services = [
   }
 ];
 
-const bookingUrl = 'https://www.picktime.com/926c9651-ba4b-4498-a119-98c3f369501d';
-
 function Services() {
   return (
     <section id="services" className="py-12 md:py-24 bg-[#F7F5F2]">
