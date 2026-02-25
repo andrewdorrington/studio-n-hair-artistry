@@ -79,14 +79,15 @@ function Hero({ onBookNow }: HeroProps) {
             }`}
           >
             {/* Hero Image with Zoom Animation */}
-            <div className="w-full h-full bg-gray-300 flex items-center justify-center overflow-hidden">
+            <div className="w-full h-full bg-black flex items-center justify-center overflow-hidden">
               <img
                 src={slide.image}
                 alt={slide.alt}
                 className="w-full h-full object-cover"
                 style={{
-                  transform: prefersReducedMotion ? 'scale(1)' : (isLoaded && animatingSlide === index) ? 'scale(1)' : 'scale(1.1)',
+                  transform: prefersReducedMotion ? 'scale(1)' : (isLoaded && animatingSlide === index) ? 'scale(0.95)' : 'scale(1.05)',
                   transition: prefersReducedMotion ? 'none' : 'transform 5s ease-out',
+                  imageRendering: 'high-quality',
                 }}
                 onError={(e) => {
                   console.error('Failed to load image:', slide.image);
