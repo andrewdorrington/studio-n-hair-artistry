@@ -96,11 +96,18 @@ function Hero({ onBookNow }: HeroProps) {
               <img
                 src={slide.image}
                 alt={slide.alt}
-                className={`w-full h-full ${isMobile ? 'object-contain' : 'object-cover'}`}
+                className="w-full h-full object-cover"
                 style={{
-                  transform: prefersReducedMotion ? 'scale(1)' : (isLoaded && animatingSlide === index) ? 'scale(1)' : (isMobile ? 'scale(1)' : 'scale(1.1)'),
-                  transition: prefersReducedMotion ? 'none' : 'transform 5s ease-out',
+                  transform: prefersReducedMotion 
+                    ? 'scale(1)' 
+                    : isMobile 
+                      ? 'scale(1)' 
+                      : (isLoaded && animatingSlide === index) 
+                        ? 'scale(1)' 
+                        : 'scale(1.1)',
+                  transition: prefersReducedMotion || isMobile ? 'none' : 'transform 5s ease-out',
                   imageRendering: 'high-quality',
+                  objectPosition: isMobile ? 'center center' : 'center',
                 }}
                 onError={(e) => {
                   console.error('Failed to load image:', slide.image);
