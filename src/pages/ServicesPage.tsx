@@ -36,7 +36,7 @@ const serviceCategories = [
       { name: 'Full tint Short', price: '$120' },
       { name: 'Full tint Medium', price: '$140' },
       { name: 'Full tint Long', price: '$160' },
-      { name: 'Foil and Highlight', price: '', isHeading: true },
+      { name: 'Foil and Highlight', price: '', isHeading: true, duration: '1-3 hour service' },
       { name: 'Quarter head foil', price: '$85' },
       { name: 'Half head foil', price: '$150' },
       { name: 'Full (include toner) / Balayage', price: 'From $180' },
@@ -50,7 +50,7 @@ const serviceCategories = [
     services: [
       { name: 'Short hair', price: 'From $120' },
       { name: 'Medium hair', price: 'From $150' },
-      { name: 'Permanent Straightening', price: '', isHeading: true },
+      { name: 'Permanent Straightening', price: '', isHeading: true, duration: '5 hours service' },
       { name: '', price: 'From $500' },
     ],
     side: 'right'
@@ -249,15 +249,21 @@ function ServicesPage() {
                             {service.name}
                           </h3>
                         ) : isHeading ? (
-                          <h3
-                            key={serviceIndex}
-                            className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-2 md:mb-3 text-[#F7F5F2] transition-all duration-300 md:transform-none"
-                            style={{ 
-                              fontFamily: "'brandon-grot-w01-light', sans-serif",
-                            }}
-                          >
-                            {service.name}
-                          </h3>
+                          <div key={serviceIndex}>
+                            <h3
+                              className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-2 md:mb-3 text-[#F7F5F2] transition-all duration-300 md:transform-none"
+                              style={{ 
+                                fontFamily: "'brandon-grot-w01-light', sans-serif",
+                              }}
+                            >
+                              {service.name}
+                            </h3>
+                            {(service as any).duration && (
+                              <p className="text-xs md:text-sm lg:text-base text-[#C6B27C] mb-3 md:mb-4 italic font-light">
+                                {(service as any).duration}
+                              </p>
+                            )}
+                          </div>
                         ) : (
                           <div 
                             key={serviceIndex} 
@@ -268,7 +274,7 @@ function ServicesPage() {
                             }}
                           >
                             {service.name === '' ? (
-                              <span className="text-[#C6B27C] font-semibold text-sm md:text-base lg:text-lg whitespace-nowrap">{service.price}</span>
+                              <span className="text-[#F7F5F2] font-semibold text-sm md:text-base lg:text-lg whitespace-nowrap">{service.price}</span>
                             ) : (
                               <>
                                 <span className="text-[#F7F5F2] text-sm md:text-base lg:text-lg pr-2 md:pr-4 break-words">{service.name}</span>
