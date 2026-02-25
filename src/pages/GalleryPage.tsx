@@ -10,13 +10,10 @@ function GalleryPage() {
     { id: 8, image: '/servicespage1.jpg', category: 'Services' },
     { id: 9, image: '/gallery2new.jpeg', category: 'Styling' },
     { id: 10, image: '/gallery3new.jpeg', category: 'Cuts' },
-    { id: 11, image: '/hero1.jpg', category: 'Salon' },
-    { id: 12, image: '/hero2.jpg', category: 'Salon' },
-    { id: 13, image: '/hero3.jpg', category: 'Salon' },
-    { id: 14, image: '/hero2nhat.jpeg', category: 'Styling' },
-    { id: 15, image: '/herodad1.jpeg', category: 'Salon' },
-    { id: 16, image: '/herodad2.jpeg', category: 'Salon' },
-    { id: 17, image: '/nhat.jpeg', category: 'Styling' },
+    { id: 11, image: '/1000005656.jpg', category: 'Gallery' },
+    { id: 12, image: '/1000005702.jpg', category: 'Gallery' },
+    { id: 13, image: '/1000005735.jpg', category: 'Gallery' },
+    { id: 14, image: '/1000005765.jpg', category: 'Gallery' },
   ];
 
   return (
