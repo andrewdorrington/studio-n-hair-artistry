@@ -6,6 +6,17 @@ function GalleryPage() {
     { id: 4, image: '/haircutservice.jpg', category: 'Haircuts' },
     { id: 5, image: '/blowwaveservice.jpg', category: 'Blow Waves' },
     { id: 6, image: '/colourservice.jpg', category: 'Colour Services' },
+    { id: 7, image: '/servicespage.jpg', category: 'Services' },
+    { id: 8, image: '/servicespage1.jpg', category: 'Services' },
+    { id: 9, image: '/gallery2new.jpeg', category: 'Styling' },
+    { id: 10, image: '/gallery3new.jpeg', category: 'Cuts' },
+    { id: 11, image: '/hero1.jpg', category: 'Salon' },
+    { id: 12, image: '/hero2.jpg', category: 'Salon' },
+    { id: 13, image: '/hero3.jpg', category: 'Salon' },
+    { id: 14, image: '/hero2nhat.jpeg', category: 'Styling' },
+    { id: 15, image: '/herodad1.jpeg', category: 'Salon' },
+    { id: 16, image: '/herodad2.jpeg', category: 'Salon' },
+    { id: 17, image: '/nhat.jpeg', category: 'Styling' },
   ];
 
   return (

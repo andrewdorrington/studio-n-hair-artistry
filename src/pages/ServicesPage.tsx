@@ -45,7 +45,7 @@ const serviceCategories = [
   },
   {
     category: 'Hair Perm',
-    image: '/hero1.jpg',
+    image: '/servicespage.jpg',
     duration: '2 hours service',
     services: [
       { name: 'Short hair', price: 'From $120' },

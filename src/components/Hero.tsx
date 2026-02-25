@@ -14,7 +14,7 @@ function Hero({ onBookNow }: HeroProps) {
   const slides = [
     { 
       id: 1, 
-      image: '/herodad1.jpeg', 
+      image: '/hero1.jpg', 
       alt: 'Luxury salon vanity station with gold-framed mirrors and marble countertop' 
     },
     { 
@@ -26,6 +26,11 @@ function Hero({ onBookNow }: HeroProps) {
       id: 3, 
       image: '/hero3.jpg', 
       alt: 'Industrial-chic salon with exposed brick walls and olive green styling chairs' 
+    },
+    { 
+      id: 4, 
+      image: '/herodad1.jpeg', 
+      alt: 'Luxury salon vanity station with gold-framed mirrors and marble countertop' 
     },
   ];
 
@@ -85,7 +90,7 @@ function Hero({ onBookNow }: HeroProps) {
                 alt={slide.alt}
                 className="w-full h-full object-cover"
                 style={{
-                  transform: prefersReducedMotion ? 'scale(1)' : (isLoaded && animatingSlide === index) ? 'scale(0.95)' : 'scale(1.05)',
+                  transform: prefersReducedMotion ? 'scale(1)' : (isLoaded && animatingSlide === index) ? 'scale(1)' : 'scale(1.1)',
                   transition: prefersReducedMotion ? 'none' : 'transform 5s ease-out',
                   imageRendering: 'high-quality',
                 }}
