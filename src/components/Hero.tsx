@@ -11,8 +11,8 @@ function Hero({ onBookNow }: HeroProps) {
   const [animatingSlide, setAnimatingSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   
-  // Hero banner images
-  const slides = [
+  // Desktop hero banner images
+  const desktopSlides = [
     { 
       id: 1, 
       image: '/hero1.jpg', 
@@ -34,6 +34,28 @@ function Hero({ onBookNow }: HeroProps) {
       alt: 'Luxury salon vanity station with gold-framed mirrors and marble countertop' 
     },
   ];
+
+  // Mobile hero banner images
+  const mobileSlides = [
+    { 
+      id: 1, 
+      image: '/mobile1.jpg', 
+      alt: 'Luxury salon vanity station with gold-framed mirrors and marble countertop' 
+    },
+    { 
+      id: 2, 
+      image: '/mobile2.jpg', 
+      alt: 'Modern minimalist salon interior with white styling stations and natural light' 
+    },
+    { 
+      id: 3, 
+      image: '/mobile3.jpg', 
+      alt: 'Industrial-chic salon with exposed brick walls and olive green styling chairs' 
+    },
+  ];
+
+  // Use mobile slides on mobile, desktop slides on desktop
+  const slides = isMobile ? mobileSlides : desktopSlides;
 
   // Check for reduced motion preference and mobile
   useEffect(() => {
@@ -76,6 +98,11 @@ function Hero({ onBookNow }: HeroProps) {
     return () => clearInterval(timer);
   }, [slides.length]);
 
+  // Reset to first slide when switching between mobile/desktop
+  useEffect(() => {
+    setCurrentSlide(0);
+  }, [isMobile]);
+
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
   };
@@ -100,14 +127,12 @@ function Hero({ onBookNow }: HeroProps) {
                 style={{
                   transform: prefersReducedMotion 
                     ? 'scale(1)' 
-                    : isMobile 
+                    : (isLoaded && animatingSlide === index) 
                       ? 'scale(1)' 
-                      : (isLoaded && animatingSlide === index) 
-                        ? 'scale(1)' 
-                        : 'scale(1.1)',
-                  transition: prefersReducedMotion || isMobile ? 'none' : 'transform 5s ease-out',
+                      : 'scale(1.1)',
+                  transition: prefersReducedMotion ? 'none' : 'transform 5s ease-out',
                   imageRendering: 'high-quality',
-                  objectPosition: isMobile ? 'center center' : 'center',
+                  objectPosition: 'center',
                 }}
                 onError={(e) => {
                   console.error('Failed to load image:', slide.image);
