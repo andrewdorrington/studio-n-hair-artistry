@@ -23,18 +23,18 @@ const bookingUrl = 'https://www.picktime.com/926c9651-ba4b-4498-a119-98c3f369501
 
 function Services() {
   return (
-    <section id="services" className="py-24 bg-[#F7F5F2]">
+    <section id="services" className="py-12 md:py-24 bg-[#F7F5F2]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: "'brandon-grot-w01-light', sans-serif" }}>
+        <div className="text-center mb-8 md:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4" style={{ fontFamily: "'brandon-grot-w01-light', sans-serif" }}>
             Our <span className="text-[#2E2E2C]">Services</span>
           </h2>
-          <p className="text-xl text-[#2E2E2C] max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-[#2E2E2C] max-w-2xl mx-auto px-4">
             Discover our comprehensive range of professional hair services designed to bring out your best look.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-12">
           {services.map((service, index) => (
             <div
               key={index}
@@ -55,20 +55,20 @@ function Services() {
               </div>
 
               {/* Transparent Text Overlay - Always in Same Position */}
-              <div className="absolute inset-0 flex flex-col p-6 justify-between z-10">
+              <div className="absolute inset-0 flex flex-col p-4 md:p-6 justify-between z-10">
                 {/* Text at Top */}
                 <div className="flex-1">
-                  <h3 className="text-xl md:text-2xl font-semibold mb-3 text-white drop-shadow-lg">
+                  <h3 className="text-lg md:text-xl lg:text-2xl font-semibold mb-2 md:mb-3 text-white drop-shadow-lg">
                     {service.title}
                   </h3>
-                  <p className="opacity-0 group-hover:opacity-100 text-white text-sm leading-relaxed drop-shadow-lg transition-opacity duration-300">
+                  <p className="opacity-0 group-hover:opacity-100 text-white text-xs md:text-sm leading-relaxed drop-shadow-lg transition-opacity duration-300">
                     {service.description}
                   </p>
                 </div>
 
                 {/* Price and Book Now at Bottom */}
-                <div className="flex items-center justify-between pt-4 border-t border-transparent group-hover:border-white/30 mt-auto transition-all duration-300">
-                  <span className="opacity-0 group-hover:opacity-100 text-white font-semibold text-base drop-shadow-lg transition-opacity duration-300">
+                <div className="flex items-center justify-between pt-3 md:pt-4 border-t border-transparent group-hover:border-white/30 mt-auto transition-all duration-300">
+                  <span className="opacity-0 group-hover:opacity-100 text-white font-semibold text-sm md:text-base drop-shadow-lg transition-opacity duration-300">
                     {service.price}
                   </span>
                   <a
@@ -78,7 +78,7 @@ function Services() {
                       window.history.pushState({}, '', '/services');
                       window.dispatchEvent(new PopStateEvent('popstate'));
                     }}
-                    className="opacity-0 group-hover:opacity-100 text-white text-sm font-semibold drop-shadow-lg transition-opacity duration-300 hover:underline cursor-pointer"
+                    className="opacity-0 group-hover:opacity-100 text-white text-xs md:text-sm font-semibold drop-shadow-lg transition-opacity duration-300 hover:underline cursor-pointer"
                   >
                     Learn More →
                   </a>

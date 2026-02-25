@@ -110,13 +110,13 @@ function Hero({ onBookNow }: HeroProps) {
       {/* Text Overlay - Centered */}
       <div className="absolute inset-0 flex flex-col items-center justify-center z-20 text-center px-4">
         <h1 
-          className="text-5xl md:text-6xl lg:text-7xl font-medium text-[#F7F5F2] mb-4"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium text-[#F7F5F2] mb-3 md:mb-4"
           style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 500 }}
         >
           Studio N Hair Artistry
         </h1>
         <p 
-          className="text-lg md:text-xl lg:text-2xl text-[#F7F5F2] font-normal mb-12"
+          className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#F7F5F2] font-normal mb-6 md:mb-8 lg:mb-12 px-2"
           style={{ fontFamily: "'Inter', system-ui, -apple-system, sans-serif", fontWeight: 400 }}
         >
           Effortless beauty, expertly crafted
@@ -124,14 +124,14 @@ function Hero({ onBookNow }: HeroProps) {
         {/* Book Now Button */}
         <button
           onClick={onBookNow}
-          className="bg-[#F7F5F2] text-[#2E2E2C] px-12 py-5 text-xl font-medium hover:bg-[#C6B27C] transition-all hover:scale-105 shadow-2xl shadow-black/50"
+          className="bg-[#F7F5F2] text-[#2E2E2C] px-8 md:px-12 py-3 md:py-5 text-base md:text-xl font-medium hover:bg-[#C6B27C] transition-all hover:scale-105 shadow-2xl shadow-black/50"
         >
           Book Now
         </button>
       </div>
 
       {/* Navigation Dots - Bottom Center */}
-      <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-3 z-20">
+      <div className="absolute bottom-4 md:bottom-8 left-0 right-0 flex justify-center gap-2 md:gap-3 z-20">
         {slides.map((_, index) => (
           <button
             key={index}

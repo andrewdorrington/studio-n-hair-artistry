@@ -76,7 +76,17 @@ const bookingUrl = 'https://www.picktime.com/926c9651-ba4b-4498-a119-98c3f369501
 function ServicesPage() {
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [scrollY, setScrollY] = React.useState(0);
+  const [isMobile, setIsMobile] = React.useState(false);
   const categoryRefs = React.useRef<(HTMLDivElement | null)[]>([]);
+
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -113,6 +123,7 @@ function ServicesPage() {
   }, []);
 
   const getScale = (index: number) => {
+    if (isMobile) return 1; // No scaling on mobile
     const distance = Math.abs(index - activeIndex);
     if (distance === 0) return 1; // Active category is full size
     if (distance === 1) return 0.97; // Adjacent categories very slightly smaller
@@ -120,6 +131,7 @@ function ServicesPage() {
   };
 
   const getOpacity = (index: number) => {
+    if (isMobile) return 1; // Full opacity on mobile
     const distance = Math.abs(index - activeIndex);
     if (distance === 0) return 1;
     if (distance === 1) return 0.95;
@@ -127,6 +139,7 @@ function ServicesPage() {
   };
 
   const getShadow = (index: number) => {
+    if (isMobile) return 'none'; // No shadows on mobile
     const distance = Math.abs(index - activeIndex);
     // Darker, more subtle vignette-style shadows
     if (distance === 0) return '0 0 150px 80px rgba(0, 0, 0, 0.5), 0 0 300px 150px rgba(0, 0, 0, 0.3), inset 0 0 100px rgba(0, 0, 0, 0.15)';
@@ -136,13 +149,13 @@ function ServicesPage() {
 
   return (
     <div className="min-h-screen bg-[#F7F5F2]">
-      <section className="py-8 md:py-12 bg-[#2E2E2C] border-b border-[#B8ADA3]/10" style={{ boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)' }}>
+      <section className="py-6 md:py-8 lg:py-12 bg-[#2E2E2C] border-b border-[#B8ADA3]/10" style={{ boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)' }}>
         <div className="max-w-full mx-auto">
-          <div className="text-center mb-8 px-4 sm:px-6 lg:px-8 pt-4">
-            <h1 className="text-3xl md:text-4xl font-bold mb-2 text-[#F7F5F2]" style={{ fontFamily: "'brandon-grot-w01-light', sans-serif" }}>
+          <div className="text-center mb-4 md:mb-8 px-4 sm:px-6 lg:px-8 pt-2 md:pt-4">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2 text-[#F7F5F2]" style={{ fontFamily: "'brandon-grot-w01-light', sans-serif" }}>
               Our <span className="text-[#C6B27C]">Services</span>
             </h1>
-            <p className="text-base md:text-lg text-[#F7F5F2]/70 max-w-2xl mx-auto">
+            <p className="text-sm md:text-base lg:text-lg text-[#F7F5F2]/70 max-w-2xl mx-auto px-2">
               Discover our comprehensive range of professional hair services.
             </p>
           </div>
@@ -161,7 +174,7 @@ function ServicesPage() {
                 <div
                   key={categoryIndex}
                   ref={(el) => (categoryRefs.current[categoryIndex] = el)}
-                  className="relative w-full h-screen flex items-center overflow-hidden transition-all duration-300 ease-out"
+                  className="relative w-full h-[600px] md:h-screen flex flex-col md:flex-row items-stretch overflow-hidden transition-all duration-300 ease-out"
                   style={{
                     transform: `scale(${scale})`,
                     opacity: opacity,
@@ -169,8 +182,8 @@ function ServicesPage() {
                     transformOrigin: 'center center',
                   }}
                 >
-                  {/* Background Image - Takes 4/5 of width */}
-                  <div className={`absolute inset-0 ${category.side === 'left' ? 'left-0 right-[25%]' : 'right-0 left-[25%]'}`}>
+                  {/* Background Image - Full width on mobile, 4/5 on desktop */}
+                  <div className={`absolute inset-0 ${category.side === 'left' ? 'md:left-0 md:right-[25%]' : 'md:right-0 md:left-[25%]'}`}>
                     <img
                       src={category.image}
                       alt={category.category}
@@ -184,57 +197,67 @@ function ServicesPage() {
                         target.parentElement!.style.backgroundColor = '#DED6CC';
                       }}
                     />
-                    {/* Subtle gradient overlay */}
-                    <div 
-                      className={`absolute inset-0 bg-gradient-to-${category.side === 'left' ? 'r' : 'l'} transition-opacity duration-300`}
-                      style={{
-                        background: categoryIndex === activeIndex 
-                          ? `linear-gradient(to ${category.side === 'left' ? 'right' : 'left'}, rgba(0,0,0,0.3), rgba(0,0,0,0.15), transparent)`
-                          : `linear-gradient(to ${category.side === 'left' ? 'right' : 'left'}, rgba(0,0,0,0.25), rgba(0,0,0,0.1), transparent)`
-                      }}
-                    ></div>
+                    {/* Subtle gradient overlay - vertical on mobile, horizontal on desktop */}
+                    <div className="absolute inset-0 transition-opacity duration-300">
+                      {/* Mobile gradient - always vertical */}
+                      <div 
+                        className="md:hidden absolute inset-0"
+                        style={{
+                          background: 'linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.3), transparent)'
+                        }}
+                      ></div>
+                      {/* Desktop gradient - horizontal based on side */}
+                      <div 
+                        className={`hidden md:block absolute inset-0`}
+                        style={{
+                          background: categoryIndex === activeIndex 
+                            ? `linear-gradient(to ${category.side === 'left' ? 'right' : 'left'}, rgba(0,0,0,0.3), rgba(0,0,0,0.15), transparent)`
+                            : `linear-gradient(to ${category.side === 'left' ? 'right' : 'left'}, rgba(0,0,0,0.25), rgba(0,0,0,0.1), transparent)`
+                        }}
+                      ></div>
+                    </div>
                     {/* Darker vignette overlay for blur effect */}
-                    <div className="absolute inset-0" style={{
+                    <div className="absolute inset-0 md:hidden" style={{
+                      boxShadow: 'inset 0 0 100px 50px rgba(0, 0, 0, 0.3)'
+                    }}></div>
+                    <div className="absolute inset-0 hidden md:block" style={{
                       boxShadow: 'inset 0 0 200px 100px rgba(0, 0, 0, 0.2), inset 0 0 400px 200px rgba(0, 0, 0, 0.1)'
                     }}></div>
                   </div>
 
-                  {/* Services Panel - Takes 1/4 of width, positioned on alternating sides */}
+                  {/* Services Panel - Full width on mobile, 1/4 on desktop */}
                   <div 
-                    className={`absolute ${category.side === 'left' ? 'right-0 border-l' : 'left-0 border-r'} w-[25%] min-w-[280px] h-full flex flex-col justify-center p-8 md:p-10 lg:p-12 transition-all duration-300`}
+                    className={`relative md:absolute ${category.side === 'left' ? 'md:right-0 md:border-l' : 'md:left-0 md:border-r'} w-full md:w-[25%] md:min-w-[280px] h-auto md:h-full flex flex-col justify-center p-5 md:p-8 lg:p-10 xl:p-12 transition-all duration-300 bg-[#2E2E2C]/95 md:bg-[#2E2E2C] mt-auto`}
                     style={{
                       borderColor: 'rgba(198, 178, 124, 0.2)',
-                      boxShadow: categoryIndex === activeIndex 
+                      boxShadow: isMobile ? 'none' : (categoryIndex === activeIndex 
                         ? '0 0 100px 50px rgba(0, 0, 0, 0.5), 0 0 200px 100px rgba(0, 0, 0, 0.3), inset 0 0 60px rgba(198, 178, 124, 0.05)'
-                        : '0 0 80px 40px rgba(0, 0, 0, 0.4), 0 0 150px 75px rgba(0, 0, 0, 0.25)',
-                      backgroundColor: categoryIndex === activeIndex ? '#2E2E2C' : '#2E2E2C',
+                        : '0 0 80px 40px rgba(0, 0, 0, 0.4), 0 0 150px 75px rgba(0, 0, 0, 0.25)'),
                     }}
                   >
                     <h2 
-                      className="text-3xl md:text-4xl font-semibold mb-3 text-[#F7F5F2] transition-all duration-300" 
+                      className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-2 md:mb-3 text-[#F7F5F2] transition-all duration-300 md:transform-none" 
                       style={{ 
                         fontFamily: "'brandon-grot-w01-light', sans-serif",
-                        transform: categoryIndex === activeIndex ? 'translateX(0)' : (category.side === 'left' ? 'translateX(-3px)' : 'translateX(3px)'),
                       }}
                     >
                       {category.category}
                     </h2>
                     {category.duration && (
-                      <p className="text-sm md:text-base text-[#C6B27C] mb-6 italic font-light">
+                      <p className="text-xs md:text-sm lg:text-base text-[#C6B27C] mb-4 md:mb-6 italic font-light">
                         {category.duration}
                       </p>
                     )}
-                    <div className="space-y-4 mb-8">
+                    <div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
                       {category.services.map((service, serviceIndex) => {
                         const isHeading = (service as any).isHeading;
                         const isMainHeading = (service as any).isMainHeading;
                         return isMainHeading ? (
                           <h3
                             key={serviceIndex}
-                            className="text-3xl md:text-4xl font-semibold mb-3 text-[#F7F5F2] transition-all duration-300"
+                            className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-2 md:mb-3 text-[#F7F5F2] transition-all duration-300 md:transform-none"
                             style={{ 
                               fontFamily: "'brandon-grot-w01-light', sans-serif",
-                              transform: categoryIndex === activeIndex ? 'translateX(0)' : (category.side === 'left' ? 'translateX(-3px)' : 'translateX(3px)'),
                             }}
                           >
                             {service.name}
@@ -242,10 +265,9 @@ function ServicesPage() {
                         ) : isHeading ? (
                           <h3
                             key={serviceIndex}
-                            className="text-3xl md:text-4xl font-semibold mb-3 text-[#F7F5F2] transition-all duration-300"
+                            className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-2 md:mb-3 text-[#F7F5F2] transition-all duration-300 md:transform-none"
                             style={{ 
                               fontFamily: "'brandon-grot-w01-light', sans-serif",
-                              transform: categoryIndex === activeIndex ? 'translateX(0)' : (category.side === 'left' ? 'translateX(-3px)' : 'translateX(3px)'),
                             }}
                           >
                             {service.name}
@@ -253,21 +275,19 @@ function ServicesPage() {
                         ) : (
                           <div 
                             key={serviceIndex} 
-                            className={`flex ${service.name === '' ? 'justify-start' : 'justify-between'} items-center py-2 border-b border-[#B8ADA3]/20 last:border-b-0 transition-all duration-300 ${service.name.startsWith('  ') ? 'pl-4' : ''}`}
+                            className={`flex ${service.name === '' ? 'justify-start' : 'justify-between'} items-center py-1.5 md:py-2 border-b border-[#B8ADA3]/20 last:border-b-0 transition-all duration-300 ${service.name.startsWith('  ') ? 'pl-3 md:pl-4' : ''}`}
                             style={{
-                              transform: categoryIndex === activeIndex 
-                                ? 'translateX(0)' 
-                                : (category.side === 'left' ? 'translateX(-2px)' : 'translateX(2px)'),
-                              opacity: categoryIndex === activeIndex ? 1 : 0.9,
+                              transform: 'translateX(0)',
+                              opacity: 1,
                             }}
                           >
                             {service.name === '' ? (
-                              <span className="text-[#C6B27C] font-semibold text-base md:text-lg whitespace-nowrap">{service.price}</span>
+                              <span className="text-[#C6B27C] font-semibold text-sm md:text-base lg:text-lg whitespace-nowrap">{service.price}</span>
                             ) : (
                               <>
-                                <span className="text-[#F7F5F2] text-base md:text-lg pr-4">{service.name}</span>
+                                <span className="text-[#F7F5F2] text-sm md:text-base lg:text-lg pr-2 md:pr-4 break-words">{service.name}</span>
                                 {service.price && (
-                                  <span className="text-[#C6B27C] font-semibold text-base md:text-lg whitespace-nowrap">{service.price}</span>
+                                  <span className="text-[#C6B27C] font-semibold text-sm md:text-base lg:text-lg whitespace-nowrap ml-2">{service.price}</span>
                                 )}
                               </>
                             )}
@@ -275,12 +295,12 @@ function ServicesPage() {
                         );
                       })}
                     </div>
-                    <div className="pt-6 border-t border-[#B8ADA3]/30">
+                    <div className="pt-4 md:pt-6 border-t border-[#B8ADA3]/30">
                       <a
                         href={bookingUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block bg-[#C6B27C] text-[#2E2E2C] px-6 py-3 font-semibold text-sm md:text-base transition-transform duration-300 hover:scale-110"
+                        className="inline-block bg-[#C6B27C] text-[#2E2E2C] px-5 md:px-6 py-2.5 md:py-3 font-semibold text-xs md:text-sm lg:text-base transition-transform duration-300 hover:scale-110 w-full md:w-auto text-center"
                       >
                         Book Now →
                       </a>

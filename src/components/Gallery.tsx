@@ -11,18 +11,18 @@ function Gallery() {
   ];
 
   return (
-    <section id="gallery" className="py-24 bg-[#F7F5F2]">
+    <section id="gallery" className="py-12 md:py-24 bg-[#F7F5F2]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#2E2E2C]" style={{ fontFamily: "'brandon-grot-w01-light', sans-serif" }}>
+        <div className="text-center mb-8 md:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 text-[#2E2E2C]" style={{ fontFamily: "'brandon-grot-w01-light', sans-serif" }}>
             Our <span className="text-[#2E2E2C]">Gallery</span>
           </h2>
-          <p className="text-xl text-[#2E2E2C] max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-[#2E2E2C] max-w-2xl mx-auto px-4">
             Explore our portfolio of stunning transformations and creative styling work.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto">
           {galleryItems.slice(0, 3).map((item) => (
             <div
               key={item.id}
@@ -48,7 +48,7 @@ function Gallery() {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
+        <div className="mt-8 md:mt-16 text-center">
           <a
             href="/gallery"
             onClick={(e) => {
@@ -56,7 +56,7 @@ function Gallery() {
               window.history.pushState({}, '', '/gallery');
               window.dispatchEvent(new PopStateEvent('popstate'));
             }}
-            className="inline-block border-2 border-[#2E2E2C] text-[#2E2E2C] px-8 py-3 font-medium hover:bg-[#C6B27C] hover:border-[#C6B27C] transition-all cursor-pointer"
+            className="inline-block border-2 border-[#2E2E2C] text-[#2E2E2C] px-6 md:px-8 py-2.5 md:py-3 text-sm md:text-base font-medium hover:bg-[#C6B27C] hover:border-[#C6B27C] transition-all cursor-pointer"
           >
             See More →
           </a>
