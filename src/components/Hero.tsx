@@ -14,12 +14,12 @@ function Hero({ onBookNow }: HeroProps) {
   const slides = [
     { 
       id: 1, 
-      image: '/hero1.jpg', 
+      image: '/herodad1.jpeg', 
       alt: 'Luxury salon vanity station with gold-framed mirrors and marble countertop' 
     },
     { 
       id: 2, 
-      image: '/hero2.jpg', 
+      image: '/herodad2.jpeg', 
       alt: 'Modern minimalist salon interior with white styling stations and natural light' 
     },
     { 
