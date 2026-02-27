@@ -160,7 +160,7 @@ function ServicesPage() {
                         {service.name}
                       </h3>
                     ) : isHeading ? (
-                      <div key={serviceIndex} className="mt-6 md:mt-8">
+                      <div key={serviceIndex} className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-[#B8ADA3]/20">
                         <h3
                           className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-3 md:mb-4 text-[#F7F5F2]"
                           style={{ 
