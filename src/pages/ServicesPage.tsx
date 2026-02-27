@@ -127,13 +127,13 @@ function ServicesPage() {
             {serviceCategories.map((category, categoryIndex) => (
               <div
                 key={categoryIndex}
-                className="w-full bg-[#2E2E2C] p-5 md:p-8 lg:p-10"
+                className="w-full bg-[#2E2E2C] p-6 md:p-10 lg:p-12"
                 style={{
                   borderTop: categoryIndex > 0 ? '1px solid rgba(198, 178, 124, 0.2)' : 'none'
                 }}
               >
                 <h2 
-                  className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-2 md:mb-3 text-[#F7F5F2]" 
+                  className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-3 md:mb-4 text-[#F7F5F2]" 
                   style={{ 
                     fontFamily: "'brandon-grot-w01-light', sans-serif",
                   }}
@@ -141,18 +141,18 @@ function ServicesPage() {
                   {category.category}
                 </h2>
                 {category.duration && (
-                  <p className="text-xs md:text-sm lg:text-base text-[#C6B27C] mb-4 md:mb-6 italic font-light">
+                  <p className="text-xs md:text-sm lg:text-base text-[#C6B27C] mb-6 md:mb-8 italic font-light">
                     {category.duration}
                   </p>
                 )}
-                <div className="space-y-3 md:space-y-4 mb-0">
+                <div className="space-y-4 md:space-y-5 mb-0">
                   {category.services.map((service, serviceIndex) => {
                     const isHeading = (service as any).isHeading;
                     const isMainHeading = (service as any).isMainHeading;
                     return isMainHeading ? (
                       <h3
                         key={serviceIndex}
-                        className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-2 md:mb-3 text-[#F7F5F2]"
+                        className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-4 md:mb-5 mt-6 md:mt-8 text-[#F7F5F2]"
                         style={{ 
                           fontFamily: "'brandon-grot-w01-light', sans-serif",
                         }}
@@ -160,9 +160,9 @@ function ServicesPage() {
                         {service.name}
                       </h3>
                     ) : isHeading ? (
-                      <div key={serviceIndex}>
+                      <div key={serviceIndex} className="mt-6 md:mt-8">
                         <h3
-                          className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-2 md:mb-3 text-[#F7F5F2]"
+                          className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-3 md:mb-4 text-[#F7F5F2]"
                           style={{ 
                             fontFamily: "'brandon-grot-w01-light', sans-serif",
                           }}
@@ -170,7 +170,7 @@ function ServicesPage() {
                           {service.name}
                         </h3>
                         {(service as any).duration && (
-                          <p className="text-xs md:text-sm lg:text-base text-[#C6B27C] mb-3 md:mb-4 italic font-light">
+                          <p className="text-xs md:text-sm lg:text-base text-[#C6B27C] mb-4 md:mb-5 italic font-light">
                             {(service as any).duration}
                           </p>
                         )}
@@ -178,15 +178,15 @@ function ServicesPage() {
                     ) : (
                       <div 
                         key={serviceIndex} 
-                        className={`flex ${service.name === '' ? 'justify-start' : 'justify-between'} items-center py-1.5 md:py-2 border-b border-[#B8ADA3]/20 last:border-b-0 ${service.name.startsWith('  ') ? 'pl-3 md:pl-4' : ''}`}
+                        className={`flex ${service.name === '' ? 'justify-start' : 'justify-between'} items-center py-2 md:py-2.5 border-b border-[#B8ADA3]/20 last:border-b-0 ${service.name.startsWith('  ') ? 'pl-4 md:pl-6' : ''}`}
                       >
                         {service.name === '' ? (
                           <span className="text-[#F7F5F2] font-semibold text-sm md:text-base lg:text-lg whitespace-nowrap">{service.price}</span>
                         ) : (
                           <>
-                            <span className="text-[#F7F5F2] text-sm md:text-base lg:text-lg pr-2 md:pr-4 break-words">{service.name}</span>
+                            <span className="text-[#F7F5F2] text-sm md:text-base lg:text-lg pr-4 md:pr-6 break-words">{service.name}</span>
                             {service.price && (
-                              <span className="text-[#C6B27C] font-semibold text-sm md:text-base lg:text-lg whitespace-nowrap ml-2">{service.price}</span>
+                              <span className="text-[#C6B27C] font-semibold text-sm md:text-base lg:text-lg whitespace-nowrap ml-4">{service.price}</span>
                             )}
                           </>
                         )}
@@ -197,10 +197,10 @@ function ServicesPage() {
               </div>
             ))}
             {/* Single Book Now Button at Bottom */}
-            <div className="w-full bg-[#2E2E2C] p-5 md:p-8 lg:p-10 border-t border-[#B8ADA3]/30">
+            <div className="w-full bg-[#2E2E2C] p-8 md:p-10 lg:p-12 border-t border-[#B8ADA3]/30 flex justify-center">
               <button
                 onClick={() => setIsBookingModalOpen(true)}
-                className="w-full bg-[#C6B27C] text-[#2E2E2C] px-5 md:px-6 py-3 md:py-4 font-semibold text-base md:text-lg lg:text-xl transition-transform duration-300 hover:scale-105 text-center"
+                className="bg-[#C6B27C] text-[#2E2E2C] px-8 md:px-10 py-3 md:py-3.5 font-semibold text-base md:text-lg transition-all duration-300 hover:scale-105 hover:bg-[#D4C49A] rounded-sm"
               >
                 Book Now →
               </button>

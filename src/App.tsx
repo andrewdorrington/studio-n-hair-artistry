@@ -203,7 +203,7 @@ function App() {
                 className="h-24 w-auto"
               />
             </button>
-          </div>
+            </div>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex items-center justify-end">
             <div className="hidden md:block">
               <div className="flex items-baseline space-x-8">
@@ -328,12 +328,24 @@ function App() {
                   <span className="ml-2 md:ml-0">10am - 3pm</span>
                 </div>
                 <div className="flex justify-between md:block">
-                  <span className="font-medium">Wednesday - Friday:</span>
+                  <span className="font-medium">Wednesday:</span>
+                  <span className="ml-2 md:ml-0">10am - 5:30pm</span>
+                </div>
+                <div className="flex justify-between md:block">
+                  <span className="font-medium">Thursday:</span>
+                  <span className="ml-2 md:ml-0">10am - 5:30pm</span>
+                </div>
+                <div className="flex justify-between md:block">
+                  <span className="font-medium">Friday:</span>
                   <span className="ml-2 md:ml-0">10am - 5:30pm</span>
                 </div>
                 <div className="flex justify-between md:block">
                   <span className="font-medium">Saturday:</span>
                   <span className="ml-2 md:ml-0">9am - 3pm</span>
+                </div>
+                <div className="flex justify-between md:block">
+                  <span className="font-medium">Sunday:</span>
+                  <span className="ml-2 md:ml-0">Closed</span>
                 </div>
               </div>
             </div>
