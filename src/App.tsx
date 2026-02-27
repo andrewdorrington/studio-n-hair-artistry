@@ -310,7 +310,7 @@ function App() {
                 <a href="#" className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors">
                   <Instagram size={24} />
                 </a>
-                <a href="#" className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors">
+                <a href="https://www.facebook.com/natalies290studio/" target="_blank" rel="noopener noreferrer" className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors">
                   <Facebook size={24} />
                 </a>
               </div>
