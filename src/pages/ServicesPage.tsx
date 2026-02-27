@@ -149,6 +149,10 @@ function ServicesPage() {
                   {category.services.map((service, serviceIndex) => {
                     const isHeading = (service as any).isHeading;
                     const isMainHeading = (service as any).isMainHeading;
+                    const nextService = category.services[serviceIndex + 1];
+                    const nextIsHeading = nextService ? (nextService as any).isHeading : false;
+                    const shouldShowBottomBorder = !nextIsHeading && serviceIndex < category.services.length - 1;
+                    
                     return isMainHeading ? (
                       <h3
                         key={serviceIndex}
@@ -178,7 +182,7 @@ function ServicesPage() {
                     ) : (
                       <div 
                         key={serviceIndex} 
-                        className={`flex ${service.name === '' ? 'justify-start' : 'justify-between'} items-center py-2 md:py-2.5 border-b border-[#B8ADA3]/20 last:border-b-0 ${service.name.startsWith('  ') ? 'pl-4 md:pl-6' : ''}`}
+                        className={`flex ${service.name === '' ? 'justify-start' : 'justify-between'} items-center py-2 md:py-2.5 ${shouldShowBottomBorder ? 'border-b border-[#B8ADA3]/20' : ''} ${service.name.startsWith('  ') ? 'pl-4 md:pl-6' : ''}`}
                       >
                         {service.name === '' ? (
                           <span className="text-[#F7F5F2] font-semibold text-sm md:text-base lg:text-lg whitespace-nowrap">{service.price}</span>
