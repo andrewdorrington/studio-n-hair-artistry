@@ -319,33 +319,33 @@ function App() {
             <div className="text-center md:text-left">
               <h3 className="text-[#F7F5F2] font-semibold mb-4">Opening Hours</h3>
               <div className="space-y-2 text-[#F7F5F2] text-xs">
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center gap-4">
                   <span className="font-medium">Monday:</span>
-                  <span className="text-right mr-4">Closed</span>
+                  <span className="text-right">Closed</span>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center gap-4">
                   <span className="font-medium">Tuesday:</span>
-                  <span className="text-right mr-4">10am - 3pm</span>
+                  <span className="text-right">10am - 3pm</span>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center gap-4">
                   <span className="font-medium">Wednesday:</span>
-                  <span className="text-right mr-4">10am - 5:30pm</span>
+                  <span className="text-right">10am - 5:30pm</span>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center gap-4">
                   <span className="font-medium">Thursday:</span>
-                  <span className="text-right mr-4">10am - 5:30pm</span>
+                  <span className="text-right">10am - 5:30pm</span>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center gap-4">
                   <span className="font-medium">Friday:</span>
-                  <span className="text-right mr-4">10am - 5:30pm</span>
+                  <span className="text-right">10am - 5:30pm</span>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center gap-4">
                   <span className="font-medium">Saturday:</span>
-                  <span className="text-right mr-4">9am - 3pm</span>
+                  <span className="text-right">9am - 3pm</span>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center gap-4">
                   <span className="font-medium">Sunday:</span>
-                  <span className="text-right mr-4">Closed</span>
+                  <span className="text-right">Closed</span>
                 </div>
               </div>
             </div>
