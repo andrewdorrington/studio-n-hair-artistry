@@ -307,7 +307,7 @@ function App() {
             <div className="text-center md:text-left">
               <h3 className="text-[#F7F5F2] font-semibold mb-4">Follow Us</h3>
               <div className="flex gap-4 justify-center md:justify-start">
-                <a href="#" className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors">
+                <a href="https://www.instagram.com/studionhairmountwaverley/" target="_blank" rel="noopener noreferrer" className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors">
                   <Instagram size={24} />
                 </a>
                 <a href="https://www.facebook.com/natalies290studio/" target="_blank" rel="noopener noreferrer" className="text-[#F7F5F2] hover:text-[#C6B27C] transition-colors">

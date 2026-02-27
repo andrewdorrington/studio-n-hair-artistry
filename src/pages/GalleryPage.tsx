@@ -57,9 +57,14 @@ function GalleryPage() {
 
           <div className="mt-16 text-center">
             <p className="text-[#2E2E2C] mb-6">Follow us on Instagram to see more of our latest work</p>
-            <button className="border-2 border-[#2E2E2C] text-[#2E2E2C] px-8 py-3 font-medium hover:bg-[#C6B27C] hover:border-[#C6B27C] transition-all">
-              @studionhair
-            </button>
+            <a 
+              href="https://www.instagram.com/studionhairmountwaverley/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block border-2 border-[#2E2E2C] text-[#2E2E2C] px-8 py-3 font-medium hover:bg-[#C6B27C] hover:border-[#C6B27C] transition-all"
+            >
+              @studionhairmountwaverley
+            </a>
           </div>
         </div>
       </section>
