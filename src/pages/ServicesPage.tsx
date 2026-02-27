@@ -103,79 +103,7 @@ function BookingModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
 }
 
 function ServicesPage() {
-  const [activeIndex, setActiveIndex] = React.useState(0);
-  const [scrollY, setScrollY] = React.useState(0);
-  const [isMobile, setIsMobile] = React.useState(false);
   const [isBookingModalOpen, setIsBookingModalOpen] = React.useState(false);
-  const categoryRefs = React.useRef<(HTMLDivElement | null)[]>([]);
-
-  React.useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  React.useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-      
-      // Find which category is most in view - trigger earlier
-      const viewportTop = window.scrollY;
-      const viewportBottom = window.scrollY + window.innerHeight;
-      const triggerPoint = window.scrollY + window.innerHeight * 0.3; // Trigger at 30% from top instead of center
-      
-      categoryRefs.current.forEach((ref, index) => {
-        if (ref) {
-          const rect = ref.getBoundingClientRect();
-          const elementTop = rect.top + window.scrollY;
-          const elementBottom = rect.bottom + window.scrollY;
-          const elementCenter = elementTop + rect.height / 2;
-          
-          // Check if trigger point is within this element's bounds
-          if (triggerPoint >= elementTop && triggerPoint <= elementBottom) {
-            setActiveIndex(index);
-          }
-          // Also check if element center is near viewport top third
-          else if (elementCenter >= viewportTop && elementCenter <= triggerPoint) {
-            setActiveIndex(index);
-          }
-        }
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Initial check
-    
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const getScale = (index: number) => {
-    if (isMobile) return 1; // No scaling on mobile
-    const distance = Math.abs(index - activeIndex);
-    if (distance === 0) return 1; // Active category is full size
-    if (distance === 1) return 0.97; // Adjacent categories very slightly smaller
-    return 0.95; // Further categories slightly smaller
-  };
-
-  const getOpacity = (index: number) => {
-    if (isMobile) return 1; // Full opacity on mobile
-    const distance = Math.abs(index - activeIndex);
-    if (distance === 0) return 1;
-    if (distance === 1) return 0.95;
-    return 0.9;
-  };
-
-  const getShadow = (index: number) => {
-    if (isMobile) return 'none'; // No shadows on mobile
-    const distance = Math.abs(index - activeIndex);
-    // Darker, more subtle vignette-style shadows
-    if (distance === 0) return '0 0 150px 80px rgba(0, 0, 0, 0.5), 0 0 300px 150px rgba(0, 0, 0, 0.3), inset 0 0 100px rgba(0, 0, 0, 0.15)';
-    if (distance === 1) return '0 0 120px 60px rgba(0, 0, 0, 0.45), 0 0 250px 120px rgba(0, 0, 0, 0.25)';
-    return '0 0 100px 50px rgba(0, 0, 0, 0.4), 0 0 200px 100px rgba(0, 0, 0, 0.2)';
-  };
 
   return (
     <div className="min-h-screen bg-[#F7F5F2]">
@@ -194,18 +122,18 @@ function ServicesPage() {
 
       <section className="relative bg-[#F7F5F2]">
         <div className="max-w-full mx-auto">
-          {/* Mobile View - List Format */}
-          <div className="md:hidden">
+          {/* List Format - All Screen Sizes */}
+          <div>
             {serviceCategories.map((category, categoryIndex) => (
               <div
                 key={categoryIndex}
-                className="w-full bg-[#2E2E2C] p-5"
+                className="w-full bg-[#2E2E2C] p-5 md:p-8 lg:p-10"
                 style={{
                   borderTop: categoryIndex > 0 ? '1px solid rgba(198, 178, 124, 0.2)' : 'none'
                 }}
               >
                 <h2 
-                  className="text-2xl font-semibold mb-2 text-[#F7F5F2]" 
+                  className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-2 md:mb-3 text-[#F7F5F2]" 
                   style={{ 
                     fontFamily: "'brandon-grot-w01-light', sans-serif",
                   }}
@@ -213,18 +141,18 @@ function ServicesPage() {
                   {category.category}
                 </h2>
                 {category.duration && (
-                  <p className="text-xs text-[#C6B27C] mb-4 italic font-light">
+                  <p className="text-xs md:text-sm lg:text-base text-[#C6B27C] mb-4 md:mb-6 italic font-light">
                     {category.duration}
                   </p>
                 )}
-                <div className="space-y-3 mb-0">
+                <div className="space-y-3 md:space-y-4 mb-0">
                   {category.services.map((service, serviceIndex) => {
                     const isHeading = (service as any).isHeading;
                     const isMainHeading = (service as any).isMainHeading;
                     return isMainHeading ? (
                       <h3
                         key={serviceIndex}
-                        className="text-2xl font-semibold mb-2 text-[#F7F5F2]"
+                        className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-2 md:mb-3 text-[#F7F5F2]"
                         style={{ 
                           fontFamily: "'brandon-grot-w01-light', sans-serif",
                         }}
@@ -234,7 +162,7 @@ function ServicesPage() {
                     ) : isHeading ? (
                       <div key={serviceIndex}>
                         <h3
-                          className="text-2xl font-semibold mb-2 text-[#F7F5F2]"
+                          className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-2 md:mb-3 text-[#F7F5F2]"
                           style={{ 
                             fontFamily: "'brandon-grot-w01-light', sans-serif",
                           }}
@@ -242,7 +170,7 @@ function ServicesPage() {
                           {service.name}
                         </h3>
                         {(service as any).duration && (
-                          <p className="text-xs text-[#C6B27C] mb-3 italic font-light">
+                          <p className="text-xs md:text-sm lg:text-base text-[#C6B27C] mb-3 md:mb-4 italic font-light">
                             {(service as any).duration}
                           </p>
                         )}
@@ -250,15 +178,15 @@ function ServicesPage() {
                     ) : (
                       <div 
                         key={serviceIndex} 
-                        className={`flex ${service.name === '' ? 'justify-start' : 'justify-between'} items-center py-1.5 border-b border-[#B8ADA3]/20 last:border-b-0 ${service.name.startsWith('  ') ? 'pl-3' : ''}`}
+                        className={`flex ${service.name === '' ? 'justify-start' : 'justify-between'} items-center py-1.5 md:py-2 border-b border-[#B8ADA3]/20 last:border-b-0 ${service.name.startsWith('  ') ? 'pl-3 md:pl-4' : ''}`}
                       >
                         {service.name === '' ? (
-                          <span className="text-[#F7F5F2] font-semibold text-sm whitespace-nowrap">{service.price}</span>
+                          <span className="text-[#F7F5F2] font-semibold text-sm md:text-base lg:text-lg whitespace-nowrap">{service.price}</span>
                         ) : (
                           <>
-                            <span className="text-[#F7F5F2] text-sm pr-2 break-words">{service.name}</span>
+                            <span className="text-[#F7F5F2] text-sm md:text-base lg:text-lg pr-2 md:pr-4 break-words">{service.name}</span>
                             {service.price && (
-                              <span className="text-[#C6B27C] font-semibold text-sm whitespace-nowrap ml-2">{service.price}</span>
+                              <span className="text-[#C6B27C] font-semibold text-sm md:text-base lg:text-lg whitespace-nowrap ml-2">{service.price}</span>
                             )}
                           </>
                         )}
@@ -268,153 +196,15 @@ function ServicesPage() {
                 </div>
               </div>
             ))}
-            {/* Single Book Now Button at Bottom for Mobile */}
-            <div className="w-full bg-[#2E2E2C] p-5 border-t border-[#B8ADA3]/30">
+            {/* Single Book Now Button at Bottom */}
+            <div className="w-full bg-[#2E2E2C] p-5 md:p-8 lg:p-10 border-t border-[#B8ADA3]/30">
               <button
                 onClick={() => setIsBookingModalOpen(true)}
-                className="w-full bg-[#C6B27C] text-[#2E2E2C] px-5 py-3 font-semibold text-base transition-transform duration-300 hover:scale-105 text-center"
+                className="w-full bg-[#C6B27C] text-[#2E2E2C] px-5 md:px-6 py-3 md:py-4 font-semibold text-base md:text-lg lg:text-xl transition-transform duration-300 hover:scale-105 text-center"
               >
                 Book Now →
               </button>
             </div>
-          </div>
-
-          {/* Desktop View - Original Layout */}
-          <div className="hidden md:block space-y-3">
-            {serviceCategories.map((category, categoryIndex) => {
-              const scale = getScale(categoryIndex);
-              const opacity = getOpacity(categoryIndex);
-              const shadow = getShadow(categoryIndex);
-              
-              return (
-                <div
-                  key={categoryIndex}
-                  ref={(el) => (categoryRefs.current[categoryIndex] = el)}
-                  className="relative w-full h-screen flex flex-row items-stretch overflow-hidden transition-all duration-300 ease-out"
-                  style={{
-                    transform: `scale(${scale})`,
-                    opacity: opacity,
-                    boxShadow: shadow,
-                    transformOrigin: 'center center',
-                  }}
-                >
-                  {/* Background Image - 4/5 on desktop */}
-                  <div className={`absolute inset-0 ${category.side === 'left' ? 'left-0 right-[25%]' : 'right-0 left-[25%]'}`}>
-                    <img
-                      src={category.image}
-                      alt={category.category}
-                      className="w-full h-full object-cover transition-transform duration-300 ease-out"
-                      style={{
-                        transform: categoryIndex === activeIndex ? 'scale(1.02)' : 'scale(1)',
-                      }}
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        target.parentElement!.style.backgroundColor = '#DED6CC';
-                      }}
-                    />
-                    {/* Desktop gradient - horizontal based on side */}
-                    <div 
-                      className="absolute inset-0"
-                      style={{
-                        background: categoryIndex === activeIndex 
-                          ? `linear-gradient(to ${category.side === 'left' ? 'right' : 'left'}, rgba(0,0,0,0.3), rgba(0,0,0,0.15), transparent)`
-                          : `linear-gradient(to ${category.side === 'left' ? 'right' : 'left'}, rgba(0,0,0,0.25), rgba(0,0,0,0.1), transparent)`
-                      }}
-                    ></div>
-                    <div className="absolute inset-0" style={{
-                      boxShadow: 'inset 0 0 200px 100px rgba(0, 0, 0, 0.2), inset 0 0 400px 200px rgba(0, 0, 0, 0.1)'
-                    }}></div>
-                  </div>
-
-                  {/* Services Panel - 1/4 on desktop */}
-                  <div 
-                    className={`absolute ${category.side === 'left' ? 'right-0 border-l' : 'left-0 border-r'} w-[25%] min-w-[280px] h-full flex flex-col justify-center p-8 lg:p-10 xl:p-12 transition-all duration-300 bg-[#2E2E2C]`}
-                    style={{
-                      borderColor: 'rgba(198, 178, 124, 0.2)',
-                      boxShadow: categoryIndex === activeIndex 
-                        ? '0 0 100px 50px rgba(0, 0, 0, 0.5), 0 0 200px 100px rgba(0, 0, 0, 0.3), inset 0 0 60px rgba(198, 178, 124, 0.05)'
-                        : '0 0 80px 40px rgba(0, 0, 0, 0.4), 0 0 150px 75px rgba(0, 0, 0, 0.25)',
-                    }}
-                  >
-                    <h2 
-                      className="text-3xl lg:text-4xl font-semibold mb-3 text-[#F7F5F2] transition-all duration-300" 
-                      style={{ 
-                        fontFamily: "'brandon-grot-w01-light', sans-serif",
-                      }}
-                    >
-                      {category.category}
-                    </h2>
-                    {category.duration && (
-                      <p className="text-sm lg:text-base text-[#C6B27C] mb-6 italic font-light">
-                        {category.duration}
-                      </p>
-                    )}
-                    <div className="space-y-4 mb-8">
-                      {category.services.map((service, serviceIndex) => {
-                        const isHeading = (service as any).isHeading;
-                        const isMainHeading = (service as any).isMainHeading;
-                        return isMainHeading ? (
-                          <h3
-                            key={serviceIndex}
-                            className="text-3xl lg:text-4xl font-semibold mb-3 text-[#F7F5F2] transition-all duration-300"
-                            style={{ 
-                              fontFamily: "'brandon-grot-w01-light', sans-serif",
-                            }}
-                          >
-                            {service.name}
-                          </h3>
-                        ) : isHeading ? (
-                          <div key={serviceIndex}>
-                            <h3
-                              className="text-3xl lg:text-4xl font-semibold mb-3 text-[#F7F5F2] transition-all duration-300"
-                              style={{ 
-                                fontFamily: "'brandon-grot-w01-light', sans-serif",
-                              }}
-                            >
-                              {service.name}
-                            </h3>
-                            {(service as any).duration && (
-                              <p className="text-sm lg:text-base text-[#C6B27C] mb-4 italic font-light">
-                                {(service as any).duration}
-                              </p>
-                            )}
-                          </div>
-                        ) : (
-                          <div 
-                            key={serviceIndex} 
-                            className={`flex ${service.name === '' ? 'justify-start' : 'justify-between'} items-center py-2 border-b border-[#B8ADA3]/20 last:border-b-0 transition-all duration-300 ${service.name.startsWith('  ') ? 'pl-4' : ''}`}
-                            style={{
-                              transform: 'translateX(0)',
-                              opacity: 1,
-                            }}
-                          >
-                            {service.name === '' ? (
-                              <span className="text-[#F7F5F2] font-semibold text-base lg:text-lg whitespace-nowrap">{service.price}</span>
-                            ) : (
-                              <>
-                                <span className="text-[#F7F5F2] text-base lg:text-lg pr-4 break-words">{service.name}</span>
-                                {service.price && (
-                                  <span className="text-[#C6B27C] font-semibold text-base lg:text-lg whitespace-nowrap ml-2">{service.price}</span>
-                                )}
-                              </>
-                            )}
-                          </div>
-                        );
-                      })}
-                    </div>
-                    <div className="pt-6 border-t border-[#B8ADA3]/30">
-                      <button
-                        onClick={() => setIsBookingModalOpen(true)}
-                        className="inline-block bg-[#C6B27C] text-[#2E2E2C] px-6 py-3 font-semibold text-sm lg:text-base transition-transform duration-300 hover:scale-110 text-center"
-                      >
-                        Book Now →
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
           </div>
         </div>
       </section>
