@@ -5,6 +5,7 @@ import Services from './components/Services';
 import About from './components/About';
 import ClientFeedback from './components/ClientFeedback';
 import Gallery from './components/Gallery';
+import Reviews from './components/Reviews';
 import ServicesPage from './pages/ServicesPage';
 import GalleryPage from './pages/GalleryPage';
 
@@ -16,10 +17,8 @@ function BookingModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
       className="fixed inset-0 z-[100] flex items-center justify-center p-4"
       onClick={onClose}
     >
-      {/* Backdrop */}
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose}></div>
       
-      {/* Modal */}
       <div 
         className="relative bg-[#2E2E2C] rounded-lg shadow-2xl max-w-md w-full p-8 md:p-10 text-center z-10"
         onClick={(e) => e.stopPropagation()}
@@ -239,6 +238,12 @@ function App() {
         <Services />
         <About />
         <ClientFeedback />
+        {/* Google Reviews Widget */}
+        <section className="py-16 bg-[#F7F5F2]">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Reviews />
+          </div>
+        </section>
         <Gallery />
         
         {/* Visit Us Section */}
