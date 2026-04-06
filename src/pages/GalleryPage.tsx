@@ -14,6 +14,9 @@ function GalleryPage() {
     { id: 12, image: '/1000005702.jpg', category: 'Gallery' },
     { id: 13, image: '/1000005735.jpg', category: 'Gallery' },
     { id: 14, image: '/1000005765.jpg', category: 'Gallery' },
+    { id: 15, image: '/gallerymarch.jpg', category: 'Gallery' },
+    { id: 16, image: '/gallerymarch2.jpg', category: 'Gallery' },
+    { id: 17, image: '/gallerymarch3.jpg', category: 'Gallery' },
   ];
 
   return (
@@ -39,6 +42,9 @@ function GalleryPage() {
                   src={item.image}
                   alt={item.category}
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.style.display = 'none';
