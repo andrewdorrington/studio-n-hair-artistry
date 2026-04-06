@@ -143,7 +143,11 @@ function Hero({ onBookNow }: HeroProps) {
                   const target = e.target as HTMLImageElement;
                   target.style.display = 'block';
                 }}
-                loading="eager"
+                loading={index === 0 ? 'eager' : 'lazy'}
+                decoding="async"
+                sizes="100vw"
+                // fetchpriority helps the first hero image start sooner
+                fetchpriority={index === 0 ? 'high' as any : 'auto' as any}
               />
             </div>
           </div>

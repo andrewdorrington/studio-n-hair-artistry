@@ -32,6 +32,9 @@ function Gallery() {
                 src={item.image}
                 alt={item.category}
                 className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 768px) 100vw, 33vw"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.style.display = 'none';

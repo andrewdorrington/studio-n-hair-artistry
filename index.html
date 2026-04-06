@@ -5,6 +5,13 @@
     <link rel="icon" type="image/png" href="/Favicon-black.png" />
     <link rel="apple-touch-icon" href="/Favicon-black.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://www.picktime.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.picktime.com">
+    <link rel="preconnect" href="https://featurable.com" crossorigin>
+    <link rel="dns-prefetch" href="https://featurable.com">
+    <link rel="preconnect" href="https://maps.google.com" crossorigin>
+    <link rel="dns-prefetch" href="https://maps.google.com">
+    <link rel="preload" as="image" href="/hero1.jpg" imagesrcset="/hero1.jpg 1200w" imagesizes="(max-width: 768px) 100vw, 100vw">
     <title>Studio N Hair Artistry | Hair Salon in Mount Waverley</title>
     <meta name="description" content="Experience transformative hair styling from our team of expert stylists at Studio N Hair Artistry. We bring your vision to life with precision, creativity, and care." />
     <meta property="og:title" content="Studio N Hair Artistry | Premium Hair Salon" />
@@ -16,8 +23,17 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script>
-    !function(e,t,n,s,i,c){i=t.createElement(n),c=t.getElementsByTagName(n)[0],i.async=1,
-    i.src=s,c.parentNode.insertBefore(i,c)}(window,document,"script","https://www.picktime.com/assets/booking.js");
+      // Load Picktime booking script after window load to avoid blocking TTI
+      window.addEventListener('load', function () {
+        (function(win, doc, tag, src, el, firstScript) {
+          el = doc.createElement(tag);
+          firstScript = doc.getElementsByTagName(tag)[0];
+          el.async = true;
+          el.defer = true;
+          el.src = src;
+          firstScript.parentNode.insertBefore(el, firstScript);
+        })(window, document, "script", "https://www.picktime.com/assets/booking.js");
+      });
     </script>
   </body>
 </html>

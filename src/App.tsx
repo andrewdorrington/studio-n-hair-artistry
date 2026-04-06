@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { Menu, X, Phone, Mail, MapPin, Instagram, Facebook } from 'lucide-react';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import About from './components/About';
 import ClientFeedback from './components/ClientFeedback';
 import Gallery from './components/Gallery';
-import Reviews from './components/Reviews';
-import ServicesPage from './pages/ServicesPage';
-import GalleryPage from './pages/GalleryPage';
+const Reviews = lazy(() => import('./components/Reviews'));
+const ServicesPage = lazy(() => import('./pages/ServicesPage'));
+const GalleryPage = lazy(() => import('./pages/GalleryPage'));
 
 function BookingModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   if (!isOpen) return null;
@@ -130,7 +130,9 @@ function App() {
         </nav>
 
         <main className="pt-28">
-          <ServicesPage />
+          <Suspense fallback={<div className="p-8 text-center">Loading…</div>}>
+            <ServicesPage />
+          </Suspense>
         </main>
       </div>
     );
@@ -184,7 +186,9 @@ function App() {
         </nav>
 
         <main className="pt-28">
-          <GalleryPage />
+          <Suspense fallback={<div className="p-8 text-center">Loading…</div>}>
+            <GalleryPage />
+          </Suspense>
         </main>
       </div>
     );
@@ -241,7 +245,9 @@ function App() {
         {/* Google Reviews Widget */}
         <section className="py-16 bg-[#F7F5F2]">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Reviews />
+            <Suspense fallback={<div className="p-8 text-center">Loading reviews…</div>}>
+              <Reviews />
+            </Suspense>
           </div>
         </section>
         <Gallery />
