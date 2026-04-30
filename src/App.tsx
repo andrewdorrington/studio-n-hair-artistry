@@ -50,10 +50,46 @@ function BookingModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
   );
 }
 
+function ClosureNoticeModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+  if (!isOpen) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+      onClick={onClose}
+    >
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose}></div>
+
+      <div
+        className="relative bg-[#2E2E2C] rounded-lg shadow-2xl max-w-md w-full p-8 md:p-10 text-center z-10"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-[#F7F5F2] hover:text-[#C6B27C] transition-colors"
+          aria-label="Close"
+        >
+          <X size={24} />
+        </button>
+
+        <div className="mt-4">
+          <h2 className="text-2xl md:text-3xl font-semibold text-[#F7F5F2] mb-6" style={{ fontFamily: "'brandon-grot-w01-light', sans-serif" }}>
+            Dear Beloved Customers,
+          </h2>
+          <p className="text-[#F7F5F2]/90 text-base md:text-lg leading-relaxed">
+            We are closed up until the 6th of May due to personal travel.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const [isClosureNoticeOpen, setIsClosureNoticeOpen] = useState(true);
 
   useEffect(() => {
     const handleLocationChange = () => {
@@ -86,6 +122,7 @@ function App() {
   if (currentPath === '/services') {
     return (
       <div className="min-h-screen bg-[#F7F5F2] text-[#2E2E2C]">
+        <ClosureNoticeModal isOpen={isClosureNoticeOpen} onClose={() => setIsClosureNoticeOpen(false)} />
         <BookingModal isOpen={isBookingModalOpen} onClose={() => setIsBookingModalOpen(false)} />
         <nav className="fixed top-0 w-full bg-[#2E2E2C] backdrop-blur-sm z-50 border-b border-[#B8ADA3]">
           <div className="w-full flex items-center justify-between h-28">
@@ -142,6 +179,7 @@ function App() {
   if (currentPath === '/gallery') {
     return (
       <div className="min-h-screen bg-[#F7F5F2] text-[#2E2E2C]">
+        <ClosureNoticeModal isOpen={isClosureNoticeOpen} onClose={() => setIsClosureNoticeOpen(false)} />
         <BookingModal isOpen={isBookingModalOpen} onClose={() => setIsBookingModalOpen(false)} />
         <nav className="fixed top-0 w-full bg-[#2E2E2C] backdrop-blur-sm z-50 border-b border-[#B8ADA3]">
           <div className="w-full flex items-center justify-between h-28">
@@ -196,6 +234,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#F7F5F2] text-[#2E2E2C]">
+      <ClosureNoticeModal isOpen={isClosureNoticeOpen} onClose={() => setIsClosureNoticeOpen(false)} />
       <nav className="fixed top-0 w-full bg-[#2E2E2C] backdrop-blur-sm z-50 border-b border-[#B8ADA3]">
         <div className="w-full flex items-center justify-between h-28">
           <div className="flex items-center" style={{ paddingLeft: 0 }}>
