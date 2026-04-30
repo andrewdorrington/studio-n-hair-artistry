@@ -89,7 +89,11 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
-  const [isClosureNoticeOpen, setIsClosureNoticeOpen] = useState(true);
+  const [isClosureNoticeOpen, setIsClosureNoticeOpen] = useState(false);
+
+  useEffect(() => {
+    setIsClosureNoticeOpen(true);
+  }, []);
 
   useEffect(() => {
     const handleLocationChange = () => {
