@@ -5,7 +5,7 @@ import Services from './components/Services';
 import About from './components/About';
 import ClientFeedback from './components/ClientFeedback';
 import Gallery from './components/Gallery';
-const Reviews = lazy(() => import('./components/Reviews'));
+const Reviews = lazy(() => import('./components/reviews'));
 const ServicesPage = lazy(() => import('./pages/ServicesPage'));
 const GalleryPage = lazy(() => import('./pages/GalleryPage'));
 
