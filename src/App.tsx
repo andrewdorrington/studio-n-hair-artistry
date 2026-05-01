@@ -77,7 +77,7 @@ function ClosureNoticeModal({ isOpen, onClose }: { isOpen: boolean; onClose: () 
             Re-opening May 6th
           </h2>
           <p className="text-[#F7F5F2]/90 text-base md:text-lg leading-relaxed">
-            Dear Beloved Customers, we are closed up until May 6th due to personal travel: see you then!
+            Dear Beloved Customers, we are closed up until May 6th due to personal travel, see you then!
           </p>
         </div>
       </div>
