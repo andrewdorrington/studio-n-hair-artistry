@@ -74,10 +74,10 @@ function ClosureNoticeModal({ isOpen, onClose }: { isOpen: boolean; onClose: () 
 
         <div className="mt-4">
           <h2 className="text-2xl md:text-3xl font-semibold text-[#F7F5F2] mb-6" style={{ fontFamily: "'brandon-grot-w01-light', sans-serif" }}>
-            Dear Beloved Customers,
+            Re-opening May 6th
           </h2>
           <p className="text-[#F7F5F2]/90 text-base md:text-lg leading-relaxed">
-            We are closed up until the 6th of May due to personal travel.
+            Dear Beloved Customers, we are closed up until May 6th due to personal travel: see you then!
           </p>
         </div>
       </div>
