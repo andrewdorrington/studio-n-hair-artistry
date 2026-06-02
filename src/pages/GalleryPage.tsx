@@ -17,6 +17,10 @@ function GalleryPage() {
     { id: 15, image: '/gallerymarch.jpg', category: 'Gallery' },
     { id: 16, image: '/gallerymarch2.jpg', category: 'Gallery' },
     { id: 17, image: '/gallerymarch3.jpg', category: 'Gallery' },
+    { id: 18, image: '/galleryjune1.jpg', category: 'Gallery' },
+    { id: 19, image: '/galleryjune2.jpg', category: 'Gallery' },
+    { id: 20, image: '/galleryjune3.jpg', category: 'Gallery' },
+    { id: 21, image: '/galleryjune4.jpg', category: 'Gallery' },
   ];
 
   return (
